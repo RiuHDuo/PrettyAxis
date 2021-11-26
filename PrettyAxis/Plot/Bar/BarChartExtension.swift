@@ -30,8 +30,9 @@ public extension ChartView where Style == BarStyle{
     }
     
     
-    func sortGroup(by: (String, String)-> Bool) -> Self{
+    func barWidth(_ width: CGFloat) -> Self{
         var copy = self
+        copy.plotStyle.barWidth = width
         return copy
     }
     
