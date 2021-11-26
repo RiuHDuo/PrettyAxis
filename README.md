@@ -24,7 +24,7 @@
 
 - smooth
 
-  <img src="/Users/riuhduo/Library/Application Support/typora-user-images/image-20211126155618564.png" alt="image-20211126155618564" style="zoom:50%;" />
+  <img src="./img/image-20211126155618564.png" alt="image-20211126155618564" style="zoom:50%;" />
 
 - straight
 

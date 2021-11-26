@@ -56,13 +56,13 @@ let colors4 = [Color(hue: 308 / 360.0, saturation: 0.23, brightness: 0.77),
               Color(hue: 51 / 360.0, saturation: 0.16, brightness: 0.85),
               Color(hue: 217 / 360.0, saturation: 0.37, brightness: 0.81)]
 
-let g1 = LinearGradient(colors: colors1.map({$0.opacity(0.3)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
+let g1 = LinearGradient(colors: colors1.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
-let g2 = LinearGradient(colors:  colors2.map({$0.opacity(0.3)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
+let g2 = LinearGradient(colors:  colors2.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
-let g3 = LinearGradient(colors:  colors3.map({$0.opacity(0.3)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
+let g3 = LinearGradient(colors:  colors3.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
-let g4 = LinearGradient(colors:  colors4.map({$0.opacity(0.3)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
+let g4 = LinearGradient(colors:  colors4.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
 let g5 = LinearGradient(colors: colors1, startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
@@ -77,11 +77,11 @@ let g9 = AngularGradient(colors: colors4, center: UnitPoint(x: 0.5, y: 0.5))
 struct ContentView: View {
     var body: some View {
         VStack {
-            let stroke = ["male": colors3.first!, "female": colors4.last!]
-            let fill = ["male": colors3.first!, "female": colors4.last!]
+            let stroke = ["male": colors3.first!, "female": colors1.last!]
+            let fill = ["male": g1, "female": g2]
             
-            ChartView(style: .scatter, data: values4, x: \.height, y: \.weight, groupBy: \.gender)
-                .fill(fill)
+            ChartView(style: .scatter, data: values4, x: \.weight, y: \.height, groupBy: \.gender)
+                .fill(stroke)
                 .stroke(stroke)
                 .referenceLine()
                 .spacing(10)
