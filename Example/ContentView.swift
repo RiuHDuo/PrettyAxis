@@ -53,8 +53,8 @@ let colors3 = [Color(hue: 145 / 360.0, saturation: 0.22, brightness: 0.9),
                Color(hue: 358 / 360.0, saturation: 0.51, brightness: 0.97)]
 
 let colors4 = [Color(hue: 308 / 360.0, saturation: 0.23, brightness: 0.77),
-              Color(hue: 51 / 360.0, saturation: 0.16, brightness: 0.85),
-              Color(hue: 217 / 360.0, saturation: 0.37, brightness: 0.81)]
+               Color(hue: 51 / 360.0, saturation: 0.16, brightness: 0.85),
+               Color(hue: 217 / 360.0, saturation: 0.37, brightness: 0.81)]
 
 let g1 = LinearGradient(colors: colors1.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
@@ -76,25 +76,124 @@ let g9 = AngularGradient(colors: colors4, center: UnitPoint(x: 0.5, y: 0.5))
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            let stroke = ["male": colors3.first!, "female": colors1.last!]
-            let fill = ["London": g1, "Berlin": g2]
+        ScrollView {
+            VStack {
+                Text("Line").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal)
+                line
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+                
+                Text("Bar").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
+                
+                bar
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+                
+                Text("Group").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
+                
+                groupedBar
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+                
+                
+                Text("Radar").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
+                
+                radar
+                    .frame(height: 400)
+                    .frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+                
+                Text("Scatter").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
+                
+                scatter
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+                    .background(RoundedRectangle(cornerRadius: 15))
+                    .padding(.horizontal)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .background(Color(hue: 232 / 360 , saturation: 0.1, brightness: 0.14))
             
-            ChartView(style: .line, data: values2)
-                .fill(fill)
-                .referenceLine()
-                .spacing(90)
-                .fromZero(false)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .background(Color.white)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background(Color(hue: 232 / 360 , saturation: 0.1, brightness: 0.14))
+        
+    }
+    
+    @ViewBuilder
+    var line: some View {
+        let stroke = ["London": g3, "Berlin": g4]
+        let fill = ["London": g1, "Berlin": g2]
+        
+        ChartView(style: .line, data: values2)
+            .stroke(stroke)
+            .fill(fill)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
+            .spacing(50)
+            .fromZero(false)
+            .padding()
+    }
+    
+    @ViewBuilder
+    var bar: some View {
+        ChartView(style: .bar, data: values)
+            .fill(g5)
+            .fromZero(true)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
+            .spacing(50)
+            .padding()
+    }
+    
+    @ViewBuilder
+    var groupedBar: some View {
+        let fill = ["London": g6, "Berlin": g7]
+        ChartView(style: .bar, data: values2)
+            .fill(fill)
+            .barWidth(30)
+            .spacing(10)
+            .enableValueLabel(enable: true, font: .system(size: 14).bold(),color: Color.orange)
+            .fromZero(true)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
+            .spacing(10)
+            .padding()
+    }
+    
+    @ViewBuilder
+    var radar: some View {
+        let fill = ["用户 A": g6, "用户 B": g7]
+        ChartView(style: .radar, data: values3)
+            .fill(fill)
+            .labelColor(Color.yellow)
+            .setMaxValue(100)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.red))
+            .padding()
+    }
+    
+    @ViewBuilder
+    var scatter: some View {
+        let fill = ["male": Color.red, "female": Color.blue]
+        ChartView(style: .scatter, data: values4)
+            .fill(fill)
+            .stroke(fill)
+            .spacing(5)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.yellow))
+            .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        .previewInterfaceOrientation(.landscapeRight)
     }
 }

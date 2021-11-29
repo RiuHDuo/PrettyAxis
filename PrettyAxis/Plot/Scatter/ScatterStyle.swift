@@ -14,7 +14,6 @@ public struct ScatterStyle: ChartStyle{
         var renderData:[String: [ScatterData]] = [:]
         var xRange = (min: Double.infinity, max: 0.0)
         var range = (min: Double.infinity, max: 0.0)
-        renderData[NoGroup] = []
         data.forEach { item in
             let axisData = ScatterData(xValue: item.x as! Double, yValue: item.y as! Double, zValue: item.z as? Double)
             if let g = item.groupd as? String {
@@ -23,6 +22,9 @@ public struct ScatterStyle: ChartStyle{
                 }
                 renderData[g]?.append(axisData)
             }else{
+                if renderData[NoGroup] == nil {
+                    renderData[NoGroup] = []
+                }
                 renderData[NoGroup]?.append(axisData)
             }
             if range.min > axisData.yValue {
@@ -61,7 +63,7 @@ public struct ScatterStyle: ChartStyle{
         return self.spacing 
     }
     
-    public var spacing: CGFloat = 50
+    public var spacing: CGFloat = 5
     
     public var showReferenceLine = false
         

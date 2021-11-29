@@ -24,7 +24,6 @@ extension Plot{
         var renderData:[String: [AxisData<String, Double, AnyHashable>]] = [:]
         var axisLabels = [String]()
         let xAxisLabelsSet = NSMutableOrderedSet()
-        renderData[NoGroup] = []
         
         data.forEach { item in
             let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
@@ -35,6 +34,9 @@ extension Plot{
                 renderData[g]?.append(axisData)
                 xAxisLabelsSet.add(axisData.xValue)
             }else{
+                if renderData[NoGroup] == nil {
+                    renderData[NoGroup] = []
+                }
                 renderData[NoGroup]?.append(axisData)
                 axisLabels.append(axisData.xValue)
             }

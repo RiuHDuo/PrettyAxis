@@ -21,6 +21,12 @@ public extension ChartView{
         return copy
     }
     
+    func labelColor(_ color: Color) -> Self{
+        var copy = self
+        copy.plotStyle.labelStyle.labelColor = color
+        return copy
+    }
+    
     
     func spacing(_ spacing: CGFloat) -> Self{
         var copy = self

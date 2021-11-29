@@ -18,8 +18,8 @@ struct LineView: View{
         GeometryReader { reader in
             content(size: reader.size, animated: animated)
                 .frame(height: reader.size.height)
-                .modifier(ScrollableModifier(plot: self.plot, style: self.style))
         }
+        .modifier(ScrollableModifier(plot: self.plot, style: self.style))
         .onAppear(){
             withAnimation {
                 animated = true

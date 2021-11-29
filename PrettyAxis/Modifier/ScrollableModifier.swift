@@ -37,6 +37,7 @@ struct ScrollableModifier<S: ChartStyle>: ViewModifier{
                 .padding(.leading, 20)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
+
         }
     }
     
