@@ -10,10 +10,10 @@ import SwiftUI
 
 struct LinePlot: Plot{
     var range = (min: 0.0, max: 0.0)
-    var renderData: [String:[AxisData]]
+    var renderData: [String:[AxisData<String, Double, AnyHashable>]]
 
-    init<S, X>(data: [S], x: KeyPath<S, X>, y: KeyPath<S, Double>, groupBy value: KeyPath<S, String>? = nil) {
-        let ret = RadarPlot.arrayToGroupDictionary(data: data, x: x, y: y, groupBy: value)
+    init<S>(data: [S]) where S: Axisable{
+        let ret = LinePlot.arrayToGroupDictionary(data: data)
         range = (min: ret.1.min, max: ret.1.max * RANGE_FACTOR)
         renderData = ret.0
         xAxisLabels = ret.2

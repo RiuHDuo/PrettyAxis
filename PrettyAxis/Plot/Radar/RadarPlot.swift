@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct RadarPlot: Plot{
-    var renderData: [String: [AxisData]]
-    init<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) {
-        let ret = RadarPlot.arrayToGroupDictionary(data: data, x: x, y: y, groupBy: value)
+    init<Input>(data: [Input]) where Input : Axisable {
+        let ret = RadarPlot.arrayToGroupDictionary(data: data)
         range = ret.1
         renderData = ret.0
         xAxisLabels = ret.2
     }
+    
+    var renderData: [String: [AxisData<String, Double, AnyHashable>]]
     
     var range: (min: Double, max: Double)
     

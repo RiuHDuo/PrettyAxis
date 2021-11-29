@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LineMark:Shape{
-    var points: [AxisData]
+    var points: [AxisData<String, Double, AnyHashable>]
     var range: (min: Double, max: Double)
     var spacing: CGFloat
     var animatableData: CGFloat

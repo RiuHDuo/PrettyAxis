@@ -13,23 +13,23 @@ struct BarPlot: Plot{
     
     var range = (min: 0.0, max: 0.0)
     
-    var renderData: [[(AxisData, String)]]
+    var renderData: [[(AxisData<String, Double, AnyHashable>, String)]]
     
     var xAxisLabels: [String]
     
     var groups = Set<String>()
     
-    init<S, X>(data: [S], x: KeyPath<S, X>, y: KeyPath<S, Double>, groupBy value: KeyPath<S, String>?) {
+    init<S>(data: [S]) where S: Axisable{
+        assert(data.first?.x is String && data.first?.y is Double, "Bar X-Axis must be string and Y-Axis must be Double")
         var range = (min: Double.infinity, max: 0.0)
         let xAxisLabels = NSMutableOrderedSet()
         self.xAxisLabels = []
         self.renderData = []
-        var renderData = [String: [String: AxisData]]()
+        var renderData = [String: [String: AxisData<String, Double, AnyHashable>]]()
         data.forEach { item in
-            let axisData = AxisData(xValue: "\(item[keyPath: x])", yValue: item[keyPath: y])
+            let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
             var groupName = NoGroup
-            if let v = value {
-                let g = item[keyPath: v]
+            if let g = item.groupd as? String {
                 groupName = g
                 xAxisLabels.add(axisData.xValue)
             }else{
@@ -56,14 +56,13 @@ struct BarPlot: Plot{
         })
         
         self.xAxisLabels.forEach { x in
-            var data = [(AxisData, String)]()
+            var data = [(AxisData<String, Double, AnyHashable>, String)]()
             renderData.keys.forEach { key in
                 data.append((renderData[key]?[x] ?? AxisData(xValue: x, yValue: 0), key ))
             }
             self.renderData.append(data)
         }
+        
     }
-    
-    
     
 }

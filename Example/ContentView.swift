@@ -78,13 +78,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             let stroke = ["male": colors3.first!, "female": colors1.last!]
-            let fill = ["male": g1, "female": g2]
+            let fill = ["London": g1, "Berlin": g2]
             
-            ChartView(style: .scatter, data: values4, x: \.weight, y: \.height, groupBy: \.gender)
-                .fill(stroke)
-                .stroke(stroke)
+            ChartView(style: .line, data: values2)
+                .fill(fill)
                 .referenceLine()
-                .spacing(10)
+                .spacing(90)
                 .fromZero(false)
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -9,7 +9,15 @@ import Foundation
 import SwiftUI
 
 
-struct AxisData: Hashable{
-    let xValue: String
-    let yValue: Double
+struct AxisData<X, Y, Z>: Hashable where X: Hashable, Y: Hashable, Z: Hashable{
+    let xValue: X
+    let yValue: Y
+    let zValue: Z?
+    
+    
+    init(xValue: X, yValue: Y, zValue: Z? = nil){
+        self.xValue = xValue
+        self.yValue = yValue
+        self.zValue = zValue
+    }
 }

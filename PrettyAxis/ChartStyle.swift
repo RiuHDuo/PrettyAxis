@@ -24,7 +24,7 @@ public protocol ChartStyle{
     associatedtype Body : View
     func contentView(plot: Plot) -> Body
     
-    func createPlot<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) -> (Self, Plot)
+    func createPlot<Input>(data: [Input]) -> (Self, Plot) where Input: Axisable
 }
 
 

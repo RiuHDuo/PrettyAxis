@@ -9,43 +9,15 @@ import SwiftUI
 
 
 public struct ScatterStyle: ChartStyle{
-    var color = [NoGroup: AnyShapeStyle(Color.blue)]
-    
-    var type: LineType = .smooth(curviness: 0.35)
-    
-    var fill:[String: AnyShapeStyle] = [:]
-    
-    
-    public var labelWidth: CGFloat {
-        return self.spacing 
-    }
-    
-    public var spacing: CGFloat = 50
-    
-    public var showReferenceLine = false
-        
-    public var labelStyle: LabelStyle  = AxisLabelStyle()
-    
-    public var referenceLineStyle = ReferenceLineStyle.default
-    
-    public var fromZero: Bool = true
-
-    public func contentView(plot: Plot) -> some View{
-       return  ScatterView(plot: plot as! ScatterPlot, style: self)
-    }
-        
-    public func createPlot<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) -> (Self, Plot){
-        var plot = ScatterPlot()
+    public func createPlot<Input>(data: [Input]) -> (ScatterStyle, Plot) where Input : Axisable {
+        var plot = ScatterPlot(data: data)
         var renderData:[String: [ScatterData]] = [:]
         var xRange = (min: Double.infinity, max: 0.0)
         var range = (min: Double.infinity, max: 0.0)
-        if value == nil {
-            renderData[NoGroup] = []
-        }
+        renderData[NoGroup] = []
         data.forEach { item in
-            let axisData = ScatterData(xValue: item[keyPath: x] as! Double, yValue: item[keyPath: y], zValue: nil)
-            if let v = value {
-                let g = item[keyPath: v]
+            let axisData = ScatterData(xValue: item.x as! Double, yValue: item.y as! Double, zValue: item.z as? Double)
+            if let g = item.groupd as? String {
                 if renderData[g] == nil {
                     renderData[g]  = []
                 }
@@ -72,10 +44,35 @@ public struct ScatterStyle: ChartStyle{
         plot.renderData = renderData
         plot.xRange =  (min: xRange.min / RANGE_FACTOR, max: xRange.max * RANGE_FACTOR)
         let xr = plot.xRange.max - plot.xRange.min
-        plot.zRange =  (min: 0, max: 1) 
+        plot.zRange =  (min: 0, max: 1)
         let min = Int(floor(plot.xRange.min))
         plot.xAxisLabels = ["\(min)", "\(min + Int(xr / 3))", "\(min + Int(xr / 2))", "\(min + Int(2 * xr / 3))", "\(Int(ceil(plot.xRange.max)))"]
         return (self,plot)
+    }
+    
+    var color = [NoGroup: AnyShapeStyle(Color.blue)]
+    
+    var type: LineType = .smooth(curviness: 0.35)
+    
+    var fill:[String: AnyShapeStyle] = [:]
+    
+    
+    public var labelWidth: CGFloat {
+        return self.spacing 
+    }
+    
+    public var spacing: CGFloat = 50
+    
+    public var showReferenceLine = false
+        
+    public var labelStyle: LabelStyle  = AxisLabelStyle()
+    
+    public var referenceLineStyle = ReferenceLineStyle.default
+    
+    public var fromZero: Bool = true
+
+    public func contentView(plot: Plot) -> some View{
+       return  ScatterView(plot: plot as! ScatterPlot, style: self)
     }
 }
 

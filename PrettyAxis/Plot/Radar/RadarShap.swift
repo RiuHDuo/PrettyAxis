@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct RadarShape: Shape{
-    var renderData: [AxisData]
+    var renderData: [AxisData<String, Double, AnyHashable>]
     var range: (min: Double, max: Double)
     var animatableData: CGFloat
     

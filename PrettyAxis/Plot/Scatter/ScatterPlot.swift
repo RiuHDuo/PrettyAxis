@@ -9,15 +9,12 @@ import SwiftUI
 
 
 struct ScatterPlot: Plot{
-    var range: (min: Double, max: Double) = (min: .infinity, max: 0)
-    var renderData: [String: [ScatterData]] = [:]
-    init<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) {
+    init<Input>(data: [Input]) where Input : Axisable {
         
     }
     
-    init(){
-        
-    }
+    var range: (min: Double, max: Double) = (min: .infinity, max: 0)
+    var renderData: [String: [ScatterData]] = [:]
     
     var xRange: (min: Double, max: Double) = (min: .infinity, max: 0)
     var zRange: (min: Double, max: Double) = (min: .infinity, max: 0)

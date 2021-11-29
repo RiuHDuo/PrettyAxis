@@ -51,6 +51,7 @@
 		584B1EBB2744E7790031C776 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBA2744E7780031C776 /* Plot.swift */; };
 		584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBC2744E7CF0031C776 /* BarPlot.swift */; };
 		585498B42743A5160053DAA2 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585498B32743A5160053DAA2 /* Bar.swift */; };
+		5873D2552754A56E00E2E9BC /* Axisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873D2542754A56E00E2E9BC /* Axisable.swift */; };
 		58AD9300274E3C9D001CB3B5 /* PieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */; };
 		58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9301274E3D97001CB3B5 /* PiePlot.swift */; };
 		58AD9305274E4384001CB3B5 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */; };
@@ -158,6 +159,7 @@
 		584B1EBA2744E7780031C776 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		584B1EBC2744E7CF0031C776 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585498B32743A5160053DAA2 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		5873D2542754A56E00E2E9BC /* Axisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axisable.swift; sourceTree = "<group>"; };
 		58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieStyle.swift; sourceTree = "<group>"; };
 		58AD9301274E3D97001CB3B5 /* PiePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiePlot.swift; sourceTree = "<group>"; };
 		58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableModifier.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				584B1EB12744A3E40031C776 /* ChartStyle.swift */,
 				58C68091274798A900519FA1 /* LabelStyle.swift */,
 				58B32807274F1F830004B2C1 /* ChartViewExtension.swift */,
+				5873D2542754A56E00E2E9BC /* Axisable.swift */,
 			);
 			path = PrettyAxis;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				58B32808274F1F830004B2C1 /* ChartViewExtension.swift in Sources */,
 				58AD9305274E4384001CB3B5 /* ScrollableModifier.swift in Sources */,
 				582E0DDB27508A0B009CC1FD /* ScatterData.swift in Sources */,
+				5873D2552754A56E00E2E9BC /* Axisable.swift in Sources */,
 				582E0DDF2750ACD9009CC1FD /* ScatterShape.swift in Sources */,
 				580FB637274255F8003B4AEC /* PrettyAxis.docc in Sources */,
 				58E08F31274F669D0094E683 /* RadarReferenceLine.swift in Sources */,

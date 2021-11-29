@@ -9,6 +9,13 @@ import SwiftUI
 
 
 public struct BarStyle: ChartStyle{
+    public func createPlot<Input>(data: [Input]) -> (BarStyle, Plot) where Input : Axisable {
+        let plot = BarPlot(data: data)
+        var copy = self
+        copy.count = plot.groups.count
+        return (copy,plot)
+    }
+    
 
     var barWidth: CGFloat = 15
     
@@ -42,14 +49,6 @@ public struct BarStyle: ChartStyle{
     
     public func contentView(plot: Plot) -> some View{
        return  BarView(plot: plot as! BarPlot, style: self)
-    }
-
-    
-    public func createPlot<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) -> (Self, Plot){
-        let plot = BarPlot(data: data, x: x, y: y, groupBy: value)
-        var copy = self
-        copy.count = plot.groups.count
-        return (copy,plot)
     }
 }
 

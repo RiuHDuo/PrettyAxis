@@ -9,6 +9,10 @@ import SwiftUI
 
 
 public struct RadarStyle: ChartStyle{
+    public func createPlot<Input>(data: [Input]) -> (RadarStyle, Plot) where Input : Axisable {
+        return (self, RadarPlot(data: data))
+    }
+    
     public var spacing: CGFloat = 0
     
     public var labelWidth: CGFloat = 0
@@ -33,10 +37,7 @@ public struct RadarStyle: ChartStyle{
     public func contentView(plot: Plot) -> some View{
         return  RadarView(plot: plot as! RadarPlot, style: self)
     }
-    
-    public func createPlot<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) -> (Self, Plot){
-        return (self, RadarPlot(data: data, x: x, y: y, groupBy: value))
-    }
+
 }
 
 

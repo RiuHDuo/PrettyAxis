@@ -10,7 +10,7 @@ import SwiftUI
 
 
 public protocol Plot{
-    init<Input>(data: [Input], x: KeyPath<Input, String>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) where Input:Any
+    init<Input>(data: [Input]) where Input: Axisable
     
     var range: (min: Double, max: Double) {get}
     
@@ -19,19 +19,16 @@ public protocol Plot{
 
 
 extension Plot{
-    static func arrayToGroupDictionary<Input:Any, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?)
-    -> ([String: [AxisData]],(min: Double, max: Double), [String]){
+    static func arrayToGroupDictionary<S>(data: [S]) -> ([String: [AxisData<String, Double, AnyHashable>]],(min: Double, max: Double), [String]) where S: Axisable{
         var range = (min: Double.infinity, max: 0.0)
-        var renderData:[String: [AxisData]] = [:]
+        var renderData:[String: [AxisData<String, Double, AnyHashable>]] = [:]
         var axisLabels = [String]()
         let xAxisLabelsSet = NSMutableOrderedSet()
-        if value == nil {
-            renderData[NoGroup] = []
-        }
+        renderData[NoGroup] = []
+        
         data.forEach { item in
-            let axisData = AxisData(xValue: "\(item[keyPath: x])", yValue: item[keyPath: y])
-            if let v = value {
-                let g = item[keyPath: v]
+            let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
+            if let g = item.groupd as? String {
                 if renderData[g] == nil {
                     renderData[g]  = []
                 }

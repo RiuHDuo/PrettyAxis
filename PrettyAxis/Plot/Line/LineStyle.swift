@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 public struct LineStyle: ChartStyle{
+    public func createPlot<Input>(data: [Input]) -> (LineStyle, Plot) where Input : Axisable {
+        return (self, LinePlot(data: data))
+    }
+    
     var lineWidth: CGFloat = 1.0
     
     var color = [NoGroup: AnyShapeStyle(Color.blue)]
@@ -38,10 +42,6 @@ public struct LineStyle: ChartStyle{
     
     public func contentView(plot: Plot) -> some View{
        return  LineView(plot: plot as! LinePlot, style: self)
-    }
-    
-    public func createPlot<Input, X>(data: [Input], x: KeyPath<Input, X>, y: KeyPath<Input, Double>, groupBy value: KeyPath<Input, String>?) -> (Self, Plot){
-        return (self, LinePlot(data: data, x: x, y: y, groupBy: value))
     }
 }
 
