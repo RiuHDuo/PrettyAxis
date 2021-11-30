@@ -16,6 +16,10 @@ public struct BarStyle: ChartStyle{
         return (copy,plot)
     }
     
+    public var legendStyle = LegendStyle()
+    
+    public var disableLegend: Bool = true
+    
 
     var barWidth: CGFloat = 15
     

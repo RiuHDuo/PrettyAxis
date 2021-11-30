@@ -76,6 +76,12 @@ public struct ScatterStyle: ChartStyle{
     public func contentView(plot: Plot) -> some View{
        return  ScatterView(plot: plot as! ScatterPlot, style: self)
     }
+    
+    public var legendStyle = LegendStyle()
+    
+    public var disableLegend: Bool = true
+    
+    var radius: CGFloat = 5
 }
 
 

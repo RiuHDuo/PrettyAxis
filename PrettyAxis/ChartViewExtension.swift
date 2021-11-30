@@ -39,4 +39,13 @@ public extension ChartView{
         copy.plotStyle.fromZero = isFromZero
         return copy
     }
+    
+    func enableLegend(_ enable: Bool, style: LegendStyle?) -> Self{
+        var copy = self
+        copy.plotStyle.disableLegend = !enable
+        if let style = style {
+            copy.plotStyle.legendStyle = style
+        }
+        return copy
+    }
 }

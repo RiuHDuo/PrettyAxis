@@ -105,10 +105,10 @@ struct ContentView: View {
                 Text("Radar").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
                 
                 radar
-                    .frame(height: 400)
+                    .frame(height: 375)
                     .frame(maxWidth: .infinity)
                     .background(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal)
+                    .padding()
                 
                 Text("Scatter").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
                 
@@ -129,7 +129,7 @@ struct ContentView: View {
     
     @ViewBuilder
     var line: some View {
-        let stroke = ["London": g3, "Berlin": g4]
+        let stroke = ["London": g5, "Berlin": g6]
         let fill = ["London": g1, "Berlin": g2]
         
         ChartView(style: .line, data: values2)
@@ -138,6 +138,7 @@ struct ContentView: View {
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
             .spacing(50)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
             .fromZero(false)
             .padding()
     }
@@ -150,6 +151,7 @@ struct ContentView: View {
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
             .spacing(50)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
             .padding()
     }
     
@@ -165,6 +167,7 @@ struct ContentView: View {
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
             .spacing(10)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
             .padding()
     }
     
@@ -175,8 +178,10 @@ struct ContentView: View {
             .fill(fill)
             .labelColor(Color.yellow)
             .setMaxValue(100)
-            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.red))
-            .padding()
+            .roundedReferenceLine()
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.red, yAxisLabelFont: Font.system(size: 10).bold()))
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+        
     }
     
     @ViewBuilder
@@ -185,8 +190,9 @@ struct ContentView: View {
         ChartView(style: .scatter, data: values4)
             .fill(fill)
             .stroke(fill)
-            .spacing(5)
+            .spacing(3)
             .labelColor(Color.yellow)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.yellow))
             .padding()
     }

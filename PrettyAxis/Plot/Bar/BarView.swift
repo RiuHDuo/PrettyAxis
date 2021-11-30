@@ -15,13 +15,24 @@ struct BarView: View{
     @State var animated: Bool = false
     
     var body: some View{
-        content(animated: animated)
-            .modifier(ScrollableModifier(plot: self.plot, style: self.style))
-            .onAppear(){
-                withAnimation {
-                    animated = true
+        if (style.disableLegend == false && plot.groups.contains(NoGroup) == false){
+            content(animated: animated)
+                .modifier(ScrollableModifier(plot: self.plot, style: self.style))
+                .modifier(LegendModifier(list: self.plot.groups.map({($0, style.color[$0] ?? DEFAULT_COLOR)}), style: self.style.legendStyle))
+                .onAppear(){
+                    withAnimation {
+                        animated = true
+                    }
                 }
-            }
+        }else{
+            content(animated: animated)
+                .modifier(ScrollableModifier(plot: self.plot, style: self.style))
+                .onAppear(){
+                    withAnimation {
+                        animated = true
+                    }
+                }
+        }
     }
     
     func content(animated: Bool) -> some View{

@@ -15,6 +15,26 @@ struct ScatterView: View{
     
     
     var body: some View{
+        if (plot.renderData[NoGroup]?.count ?? 0) < 1 && style.disableLegend == false{
+            contentView.modifier(LegendModifier(list: self.plot.renderData.keys.map({($0,  style.color[$0] ?? style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
+                .onAppear(){
+                    withAnimation {
+                        animated = true
+                    }
+                }
+        }else{
+            contentView
+                .onAppear(){
+                    withAnimation {
+                        animated = true
+                    }
+                }
+        }
+
+    }
+    
+    @ViewBuilder
+    var contentView: some View {
         let range = ((style.fromZero ? 0:  plot.range.min), plot.range.max)
         let width = self.plot.xRange.max - self.plot.xRange.min
         ScrollView(.horizontal, showsIndicators: false) {
@@ -44,11 +64,6 @@ struct ScatterView: View{
                 .frame(width: style.spacing * width, alignment: .leading)
             }
         }
-        .onAppear(){
-            withAnimation {
-                animated = true
-            }
-        }
     }
     
     func content(animated: Bool) -> some View{
@@ -63,10 +78,10 @@ struct ScatterView: View{
                 ForEach(keys.indices){ i in
                     let key = keys[i]
                     if let fill = style.fill[key]{
-                        ScatterShape(renderData: plot.renderData[key]!, yunit: yunit, xunit: xunit, zunit: zunit, radius: 5, xOffset: plot.xRange.min, yOffset: minY)
+                        ScatterShape(renderData: plot.renderData[key]!, yunit: yunit, xunit: xunit, zunit: zunit, radius: style.radius, xOffset: plot.xRange.min, yOffset: minY)
                             .fill(fill)
                     }else{
-                        ScatterShape(renderData: plot.renderData[key]!, yunit: yunit, xunit: xunit, zunit: zunit, radius: 5, xOffset: plot.xRange.min, yOffset: minY)
+                        ScatterShape(renderData: plot.renderData[key]!, yunit: yunit, xunit: xunit, zunit: zunit, radius: style.radius, xOffset: plot.xRange.min, yOffset: minY)
                             .stroke(style.color[key] ?? DEFAULT_COLOR)
                     }
                     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580A5A2A2755CC39007A7AA6 /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A292755CC39007A7AA6 /* LegendView.swift */; };
+		580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */; };
+		580A5A2E2755D238007A7AA6 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2D2755D238007A7AA6 /* LegendStyle.swift */; };
 		580FB637274255F8003B4AEC /* PrettyAxis.docc in Sources */ = {isa = PBXBuildFile; fileRef = 580FB636274255F8003B4AEC /* PrettyAxis.docc */; };
 		580FB63D274255F8003B4AEC /* PrettyAxis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580FB632274255F8003B4AEC /* PrettyAxis.framework */; };
 		580FB642274255F8003B4AEC /* PrettyAxisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB641274255F8003B4AEC /* PrettyAxisTests.swift */; };
@@ -113,6 +116,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		580A5A292755CC39007A7AA6 /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
+		580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendModifier.swift; sourceTree = "<group>"; };
+		580A5A2D2755D238007A7AA6 /* LegendStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendStyle.swift; sourceTree = "<group>"; };
 		580FB632274255F8003B4AEC /* PrettyAxis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyAxis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		580FB635274255F8003B4AEC /* PrettyAxis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrettyAxis.h; sourceTree = "<group>"; };
 		580FB636274255F8003B4AEC /* PrettyAxis.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PrettyAxis.docc; sourceTree = "<group>"; };
@@ -216,6 +222,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		580A5A282755CC19007A7AA6 /* Legend */ = {
+			isa = PBXGroup;
+			children = (
+				580A5A292755CC39007A7AA6 /* LegendView.swift */,
+				580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */,
+				580A5A2D2755D238007A7AA6 /* LegendStyle.swift */,
+			);
+			path = Legend;
+			sourceTree = "<group>";
+		};
 		580FB628274255F8003B4AEC = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +261,7 @@
 		580FB634274255F8003B4AEC /* PrettyAxis */ = {
 			isa = PBXGroup;
 			children = (
+				580A5A282755CC19007A7AA6 /* Legend */,
 				58AD9303274E436D001CB3B5 /* Modifier */,
 				581C3AA3274B6C8200C2EA6B /* Types */,
 				583BF4892743513D00626C13 /* Module */,
@@ -650,6 +667,7 @@
 				584B1EAE274494030031C776 /* BarView.swift in Sources */,
 				584247472745E62F00679A22 /* Line.swift in Sources */,
 				583BF48B2743514E00626C13 /* AxisData.swift in Sources */,
+				580A5A2A2755CC39007A7AA6 /* LegendView.swift in Sources */,
 				5842496E27465B2000679A22 /* LineExtension.swift in Sources */,
 				582E0DD92750836B009CC1FD /* ScatterPlot.swift in Sources */,
 				5842496C2746501300679A22 /* LinePlot.swift in Sources */,
@@ -673,6 +691,7 @@
 				58FB37652750C13A00963EB3 /* ScatterExtension.swift in Sources */,
 				580FB67F274256D0003B4AEC /* ReferenceLineView.swift in Sources */,
 				584B1EB22744A3E40031C776 /* ChartStyle.swift in Sources */,
+				580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */,
 				581C3AA1274B6BC400C2EA6B /* LineMark.swift in Sources */,
 				581C3AB4274B745700C2EA6B /* Type.swift in Sources */,
 				58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */,
@@ -683,6 +702,7 @@
 				58E08F2C274F2D100094E683 /* RadarShap.swift in Sources */,
 				58E08F2A274F2CFE0094E683 /* RaderView.swift in Sources */,
 				584B1EB72744CEDE0031C776 /* ReferenceLineStyle.swift in Sources */,
+				580A5A2E2755D238007A7AA6 /* LegendStyle.swift in Sources */,
 				5842496A27464FEC00679A22 /* LineView.swift in Sources */,
 				58E08F28274F25380094E683 /* RadarStyle.swift in Sources */,
 				582E0DD727508344009CC1FD /* ScatterStyle.swift in Sources */,

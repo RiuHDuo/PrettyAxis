@@ -37,6 +37,10 @@ public struct RadarStyle: ChartStyle{
     public func contentView(plot: Plot) -> some View{
         return  RadarView(plot: plot as! RadarPlot, style: self)
     }
+    
+    public var legendStyle = LegendStyle()
+    
+    public var disableLegend: Bool = true
 
 }
 

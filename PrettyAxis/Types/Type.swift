@@ -8,4 +8,4 @@
 import Foundation
 
 
-let NoGroup = ""
+let NoGroup = "NoGroup"

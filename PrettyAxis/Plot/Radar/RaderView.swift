@@ -15,19 +15,45 @@ struct RadarView: View{
     
     @State var animated: Bool = false
     var body: some View{
-        let range = (min: style.fromZero  == true ? 0 : plot.range.min, max: plot.range.max)
-        GeometryReader{ reader in
-            ZStack {
-                ForEach(self.plot.xAxisLabels.indices) { index in
-                    VStack {
-                        Text(self.plot.xAxisLabels[index])
-                            .font(style.referenceLineStyle.xAxisLabelFont)
-                        Spacer()
+        if (plot.renderData[NoGroup]?.count ?? 0) < 1 && style.disableLegend == false{
+            contentView
+                .modifier(LegendModifier(list: self.plot.renderData.keys.map({($0,  style.color[$0] ?? style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
+                .padding()
+                .onAppear(){
+                    withAnimation{
+                        animated = true
                     }
-                    .rotationEffect(.radians((Double.pi * 2 * Double(index) / Double(self.plot.xAxisLabels.count))))
+                }
+        }else{
+            contentView
+                .padding()
+                .onAppear(){
+                    withAnimation{
+                        animated = true
+                    }
+                }
+        }
+    }
+    
+    @ViewBuilder
+    var contentView: some View {
+        let range = (min: style.fromZero  == true ? 0 : plot.range.min, max: plot.range.max)
+        GeometryReader { reader in
+            ZStack {
+                ZStack {
+                    ForEach(self.plot.xAxisLabels.indices) { index in
+                        VStack {
+                            Text(self.plot.xAxisLabels[index])
+                                .font(style.referenceLineStyle.xAxisLabelFont)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
+                            Spacer()
+                        }
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .rotationEffect(.radians((Double.pi * 2 * Double(index) / Double(self.plot.xAxisLabels.count))))
+                    }
                 }
                 Group {
-                    content(size: reader.size, animated: animated)
+                    content(animated: animated)
                     if style.showReferenceLine {
                         RadarReferenceLine(sides: plot.xAxisLabels.count, rounded: style.roundedReference)
                             .stroke(style.referenceLineStyle.axisColor, style: StrokeStyle(lineWidth: style.referenceLineStyle.axisWidth,lineCap: .round, lineJoin: .round))
@@ -51,19 +77,13 @@ struct RadarView: View{
                         .offset(x: reader.size.width / 4 + 4)
                     }
                 }
-                .padding(30)
-                
+                .padding()
             }
-            .frame(maxWidth: .infinity, maxHeight:.infinity, alignment: .center)
-            .onAppear(){
-                withAnimation{
-                    animated = true
-                }
-            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
     }
     
-    func content(size: CGSize ,animated: Bool) -> some View{
+    func content(animated: Bool) -> some View{
         let keys = Array(self.plot.renderData.keys)
         let range = (min: style.fromZero  == true ? 0 : plot.range.min, max: plot.range.max)
         let animatable: CGFloat = animated ? 1: 0
