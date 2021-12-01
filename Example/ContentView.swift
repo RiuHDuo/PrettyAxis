@@ -57,6 +57,15 @@ let colors4 = [Color(hue: 308 / 360.0, saturation: 0.23, brightness: 0.77),
                Color(hue: 51 / 360.0, saturation: 0.16, brightness: 0.85),
                Color(hue: 217 / 360.0, saturation: 0.37, brightness: 0.81)]
 
+let colors5 = [
+    Color(hue:  2 / 360, saturation: 0.28, brightness: 0.95),
+    Color(hue:  35 / 360, saturation: 0.31, brightness: 0.97),
+    Color(hue:  187 / 360, saturation: 0.30, brightness: 0.99),
+    Color(hue:  220 / 360, saturation: 0.33, brightness: 0.98),
+    Color(hue:  247 / 360, saturation: 0.28, brightness: 0.99),
+    Color(hue:  293 / 360, saturation: 0.20, brightness: 0.99),
+]
+
 let g1 = LinearGradient(colors: colors1.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
 
 let g2 = LinearGradient(colors:  colors2.map({$0.opacity(0.5)}), startPoint: UnitPoint(x: 0.5, y: 0), endPoint: UnitPoint(x: 0.5, y: 1))
@@ -82,7 +91,7 @@ struct PercentFormat: PrettyAxis.NumberFormatter{
 }
 
 struct ContentView: View {
-    let texts = ["Line", "Bar", "Group", "Radar", "Scatter", "Pie"]
+    let texts = ["Line", "Bar", "Group", "Radar", "Scatter", "Pie", "Doughnut"]
     var body: some View {
         ScrollView {
             VStack {
@@ -119,6 +128,11 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity)
                             .background(RoundedRectangle(cornerRadius: 15))
                             .padding(.horizontal)
+                    case 6:
+                        doughnut.frame(height: 400)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
                     default:
                         EmptyView()
                     }
@@ -135,13 +149,24 @@ struct ContentView: View {
         
     }
     
+    @ViewBuilder
+    var doughnut: some View{
+        let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
+        ChartView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
+            .fill(fill)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
+            .spacing(50)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+            .fromZero(false)
+            .padding()
+    }
+    
     
     @ViewBuilder
     var pie: some View{
-        let stroke = ["London": g5, "Berlin": g6]
-        let fill = ["Batman": g1, "Superman": g2, "The Flash": g3, "Wonder Women": g4, "Cyborg": g5, "Aquaman": g6]
+        let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
         ChartView(style: .pie, data: values5)
-            .stroke(stroke)
             .fill(fill)
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))

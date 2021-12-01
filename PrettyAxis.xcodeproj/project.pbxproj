@@ -240,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				580A5A292755CC39007A7AA6 /* LegendView.swift */,
-				580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */,
 				580A5A2D2755D238007A7AA6 /* LegendStyle.swift */,
 			);
 			path = Legend;
@@ -461,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */,
+				580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
