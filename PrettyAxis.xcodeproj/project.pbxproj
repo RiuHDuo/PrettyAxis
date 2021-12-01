@@ -10,6 +10,14 @@
 		580A5A2A2755CC39007A7AA6 /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A292755CC39007A7AA6 /* LegendView.swift */; };
 		580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */; };
 		580A5A2E2755D238007A7AA6 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2D2755D238007A7AA6 /* LegendStyle.swift */; };
+		580A5A30275615E1007A7AA6 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2F275615E1007A7AA6 /* PieSlice.swift */; };
+		580A5A322756173D007A7AA6 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A312756173D007A7AA6 /* PieView.swift */; };
+		580A5A342756179D007A7AA6 /* ChartData5.json in Resources */ = {isa = PBXBuildFile; fileRef = 580A5A332756179D007A7AA6 /* ChartData5.json */; };
+		580A5A352756179D007A7AA6 /* ChartData5.json in Resources */ = {isa = PBXBuildFile; fileRef = 580A5A332756179D007A7AA6 /* ChartData5.json */; };
+		580A5A3627561A54007A7AA6 /* TestChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF49227435A7900626C13 /* TestChartData.swift */; };
+		580A5A3727561A58007A7AA6 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF490274358F500626C13 /* PreviewData.swift */; };
+		580A5A39275627A9007A7AA6 /* DoughnutSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */; };
+		580A5A3A275627A9007A7AA6 /* DoughnutSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */; };
 		580FB637274255F8003B4AEC /* PrettyAxis.docc in Sources */ = {isa = PBXBuildFile; fileRef = 580FB636274255F8003B4AEC /* PrettyAxis.docc */; };
 		580FB63D274255F8003B4AEC /* PrettyAxis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580FB632274255F8003B4AEC /* PrettyAxis.framework */; };
 		580FB642274255F8003B4AEC /* PrettyAxisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB641274255F8003B4AEC /* PrettyAxisTests.swift */; };
@@ -58,6 +66,7 @@
 		58AD9300274E3C9D001CB3B5 /* PieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */; };
 		58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9301274E3D97001CB3B5 /* PiePlot.swift */; };
 		58AD9305274E4384001CB3B5 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */; };
+		58AE9FDA275712B200FB6257 /* PieExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AE9FD9275712B200FB6257 /* PieExtension.swift */; };
 		58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32805274F1ECE0004B2C1 /* RadarPlot.swift */; };
 		58B32808274F1F830004B2C1 /* ChartViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32807274F1F830004B2C1 /* ChartViewExtension.swift */; };
 		58C68092274798A900519FA1 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C68091274798A900519FA1 /* LabelStyle.swift */; };
@@ -119,6 +128,10 @@
 		580A5A292755CC39007A7AA6 /* LegendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendView.swift; sourceTree = "<group>"; };
 		580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendModifier.swift; sourceTree = "<group>"; };
 		580A5A2D2755D238007A7AA6 /* LegendStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendStyle.swift; sourceTree = "<group>"; };
+		580A5A2F275615E1007A7AA6 /* PieSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSlice.swift; sourceTree = "<group>"; };
+		580A5A312756173D007A7AA6 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
+		580A5A332756179D007A7AA6 /* ChartData5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChartData5.json; sourceTree = "<group>"; };
+		580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughnutSlice.swift; sourceTree = "<group>"; };
 		580FB632274255F8003B4AEC /* PrettyAxis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyAxis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		580FB635274255F8003B4AEC /* PrettyAxis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrettyAxis.h; sourceTree = "<group>"; };
 		580FB636274255F8003B4AEC /* PrettyAxis.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PrettyAxis.docc; sourceTree = "<group>"; };
@@ -169,6 +182,7 @@
 		58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieStyle.swift; sourceTree = "<group>"; };
 		58AD9301274E3D97001CB3B5 /* PiePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiePlot.swift; sourceTree = "<group>"; };
 		58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableModifier.swift; sourceTree = "<group>"; };
+		58AE9FD9275712B200FB6257 /* PieExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieExtension.swift; sourceTree = "<group>"; };
 		58B32805274F1ECE0004B2C1 /* RadarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarPlot.swift; sourceTree = "<group>"; };
 		58B32807274F1F830004B2C1 /* ChartViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewExtension.swift; sourceTree = "<group>"; };
 		58C68091274798A900519FA1 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
@@ -400,6 +414,7 @@
 				58343AA327477A35007D685D /* ChartData2.json */,
 				58E08F32274F72660094E683 /* ChartData3.json */,
 				582E0DD327507D1C009CC1FD /* ChartData4.json */,
+				580A5A332756179D007A7AA6 /* ChartData5.json */,
 			);
 			path = "Prieview Content";
 			sourceTree = "<group>";
@@ -434,6 +449,10 @@
 			children = (
 				58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */,
 				58AD9301274E3D97001CB3B5 /* PiePlot.swift */,
+				580A5A2F275615E1007A7AA6 /* PieSlice.swift */,
+				580A5A312756173D007A7AA6 /* PieView.swift */,
+				580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */,
+				58AE9FD9275712B200FB6257 /* PieExtension.swift */,
 			);
 			path = Pie;
 			sourceTree = "<group>";
@@ -620,6 +639,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				580A5A342756179D007A7AA6 /* ChartData5.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +657,7 @@
 				580FB65A2742562C003B4AEC /* Preview Assets.xcassets in Resources */,
 				582E0DD427507D1C009CC1FD /* ChartData4.json in Resources */,
 				581C3AAB274B723500C2EA6B /* ChartData2.json in Resources */,
+				580A5A352756179D007A7AA6 /* ChartData5.json in Resources */,
 				58E08F33274F72E50094E683 /* ChartData3.json in Resources */,
 				580FB6572742562C003B4AEC /* Assets.xcassets in Resources */,
 				581C3AA8274B722F00C2EA6B /* ChartData.json in Resources */,
@@ -671,6 +692,7 @@
 				5842496E27465B2000679A22 /* LineExtension.swift in Sources */,
 				582E0DD92750836B009CC1FD /* ScatterPlot.swift in Sources */,
 				5842496C2746501300679A22 /* LinePlot.swift in Sources */,
+				580A5A3727561A58007A7AA6 /* PreviewData.swift in Sources */,
 				581C3AA7274B6C9700C2EA6B /* MarkType.swift in Sources */,
 				585498B42743A5160053DAA2 /* Bar.swift in Sources */,
 				58C68092274798A900519FA1 /* LabelStyle.swift in Sources */,
@@ -678,6 +700,7 @@
 				583BFD76274509D400AE4D97 /* BarChartExtension.swift in Sources */,
 				580FB68427426325003B4AEC /* IntFormatter.swift in Sources */,
 				580FB682274262E0003B4AEC /* NumberFormatter.swift in Sources */,
+				580A5A322756173D007A7AA6 /* PieView.swift in Sources */,
 				58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */,
 				582E0DDD2750AB61009CC1FD /* ScatterView.swift in Sources */,
 				58B32808274F1F830004B2C1 /* ChartViewExtension.swift in Sources */,
@@ -690,10 +713,12 @@
 				58AD9300274E3C9D001CB3B5 /* PieStyle.swift in Sources */,
 				58FB37652750C13A00963EB3 /* ScatterExtension.swift in Sources */,
 				580FB67F274256D0003B4AEC /* ReferenceLineView.swift in Sources */,
+				580A5A39275627A9007A7AA6 /* DoughnutSlice.swift in Sources */,
 				584B1EB22744A3E40031C776 /* ChartStyle.swift in Sources */,
 				580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */,
 				581C3AA1274B6BC400C2EA6B /* LineMark.swift in Sources */,
 				581C3AB4274B745700C2EA6B /* Type.swift in Sources */,
+				580A5A30275615E1007A7AA6 /* PieSlice.swift in Sources */,
 				58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */,
 				58E08F2E274F34F10094E683 /* RadarExtension.swift in Sources */,
 				584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */,
@@ -705,7 +730,9 @@
 				580A5A2E2755D238007A7AA6 /* LegendStyle.swift in Sources */,
 				5842496A27464FEC00679A22 /* LineView.swift in Sources */,
 				58E08F28274F25380094E683 /* RadarStyle.swift in Sources */,
+				58AE9FDA275712B200FB6257 /* PieExtension.swift in Sources */,
 				582E0DD727508344009CC1FD /* ScatterStyle.swift in Sources */,
+				580A5A3627561A54007A7AA6 /* TestChartData.swift in Sources */,
 				5842496827464DA600679A22 /* LineStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				580A5A3A275627A9007A7AA6 /* DoughnutSlice.swift in Sources */,
 				580FB65527425629003B4AEC /* ContentView.swift in Sources */,
 				580FB65327425629003B4AEC /* ExampleApp.swift in Sources */,
 				581C3AAC274B723500C2EA6B /* TestChartData.swift in Sources */,

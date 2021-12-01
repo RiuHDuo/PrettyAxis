@@ -90,3 +90,22 @@ extension TestChartData4: Axisable{
     var z: AnyHashable? { return nil}
     var groupd: String? { return gender}
 }
+
+
+struct TestChartData5: Decodable{
+    let percent: Double
+    let name: String
+}
+
+extension TestChartData5: Axisable{
+    var x: String{
+        return name
+    }
+    
+    var y: Double{
+        return percent
+    }
+    
+    var z: AnyHashable? { return nil}
+    var groupd: AnyHashable? { return nil}
+}

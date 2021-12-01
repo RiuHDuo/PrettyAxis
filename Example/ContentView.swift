@@ -43,6 +43,7 @@ let values = PreviewData.load([TestChartData].self, fileName: "ChartData") ?? [T
 let values2 = PreviewData.load([TestChartData2].self, fileName: "ChartData2") ?? [TestChartData2]()
 let values3 = PreviewData.load([TestChartData3].self, fileName: "ChartData3") ?? [TestChartData3]()
 let values4 = PreviewData.load([TestChartData4].self, fileName: "ChartData4") ?? [TestChartData4]()
+let values5 = PreviewData.load([TestChartData5].self, fileName: "ChartData5") ?? [TestChartData5]()
 
 let colors1 = [Color(hue: 14 / 360.0, saturation: 0.88, brightness: 0.99), Color(hue: 40 / 360.0, saturation: 0.79, brightness: 0.97)]
 
@@ -74,49 +75,56 @@ let g8 = LinearGradient(colors: colors4, startPoint: UnitPoint(x: 0, y: 0.5), en
 
 let g9 = AngularGradient(colors: colors4, center: UnitPoint(x: 0.5, y: 0.5))
 
+struct PercentFormat: PrettyAxis.NumberFormatter{
+    func format(value: Double) -> String {
+        return String(format: "%.0f%%", value * 100)
+    }
+}
+
 struct ContentView: View {
+    let texts = ["Line", "Bar", "Group", "Radar", "Scatter", "Pie"]
     var body: some View {
         ScrollView {
             VStack {
-                Text("Line").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal)
-                line
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal)
+                ForEach(texts.indices){ index in
+                    Text(texts[index]).font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal)
+                    switch index {
+                    case 0:
+                        line.frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    case 1:
+                        bar.frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    case 2:
+                        groupedBar.frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    case 3:
+                        radar.frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    case 4:
+                        scatter.frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    case 5:
+                        pie.frame(height: 400)
+                            .frame(maxWidth: .infinity)
+                            .background(RoundedRectangle(cornerRadius: 15))
+                            .padding(.horizontal)
+                    default:
+                        EmptyView()
+                    }
+                    
+                }
                 
-                Text("Bar").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
-                
-                bar
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal)
-                
-                Text("Group").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
-                
-                groupedBar
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal)
-                
-                
-                Text("Radar").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
-                
-                radar
-                    .frame(height: 375)
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 15))
-                    .padding()
-                
-                Text("Scatter").font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading)           .padding(.horizontal)
-                
-                scatter
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
-                    .background(RoundedRectangle(cornerRadius: 15))
-                    .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color(hue: 232 / 360 , saturation: 0.1, brightness: 0.14))
@@ -125,6 +133,22 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color(hue: 232 / 360 , saturation: 0.1, brightness: 0.14))
         
+    }
+    
+    
+    @ViewBuilder
+    var pie: some View{
+        let stroke = ["London": g5, "Berlin": g6]
+        let fill = ["Batman": g1, "Superman": g2, "The Flash": g3, "Wonder Women": g4, "Cyborg": g5, "Aquaman": g6]
+        ChartView(style: .pie, data: values5)
+            .stroke(stroke)
+            .fill(fill)
+            .labelColor(Color.yellow)
+            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
+            .spacing(50)
+            .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+            .fromZero(false)
+            .padding()
     }
     
     @ViewBuilder
