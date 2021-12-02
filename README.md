@@ -3,10 +3,7 @@
 ![logo](./img/logo.png)
 
 # PrettyAxis
-
-<img src="https://img.shields.io/badge/SwiftPM-Supported-blue" align='left'/><img src="https://img.shields.io/badge/build-passing-green" alt="build" align="left" /><img src="https://img.shields.io/badge/license-MIT-blue" alt="license: MIT (shields.io)" align='left' />
-
-
+![SwiftPM](https://img.shields.io/badge/SwiftPM-Supported-blue)![Build](https://img.shields.io/badge/build-passing-green)![license](https://img.shields.io/badge/license-MIT-blue)
 
 A SwiftUI Framework for drawing charts.
 
