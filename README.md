@@ -1,6 +1,6 @@
 
 
-![logo](/Users/riuhduo/Documents/GitHub/PrettyAxis/img/logo.png)
+![logo](./img/logo.png)
 
 # PrettyAxis
 
