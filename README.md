@@ -15,7 +15,7 @@ A SwiftUI Framework for drawing charts.
 
 #### Swift Package Manager
 
-If you use Swift Package Manager, simply add ReactiveSwift as a dependency of your package in `Package.swift`:
+If you use Swift Package Manager, simply add PrettyAxis as a dependency of your package in `Package.swift`:
 
 ```swift
 .package(url: "https://github.com/RiuHDuo/PrettyAxis.git", from: "main")
