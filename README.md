@@ -1,12 +1,42 @@
+
+
+![logo](/Users/riuhduo/Documents/GitHub/PrettyAxis/img/logo.png)
+
 # PrettyAxis
 
->  A SwiftUI Framework for drawing charts.
+<img src="https://img.shields.io/badge/SwiftPM-Supported-blue" align='left'/><img src="https://img.shields.io/badge/build-passing-green" alt="build" align="left" /><img src="https://img.shields.io/badge/license-MIT-blue" alt="license: MIT (shields.io)" align='left' />
+
+
+
+A SwiftUI Framework for drawing charts.
 
 ## Fearture
 
-- Support Drawing `Bar Chart` `RadarChart`  `Line Chart` and `Scatter Charts`
+- Support Drawing `Bar Chart` `RadarChart`  `Line Chart`  `Scatter Charts` `Pie Chart`  and `Donut Chart`
 
-- `Pie Chart`  and `Donut Chart` are on the way.
+## Installation
+
+#### Swift Package Manager
+
+If you use Swift Package Manager, simply add ReactiveSwift as a dependency of your package in `Package.swift`:
+
+```swift
+.package(url: "https://github.com/RiuHDuo/PrettyAxis.git", from: "main")
+```
+
+## Quick Start
+
+Using PrettyAxis is very simple,  you can create view like this:
+
+```swift
+AxisView(style: .bar, data: values)
+```
+
+Currently  `Style` Support： `bar` `line` `radar` `scatter` `pie` and `doughnut`.
+
+`data` is an array of any type which  implements `Axisable` Protocol.
+
+More documents will coming soon.
 
 ## Preview
 
@@ -41,3 +71,7 @@
 ### Scatter
 
 <img src="./img/image-20211126160735666.png" alt="image-20211126160735666" style="zoom:50%;" />
+
+## License
+
+Distributed under the MIT License.
