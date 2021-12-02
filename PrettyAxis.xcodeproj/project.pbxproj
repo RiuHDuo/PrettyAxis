@@ -12,10 +12,7 @@
 		580A5A2E2755D238007A7AA6 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2D2755D238007A7AA6 /* LegendStyle.swift */; };
 		580A5A30275615E1007A7AA6 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2F275615E1007A7AA6 /* PieSlice.swift */; };
 		580A5A322756173D007A7AA6 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A312756173D007A7AA6 /* PieView.swift */; };
-		580A5A342756179D007A7AA6 /* ChartData5.json in Resources */ = {isa = PBXBuildFile; fileRef = 580A5A332756179D007A7AA6 /* ChartData5.json */; };
 		580A5A352756179D007A7AA6 /* ChartData5.json in Resources */ = {isa = PBXBuildFile; fileRef = 580A5A332756179D007A7AA6 /* ChartData5.json */; };
-		580A5A3627561A54007A7AA6 /* TestChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF49227435A7900626C13 /* TestChartData.swift */; };
-		580A5A3727561A58007A7AA6 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF490274358F500626C13 /* PreviewData.swift */; };
 		580A5A39275627A9007A7AA6 /* DoughnutSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */; };
 		580A5A3A275627A9007A7AA6 /* DoughnutSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */; };
 		580FB637274255F8003B4AEC /* PrettyAxis.docc in Sources */ = {isa = PBXBuildFile; fileRef = 580FB636274255F8003B4AEC /* PrettyAxis.docc */; };
@@ -29,7 +26,7 @@
 		580FB6642742562C003B4AEC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB6632742562C003B4AEC /* ExampleTests.swift */; };
 		580FB66E2742562C003B4AEC /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB66D2742562C003B4AEC /* ExampleUITests.swift */; };
 		580FB6702742562C003B4AEC /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB66F2742562C003B4AEC /* ExampleUITestsLaunchTests.swift */; };
-		580FB67B27425644003B4AEC /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67A27425644003B4AEC /* ChartView.swift */; };
+		580FB67B27425644003B4AEC /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67A27425644003B4AEC /* AxisView.swift */; };
 		580FB67F274256D0003B4AEC /* ReferenceLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67E274256D0003B4AEC /* ReferenceLineView.swift */; };
 		580FB682274262E0003B4AEC /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB681274262E0003B4AEC /* NumberFormatter.swift */; };
 		580FB68427426325003B4AEC /* IntFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB68327426325003B4AEC /* IntFormatter.swift */; };
@@ -56,7 +53,7 @@
 		5842496C2746501300679A22 /* LinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496B2746501300679A22 /* LinePlot.swift */; };
 		5842496E27465B2000679A22 /* LineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496D27465B2000679A22 /* LineExtension.swift */; };
 		584B1EAE274494030031C776 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EAD274494030031C776 /* BarView.swift */; };
-		584B1EB22744A3E40031C776 /* ChartStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB12744A3E40031C776 /* ChartStyle.swift */; };
+		584B1EB22744A3E40031C776 /* AxisStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB12744A3E40031C776 /* AxisStyle.swift */; };
 		584B1EB42744A5E60031C776 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB32744A5E60031C776 /* BarStyle.swift */; };
 		584B1EB72744CEDE0031C776 /* ReferenceLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB62744CEDE0031C776 /* ReferenceLineStyle.swift */; };
 		584B1EBB2744E7790031C776 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBA2744E7780031C776 /* Plot.swift */; };
@@ -68,7 +65,7 @@
 		58AD9305274E4384001CB3B5 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */; };
 		58AE9FDA275712B200FB6257 /* PieExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AE9FD9275712B200FB6257 /* PieExtension.swift */; };
 		58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32805274F1ECE0004B2C1 /* RadarPlot.swift */; };
-		58B32808274F1F830004B2C1 /* ChartViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32807274F1F830004B2C1 /* ChartViewExtension.swift */; };
+		58B32808274F1F830004B2C1 /* AxisViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32807274F1F830004B2C1 /* AxisViewExtension.swift */; };
 		58C68092274798A900519FA1 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C68091274798A900519FA1 /* LabelStyle.swift */; };
 		58E08F28274F25380094E683 /* RadarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F27274F25380094E683 /* RadarStyle.swift */; };
 		58E08F2A274F2CFE0094E683 /* RaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F29274F2CFE0094E683 /* RaderView.swift */; };
@@ -147,7 +144,7 @@
 		580FB6692742562C003B4AEC /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		580FB66D2742562C003B4AEC /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		580FB66F2742562C003B4AEC /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		580FB67A27425644003B4AEC /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		580FB67A27425644003B4AEC /* AxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
 		580FB67E274256D0003B4AEC /* ReferenceLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineView.swift; sourceTree = "<group>"; };
 		580FB681274262E0003B4AEC /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		580FB68327426325003B4AEC /* IntFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntFormatter.swift; sourceTree = "<group>"; };
@@ -172,7 +169,7 @@
 		5842496B2746501300679A22 /* LinePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePlot.swift; sourceTree = "<group>"; };
 		5842496D27465B2000679A22 /* LineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineExtension.swift; sourceTree = "<group>"; };
 		584B1EAD274494030031C776 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
-		584B1EB12744A3E40031C776 /* ChartStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStyle.swift; sourceTree = "<group>"; };
+		584B1EB12744A3E40031C776 /* AxisStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisStyle.swift; sourceTree = "<group>"; };
 		584B1EB32744A5E60031C776 /* BarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarStyle.swift; sourceTree = "<group>"; };
 		584B1EB62744CEDE0031C776 /* ReferenceLineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineStyle.swift; sourceTree = "<group>"; };
 		584B1EBA2744E7780031C776 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
@@ -184,7 +181,7 @@
 		58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableModifier.swift; sourceTree = "<group>"; };
 		58AE9FD9275712B200FB6257 /* PieExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieExtension.swift; sourceTree = "<group>"; };
 		58B32805274F1ECE0004B2C1 /* RadarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarPlot.swift; sourceTree = "<group>"; };
-		58B32807274F1F830004B2C1 /* ChartViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewExtension.swift; sourceTree = "<group>"; };
+		58B32807274F1F830004B2C1 /* AxisViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisViewExtension.swift; sourceTree = "<group>"; };
 		58C68091274798A900519FA1 /* LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyle.swift; sourceTree = "<group>"; };
 		58E08F27274F25380094E683 /* RadarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarStyle.swift; sourceTree = "<group>"; };
 		58E08F29274F2CFE0094E683 /* RaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaderView.swift; sourceTree = "<group>"; };
@@ -248,8 +245,8 @@
 		580FB628274255F8003B4AEC = {
 			isa = PBXGroup;
 			children = (
+				58C83C6F27586133002CA69E /* Sources */,
 				583BF48C2743559400626C13 /* Prieview Content */,
-				580FB634274255F8003B4AEC /* PrettyAxis */,
 				580FB640274255F8003B4AEC /* PrettyAxisTests */,
 				580FB65127425629003B4AEC /* Example */,
 				580FB6622742562C003B4AEC /* ExampleTests */,
@@ -283,10 +280,10 @@
 				580FB67C274256AA003B4AEC /* ReferenceLine */,
 				580FB635274255F8003B4AEC /* PrettyAxis.h */,
 				580FB636274255F8003B4AEC /* PrettyAxis.docc */,
-				580FB67A27425644003B4AEC /* ChartView.swift */,
-				584B1EB12744A3E40031C776 /* ChartStyle.swift */,
+				580FB67A27425644003B4AEC /* AxisView.swift */,
+				584B1EB12744A3E40031C776 /* AxisStyle.swift */,
 				58C68091274798A900519FA1 /* LabelStyle.swift */,
-				58B32807274F1F830004B2C1 /* ChartViewExtension.swift */,
+				58B32807274F1F830004B2C1 /* AxisViewExtension.swift */,
 				5873D2542754A56E00E2E9BC /* Axisable.swift */,
 			);
 			path = PrettyAxis;
@@ -478,6 +475,14 @@
 			path = Radar;
 			sourceTree = "<group>";
 		};
+		58C83C6F27586133002CA69E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				580FB634274255F8003B4AEC /* PrettyAxis */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -639,7 +644,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				580A5A342756179D007A7AA6 /* ChartData5.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +696,6 @@
 				5842496E27465B2000679A22 /* LineExtension.swift in Sources */,
 				582E0DD92750836B009CC1FD /* ScatterPlot.swift in Sources */,
 				5842496C2746501300679A22 /* LinePlot.swift in Sources */,
-				580A5A3727561A58007A7AA6 /* PreviewData.swift in Sources */,
 				581C3AA7274B6C9700C2EA6B /* MarkType.swift in Sources */,
 				585498B42743A5160053DAA2 /* Bar.swift in Sources */,
 				58C68092274798A900519FA1 /* LabelStyle.swift in Sources */,
@@ -703,7 +706,7 @@
 				580A5A322756173D007A7AA6 /* PieView.swift in Sources */,
 				58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */,
 				582E0DDD2750AB61009CC1FD /* ScatterView.swift in Sources */,
-				58B32808274F1F830004B2C1 /* ChartViewExtension.swift in Sources */,
+				58B32808274F1F830004B2C1 /* AxisViewExtension.swift in Sources */,
 				58AD9305274E4384001CB3B5 /* ScrollableModifier.swift in Sources */,
 				582E0DDB27508A0B009CC1FD /* ScatterData.swift in Sources */,
 				5873D2552754A56E00E2E9BC /* Axisable.swift in Sources */,
@@ -714,7 +717,7 @@
 				58FB37652750C13A00963EB3 /* ScatterExtension.swift in Sources */,
 				580FB67F274256D0003B4AEC /* ReferenceLineView.swift in Sources */,
 				580A5A39275627A9007A7AA6 /* DoughnutSlice.swift in Sources */,
-				584B1EB22744A3E40031C776 /* ChartStyle.swift in Sources */,
+				584B1EB22744A3E40031C776 /* AxisStyle.swift in Sources */,
 				580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */,
 				581C3AA1274B6BC400C2EA6B /* LineMark.swift in Sources */,
 				581C3AB4274B745700C2EA6B /* Type.swift in Sources */,
@@ -722,7 +725,7 @@
 				58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */,
 				58E08F2E274F34F10094E683 /* RadarExtension.swift in Sources */,
 				584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */,
-				580FB67B27425644003B4AEC /* ChartView.swift in Sources */,
+				580FB67B27425644003B4AEC /* AxisView.swift in Sources */,
 				584B1EBB2744E7790031C776 /* Plot.swift in Sources */,
 				58E08F2C274F2D100094E683 /* RadarShap.swift in Sources */,
 				58E08F2A274F2CFE0094E683 /* RaderView.swift in Sources */,
@@ -732,7 +735,6 @@
 				58E08F28274F25380094E683 /* RadarStyle.swift in Sources */,
 				58AE9FDA275712B200FB6257 /* PieExtension.swift in Sources */,
 				582E0DD727508344009CC1FD /* ScatterStyle.swift in Sources */,
-				580A5A3627561A54007A7AA6 /* TestChartData.swift in Sources */,
 				5842496827464DA600679A22 /* LineStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -152,7 +152,7 @@ struct ContentView: View {
     @ViewBuilder
     var doughnut: some View{
         let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
-        ChartView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
+        AxisView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
             .fill(fill)
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
@@ -166,7 +166,7 @@ struct ContentView: View {
     @ViewBuilder
     var pie: some View{
         let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
-        ChartView(style: .pie, data: values5)
+        AxisView(style: .pie, data: values5)
             .fill(fill)
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
@@ -181,7 +181,7 @@ struct ContentView: View {
         let stroke = ["London": g5, "Berlin": g6]
         let fill = ["London": g1, "Berlin": g2]
         
-        ChartView(style: .line, data: values2)
+        AxisView(style: .line, data: values2)
             .stroke(stroke)
             .fill(fill)
             .labelColor(Color.yellow)
@@ -194,7 +194,7 @@ struct ContentView: View {
     
     @ViewBuilder
     var bar: some View {
-        ChartView(style: .bar, data: values)
+        AxisView(style: .bar, data: values)
             .fill(g5)
             .fromZero(true)
             .labelColor(Color.yellow)
@@ -207,7 +207,7 @@ struct ContentView: View {
     @ViewBuilder
     var groupedBar: some View {
         let fill = ["London": g6, "Berlin": g7]
-        ChartView(style: .bar, data: values2)
+        AxisView(style: .bar, data: values2)
             .fill(fill)
             .barWidth(30)
             .spacing(10)
@@ -223,7 +223,7 @@ struct ContentView: View {
     @ViewBuilder
     var radar: some View {
         let fill = ["用户 A": g6, "用户 B": g7]
-        ChartView(style: .radar, data: values3)
+        AxisView(style: .radar, data: values3)
             .fill(fill)
             .labelColor(Color.yellow)
             .setMaxValue(100)
@@ -236,7 +236,7 @@ struct ContentView: View {
     @ViewBuilder
     var scatter: some View {
         let fill = ["male": Color.red, "female": Color.blue]
-        ChartView(style: .scatter, data: values4)
+        AxisView(style: .scatter, data: values4)
             .fill(fill)
             .stroke(fill)
             .spacing(3)
