@@ -41,6 +41,8 @@ public struct RadarStyle: AxisStyle{
     public var legendStyle = LegendStyle()
     
     public var disableLegend: Bool = true
+    
+    var xLabelOffset: CGFloat = -20
 
 }
 

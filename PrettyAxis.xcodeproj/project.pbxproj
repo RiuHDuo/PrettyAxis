@@ -59,6 +59,7 @@
 		584B1EBB2744E7790031C776 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBA2744E7780031C776 /* Plot.swift */; };
 		584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBC2744E7CF0031C776 /* BarPlot.swift */; };
 		585498B42743A5160053DAA2 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585498B32743A5160053DAA2 /* Bar.swift */; };
+		5864337F275DAA4900CDBA35 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864337E275DAA4900CDBA35 /* RadarView.swift */; };
 		5873D2552754A56E00E2E9BC /* Axisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873D2542754A56E00E2E9BC /* Axisable.swift */; };
 		58AD9300274E3C9D001CB3B5 /* PieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */; };
 		58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9301274E3D97001CB3B5 /* PiePlot.swift */; };
@@ -175,6 +176,7 @@
 		584B1EBA2744E7780031C776 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		584B1EBC2744E7CF0031C776 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585498B32743A5160053DAA2 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		5864337E275DAA4900CDBA35 /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
 		5873D2542754A56E00E2E9BC /* Axisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axisable.swift; sourceTree = "<group>"; };
 		58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieStyle.swift; sourceTree = "<group>"; };
 		58AD9301274E3D97001CB3B5 /* PiePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiePlot.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				580FB65427425629003B4AEC /* ContentView.swift */,
 				580FB6562742562C003B4AEC /* Assets.xcassets */,
 				580FB6582742562C003B4AEC /* Preview Content */,
+				5864337E275DAA4900CDBA35 /* RadarView.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A5A3A275627A9007A7AA6 /* DoughnutSlice.swift in Sources */,
+				5864337F275DAA4900CDBA35 /* RadarView.swift in Sources */,
 				580FB65527425629003B4AEC /* ContentView.swift in Sources */,
 				580FB65327425629003B4AEC /* ExampleApp.swift in Sources */,
 				581C3AAC274B723500C2EA6B /* TestChartData.swift in Sources */,

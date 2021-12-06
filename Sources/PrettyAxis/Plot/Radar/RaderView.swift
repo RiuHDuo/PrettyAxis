@@ -40,6 +40,29 @@ struct RadarView: View{
         let range = (min: style.fromZero  == true ? 0 : plot.range.min, max: plot.range.max)
         GeometryReader { reader in
             ZStack {
+                content(animated: animated)
+                if style.showReferenceLine {
+                    RadarReferenceLine(sides: plot.xAxisLabels.count, rounded: style.roundedReference)
+                        .stroke(style.referenceLineStyle.axisColor, style: StrokeStyle(lineWidth: style.referenceLineStyle.axisWidth,lineCap: .round, lineJoin: .round))
+                    
+                    RadarReferenceLine(sides: plot.xAxisLabels.count, rounded: style.roundedReference)
+                        .stroke(style.referenceLineStyle.axisColor, style: StrokeStyle(lineWidth: style.referenceLineStyle.axisWidth,lineCap: .round, lineJoin: .round, dash: [10.0]))
+                        .frame(width: reader.size.width / 2 , height: reader.size.height / 2)
+                    ZStack(alignment: .leading) {
+                        let array = [ range.min, (range.max - range.min) / 2,  range.max]
+                        ForEach(array.indices, id: \.self){ index in
+                            let value = array[index]
+                            Text(style.referenceLineStyle.formatter.format(value: value))
+                                .font(style.referenceLineStyle.yAxisLabelFont)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
+                                .offset(x: reader.size.width / 4 + 4, y: CGFloat(index) * reader.size.height / -4)
+                                .shadow(radius: 5)
+                        }
+                    }
+                    .frame(width: reader.size.width / 2, alignment: .leading)
+                }
+            }
+            .overlay(
                 ZStack {
                     ForEach(self.plot.xAxisLabels.indices) { index in
                         VStack {
@@ -48,39 +71,15 @@ struct RadarView: View{
                                 .foregroundColor(style.referenceLineStyle.axisLabelColor)
                             Spacer()
                         }
+                        .offset(y: style.xLabelOffset)
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .rotationEffect(.radians((Double.pi * 2 * Double(index) / Double(self.plot.xAxisLabels.count))))
                     }
                 }
-                Group {
-                    content(animated: animated)
-                    if style.showReferenceLine {
-                        RadarReferenceLine(sides: plot.xAxisLabels.count, rounded: style.roundedReference)
-                            .stroke(style.referenceLineStyle.axisColor, style: StrokeStyle(lineWidth: style.referenceLineStyle.axisWidth,lineCap: .round, lineJoin: .round))
-                        
-                        RadarReferenceLine(sides: plot.xAxisLabels.count, rounded: style.roundedReference)
-                            .stroke(style.referenceLineStyle.axisColor, style: StrokeStyle(lineWidth: style.referenceLineStyle.axisWidth,lineCap: .round, lineJoin: .round, dash: [10.0]))
-                            .frame(width: reader.size.width / 2 , height: reader.size.height / 2)
-                        VStack(alignment: .leading, spacing: 0) {
-                            let array = [ range.max,  (range.max - range.min) / 2,  range.min,  (range.max - range.min) / 2]
-                            ForEach(array, id: \.self){ value in
-                                Text(style.referenceLineStyle.formatter.format(value: value))
-                                    .font(style.referenceLineStyle.yAxisLabelFont)
-                                    .foregroundColor(style.referenceLineStyle.axisLabelColor)
-                                Spacer()
-                            }
-                            Text(style.referenceLineStyle.formatter.format(value: range.max))
-                                .font(style.referenceLineStyle.yAxisLabelFont)
-                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
-                        }
-                        .frame(width: reader.size.width / 2, alignment: .leading)
-                        .offset(x: reader.size.width / 4 + 4)
-                    }
-                }
-                .padding()
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            )
         }
+        .aspectRatio(1.0, contentMode: .fit)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
     
     func content(animated: Bool) -> some View{

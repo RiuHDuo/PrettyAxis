@@ -67,5 +67,11 @@ public extension AxisView where Style == RadarStyle{
         copy.plotStyle.roundedReference = true
         return copy
     }
+    
+    func xLabelOffset(_ offset: CGFloat) -> Self{
+        var copy = self
+        copy.plotStyle.xLabelOffset = offset
+        return copy
+    }
 
 }
