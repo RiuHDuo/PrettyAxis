@@ -82,4 +82,22 @@ public extension AxisView where Style == LineStyle{
         }
         return copy
     }
+    
+    func sortXAxis(by sort:(String, String) -> Bool) -> Self{
+        var copy = self
+        var plot = copy.plot as! LinePlot
+    
+        let xlabels = plot.xAxisLabels
+        plot.xAxisLabels = xlabels.sorted(by: sort)
+
+        var renderData = plot.renderData
+        
+        renderData.forEach { data in
+            renderData[data.key] = data.value.sorted(by: { sort($0.xValue, $1.xValue)})
+        }
+        
+        plot.renderData = renderData
+        copy.plot = plot
+        return copy
+    }
 }
