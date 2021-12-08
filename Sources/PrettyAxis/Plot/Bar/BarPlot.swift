@@ -13,7 +13,7 @@ struct BarPlot: Plot{
     
     var range = (min: 0.0, max: 0.0)
     
-    var renderData: [[(AxisData<String, Double, AnyHashable>, String)]]
+    var renderData: [String: [(AxisData<String, Double, AnyHashable>, String)]]
     
     var xAxisLabels: [String]
     
@@ -24,7 +24,7 @@ struct BarPlot: Plot{
         var range = (min: Double.infinity, max: 0.0)
         let xAxisLabels = NSMutableOrderedSet()
         self.xAxisLabels = []
-        self.renderData = []
+        self.renderData = [:]
         var renderData = [String: [String: AxisData<String, Double, AnyHashable>]]()
         data.forEach { item in
             let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
@@ -60,7 +60,7 @@ struct BarPlot: Plot{
             renderData.keys.forEach { key in
                 data.append((renderData[key]?[x] ?? AxisData(xValue: x, yValue: 0), key ))
             }
-            self.renderData.append(data)
+            self.renderData[x] = data
         }
         
     }

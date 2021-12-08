@@ -43,8 +43,8 @@ struct BarView: View{
         return GeometryReader { reader in
             let size = reader.size
             HStack(spacing: 0){
-                ForEach(data.indices){ index in
-                    let v = data[index]
+                ForEach(plot.xAxisLabels.indices){ index in
+                    let v = data[plot.xAxisLabels[index]]!
                     HStack(spacing: 0){
                         ForEach(v.indices){ i in
                             let value = v[i]

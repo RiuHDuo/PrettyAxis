@@ -19,6 +19,7 @@ public protocol Plot{
 
 
 extension Plot{
+    
     static func arrayToGroupDictionary<S>(data: [S]) -> ([String: [AxisData<String, Double, AnyHashable>]],(min: Double, max: Double), [String]) where S: Axisable{
         var range = (min: Double.infinity, max: 0.0)
         var renderData:[String: [AxisData<String, Double, AnyHashable>]] = [:]

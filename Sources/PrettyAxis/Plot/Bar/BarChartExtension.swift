@@ -45,4 +45,16 @@ public extension AxisView where Style == BarStyle{
         copy.plotStyle.formatter = formatter
         return copy
     }
+
+    
+    func sortXAxis(by sort: (String, String) -> Bool) -> Self{
+        var copy = self
+        var plot = copy.plot as! BarPlot
+    
+        let xlabels = plot.xAxisLabels
+        plot.xAxisLabels = xlabels.sorted(by: sort)
+
+        copy.plot = plot
+        return copy
+    }
 }
