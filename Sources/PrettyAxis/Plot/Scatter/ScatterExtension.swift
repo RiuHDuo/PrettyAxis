@@ -47,4 +47,10 @@ public extension AxisView where Style == ScatterStyle{
         copy.plotStyle.fill = fill
         return copy
     }
+    
+    func radius(_ radius: CGFloat) -> Self{
+        var copy = self
+        copy.plotStyle.radius = radius
+        return copy
+    }
 }

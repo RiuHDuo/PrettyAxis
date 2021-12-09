@@ -70,7 +70,7 @@ struct ScatterView: View{
         let keys = Array(plot.renderData.keys)
         let minY = (style.fromZero ? 0:  plot.range.min)
         let xunit = style.spacing
-        let zunit = 5 / (plot.zRange.max - plot.zRange.min)
+        let zunit = style.radius / (plot.zRange.max - plot.zRange.min)
         return GeometryReader { reader in
             let size = reader.size
             let yunit = size.height / (plot.range.max - minY)
