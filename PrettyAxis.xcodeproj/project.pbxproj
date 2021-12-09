@@ -60,6 +60,12 @@
 		584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBC2744E7CF0031C776 /* BarPlot.swift */; };
 		585498B42743A5160053DAA2 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585498B32743A5160053DAA2 /* Bar.swift */; };
 		5864337F275DAA4900CDBA35 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864337E275DAA4900CDBA35 /* RadarView.swift */; };
+		587114512761A71600455BA0 /* CalendarGraphPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114502761A71600455BA0 /* CalendarGraphPlot.swift */; };
+		587114532761AC6600455BA0 /* CalendarGraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114522761AC6600455BA0 /* CalendarGraphStyle.swift */; };
+		587114552761AD7F00455BA0 /* CalendarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114542761AD7F00455BA0 /* CalendarGraphView.swift */; };
+		5871145F2761CF1F00455BA0 /* ChartData6.json in Resources */ = {isa = PBXBuildFile; fileRef = 587114562761BEC700455BA0 /* ChartData6.json */; };
+		587114632761D74C00455BA0 /* ReferenceLineYAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114622761D74C00455BA0 /* ReferenceLineYAxisView.swift */; };
+		587114652761E24300455BA0 /* CalendarGraphViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114642761E24300455BA0 /* CalendarGraphViewExtension.swift */; };
 		5873D2552754A56E00E2E9BC /* Axisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873D2542754A56E00E2E9BC /* Axisable.swift */; };
 		58AD9300274E3C9D001CB3B5 /* PieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */; };
 		58AD9302274E3D97001CB3B5 /* PiePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9301274E3D97001CB3B5 /* PiePlot.swift */; };
@@ -177,6 +183,12 @@
 		584B1EBC2744E7CF0031C776 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585498B32743A5160053DAA2 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		5864337E275DAA4900CDBA35 /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
+		587114502761A71600455BA0 /* CalendarGraphPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphPlot.swift; sourceTree = "<group>"; };
+		587114522761AC6600455BA0 /* CalendarGraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphStyle.swift; sourceTree = "<group>"; };
+		587114542761AD7F00455BA0 /* CalendarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphView.swift; sourceTree = "<group>"; };
+		587114562761BEC700455BA0 /* ChartData6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartData6.json; sourceTree = "<group>"; };
+		587114622761D74C00455BA0 /* ReferenceLineYAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineYAxisView.swift; sourceTree = "<group>"; };
+		587114642761E24300455BA0 /* CalendarGraphViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphViewExtension.swift; sourceTree = "<group>"; };
 		5873D2542754A56E00E2E9BC /* Axisable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Axisable.swift; sourceTree = "<group>"; };
 		58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieStyle.swift; sourceTree = "<group>"; };
 		58AD9301274E3D97001CB3B5 /* PiePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiePlot.swift; sourceTree = "<group>"; };
@@ -341,6 +353,7 @@
 			children = (
 				580FB67E274256D0003B4AEC /* ReferenceLineView.swift */,
 				584B1EB62744CEDE0031C776 /* ReferenceLineStyle.swift */,
+				587114622761D74C00455BA0 /* ReferenceLineYAxisView.swift */,
 			);
 			path = ReferenceLine;
 			sourceTree = "<group>";
@@ -386,6 +399,7 @@
 		583BF48427434CB400626C13 /* Plot */ = {
 			isa = PBXGroup;
 			children = (
+				5871144F2761A6F400455BA0 /* CalendarGraph */,
 				582E0DD527508331009CC1FD /* Scatter */,
 				58B32804274F1EA80004B2C1 /* Radar */,
 				58AD92FE274E3265001CB3B5 /* Pie */,
@@ -414,6 +428,7 @@
 				58E08F32274F72660094E683 /* ChartData3.json */,
 				582E0DD327507D1C009CC1FD /* ChartData4.json */,
 				580A5A332756179D007A7AA6 /* ChartData5.json */,
+				587114562761BEC700455BA0 /* ChartData6.json */,
 			);
 			path = "Prieview Content";
 			sourceTree = "<group>";
@@ -441,6 +456,17 @@
 				583BFD75274509D400AE4D97 /* BarChartExtension.swift */,
 			);
 			path = Bar;
+			sourceTree = "<group>";
+		};
+		5871144F2761A6F400455BA0 /* CalendarGraph */ = {
+			isa = PBXGroup;
+			children = (
+				587114502761A71600455BA0 /* CalendarGraphPlot.swift */,
+				587114522761AC6600455BA0 /* CalendarGraphStyle.swift */,
+				587114542761AD7F00455BA0 /* CalendarGraphView.swift */,
+				587114642761E24300455BA0 /* CalendarGraphViewExtension.swift */,
+			);
+			path = CalendarGraph;
 			sourceTree = "<group>";
 		};
 		58AD92FE274E3265001CB3B5 /* Pie */ = {
@@ -662,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				580FB65A2742562C003B4AEC /* Preview Assets.xcassets in Resources */,
+				5871145F2761CF1F00455BA0 /* ChartData6.json in Resources */,
 				582E0DD427507D1C009CC1FD /* ChartData4.json in Resources */,
 				581C3AAB274B723500C2EA6B /* ChartData2.json in Resources */,
 				580A5A352756179D007A7AA6 /* ChartData5.json in Resources */,
@@ -724,12 +751,15 @@
 				580A5A2C2755CDB8007A7AA6 /* LegendModifier.swift in Sources */,
 				581C3AA1274B6BC400C2EA6B /* LineMark.swift in Sources */,
 				581C3AB4274B745700C2EA6B /* Type.swift in Sources */,
+				587114632761D74C00455BA0 /* ReferenceLineYAxisView.swift in Sources */,
 				580A5A30275615E1007A7AA6 /* PieSlice.swift in Sources */,
+				587114652761E24300455BA0 /* CalendarGraphViewExtension.swift in Sources */,
 				58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */,
 				58E08F2E274F34F10094E683 /* RadarExtension.swift in Sources */,
 				584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */,
 				580FB67B27425644003B4AEC /* AxisView.swift in Sources */,
 				584B1EBB2744E7790031C776 /* Plot.swift in Sources */,
+				587114532761AC6600455BA0 /* CalendarGraphStyle.swift in Sources */,
 				58E08F2C274F2D100094E683 /* RadarShap.swift in Sources */,
 				58E08F2A274F2CFE0094E683 /* RaderView.swift in Sources */,
 				584B1EB72744CEDE0031C776 /* ReferenceLineStyle.swift in Sources */,
@@ -737,8 +767,10 @@
 				5842496A27464FEC00679A22 /* LineView.swift in Sources */,
 				58E08F28274F25380094E683 /* RadarStyle.swift in Sources */,
 				58AE9FDA275712B200FB6257 /* PieExtension.swift in Sources */,
+				587114512761A71600455BA0 /* CalendarGraphPlot.swift in Sources */,
 				582E0DD727508344009CC1FD /* ScatterStyle.swift in Sources */,
 				5842496827464DA600679A22 /* LineStyle.swift in Sources */,
+				587114552761AD7F00455BA0 /* CalendarGraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

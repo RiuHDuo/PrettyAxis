@@ -7,33 +7,17 @@
 
 import SwiftUI
 
-struct ReferenceLineView: View{
-    var range: (min: Double, max: Double)
+struct ReferenceLineView<YAxis>: View where YAxis: View{
     var style: ReferenceLineStyle
+    var yAxis: YAxis
     
     var body: some View{
         GeometryReader { reader in
             let size = reader.size
             let padding: CGFloat = 0
-            let range = (min: range.min, max: range.max)
             HStack(spacing: 0) {
                 VStack{
-                    Spacer().frame(height: padding)
-                    Text(style.formatter.format(value: range.max))
-                        .font(style.yAxisLabelFont)
-                        .foregroundColor(style.axisLabelColor)
-                    Spacer()
-                    Text(style.formatter.format(value: (range.max + range.min) / 3 * 2))
-                        .font(style.yAxisLabelFont)
-                        .foregroundColor(style.axisLabelColor)
-                    Spacer()
-                    Text(style.formatter.format(value: (range.max + range.min) / 3))
-                        .font(style.yAxisLabelFont)
-                        .foregroundColor(style.axisLabelColor)
-                    Spacer()
-                    Text(style.formatter.format(value: range.min))
-                        .font(.system(size: 8))
-                        .foregroundColor(style.axisLabelColor)
+                    yAxis
                 }.frame(width: 20)
                 ZStack(alignment: .bottomLeading) {
                     ZStack {

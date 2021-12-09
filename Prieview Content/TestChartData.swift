@@ -109,3 +109,23 @@ extension TestChartData5: Axisable{
     var z: AnyHashable? { return nil}
     var groupd: AnyHashable? { return nil}
 }
+
+
+struct TestChartData6: Decodable {
+    let week: String
+    let day: String
+    let value: Double
+}
+
+extension TestChartData6: Axisable{
+    var x: String{
+        return week
+    }
+    
+    var y: String{
+        return day
+    }
+    
+    var z: Double? { return value}
+    var groupd: AnyHashable? { return nil}
+}

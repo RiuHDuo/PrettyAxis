@@ -41,7 +41,7 @@ struct ScatterView: View{
             VStack {
                 ZStack{
                     if style.showReferenceLine{
-                        ReferenceLineView(range: range, style: self.style.referenceLineStyle)
+                        ReferenceLineView(style: self.style.referenceLineStyle, yAxis: ReferenceLineYAxisView(range: range, style: style.referenceLineStyle))
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                     content( animated: animated)
