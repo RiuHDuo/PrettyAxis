@@ -20,7 +20,7 @@ struct LegendView: View {
                         .frame(width: 8, height: 8)
                     Text(item.0)
                         .font(.system(size: 10))
-                        .foregroundColor(Color.white)
+                        .foregroundColor(style.labelColor)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
