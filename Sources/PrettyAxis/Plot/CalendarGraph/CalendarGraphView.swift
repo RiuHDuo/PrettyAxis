@@ -14,21 +14,40 @@ struct CalendarGraphView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            VStack {
+            VStack(spacing:0) {
+                if !style.disableLegend {
+                    HStack{
+                        Text(style.legendLeadingText)
+                            .font(style.legendStyle.font)
+                            .foregroundColor(style.legendStyle.labelColor)
+                        let r = min(style.legendStyle.iconSize * 0.2, 4)
+                        ForEach((0 ..< 5).indices){ index in
+                            RoundedRectangle(cornerRadius: r)
+                                .strokeBorder(Color.gray)
+                                .background(style.colorable(0.2 * Double(index)))
+                                .cornerRadius(r)
+                                .frame(width: style.legendStyle.iconSize, height: style.legendStyle.iconSize, alignment: .center)
+                        }
+                        Text(style.legendTrailingText)
+                            .font(style.legendStyle.font)
+                            .foregroundColor(style.legendStyle.labelColor)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 16)
+                }
                 HStack(alignment: .bottom, spacing: 0){
                     if style.showReferenceLine{
                         yAxisView
                     }
                     content
                 }
-                
                 HStack(spacing: 0){
                     Spacer().frame(width: 20)
                     ForEach(plot.xAxisLabels, id: \.self){ data in
                         Text(data)
-                            .font(self.style.labelStyle.labelFont)
-                            .foregroundColor(self.style.labelStyle.labelColor)
-                            .frame(width: self.style.labelWidth, height: self.style.labelStyle.labelHeight, alignment: .center)
+                            .font(style.labelStyle.labelFont)
+                            .foregroundColor(style.labelStyle.labelColor)
+                            .frame(width: style.labelWidth, height: style.labelStyle.labelHeight, alignment: .center)
                     }
                 }
             }
@@ -43,9 +62,10 @@ struct CalendarGraphView: View {
                     .font(style.referenceLineStyle.yAxisLabelFont)
                     .foregroundColor(style.referenceLineStyle.axisLabelColor)
                     .frame(height: style.size + style.spacing, alignment: .center)
+                    .padding(.trailing, 4)
             }
         }
-        .frame(maxHeight: .infinity, alignment: .bottomTrailing)
+        .frame(maxHeight: CGFloat(plot.yAxisLabels.count) * style.labelWidth, alignment: .bottomTrailing)
     }
     
     @ViewBuilder

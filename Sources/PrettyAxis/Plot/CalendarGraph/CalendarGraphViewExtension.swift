@@ -36,4 +36,11 @@ public extension AxisView where Style == CalendarGraphStyle{
         copy.plot = plot
         return copy
     }
+    
+    func setLegendTitle(leading: String, trailing: String)-> Self{
+        var copy = self
+        copy.plotStyle.legendLeadingText = leading
+        copy.plotStyle.legendTrailingText = trailing
+        return copy
+    }
 }

@@ -24,6 +24,9 @@ public struct CalendarGraphStyle: AxisStyle{
     
     public var legendStyle: LegendStyle = LegendStyle()
     
+    var legendLeadingText = "less"
+    var legendTrailingText = "more"
+    
     public var disableLegend: Bool = true
     
     public var size: CGFloat = 50

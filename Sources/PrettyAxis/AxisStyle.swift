@@ -32,6 +32,3 @@ public protocol AxisStyle{
     
     var disableLegend: Bool {get set}
 }
-
-
-
