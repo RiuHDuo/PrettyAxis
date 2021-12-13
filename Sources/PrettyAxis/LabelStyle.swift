@@ -14,6 +14,8 @@ public protocol LabelStyle{
     var labelFont: Font {get set}
     
     var labelColor: Color {get set}
+    
+    var formatter: NumberFormatter {get set}
 }
 
 
@@ -23,4 +25,6 @@ struct AxisLabelStyle: LabelStyle{
     public var labelFont = Font.system(size: 8)
     
     public var labelColor = Color.black
+    
+    public var formatter:NumberFormatter = IntFormatter.int
 }

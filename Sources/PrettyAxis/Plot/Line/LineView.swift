@@ -64,13 +64,32 @@ struct LineView: View{
                             LineMark(points: data, range: range, spacing: style.spacing, animatableData: animatableData, lineType: style.type, mark: mark.path)
                                 .fill( style.markFill[key]!)
                         }
-                        
+                        if style.showValueLabel {
+                            drawLabel(data: data, range: range, animatableData: animatableData)
+                        }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
                 }
             }
             .frame(height: reader.size.height)
         }
+    }
+    
+    func drawLabel(data: [AxisData<String, Double, AnyHashable>], range: (min: Double, max: Double), animatableData: CGFloat) -> some View{
+       return Canvas{ ctx, size in
+           let unit = size.height / (range.max - range.min)
+           var index = 0
+           data.forEach { axis in
+               let text = IntFormatter().format(value: axis.yValue)
+               let txt = ctx.resolve(Text(text))
+               let s = txt.measure(in: CGSize(width: style.spacing, height: .infinity))
+               let h: CGFloat = s.height
+               let y = size.height -  (axis.yValue - CGFloat(range.min)) * unit * animatableData - h
+               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + s.width / 2, y: y, width: s.width, height: h))
+               index += 1
+           }
+        }
+       .foregroundColor(style.valueLabelStyle.labelColor)
     }
 }
 

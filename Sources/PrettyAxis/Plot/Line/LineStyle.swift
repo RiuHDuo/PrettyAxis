@@ -47,6 +47,10 @@ public struct LineStyle: AxisStyle{
     public var legendStyle = LegendStyle()
     
     public var disableLegend: Bool = true
+    
+    var showValueLabel: Bool = false
+    
+    var valueLabelStyle = AxisLabelStyle()
 }
 
 

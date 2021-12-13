@@ -100,4 +100,11 @@ public extension AxisView where Style == LineStyle{
         copy.plot = plot
         return copy
     }
+    
+    func enableValueLabel(enable: Bool, font: Font = Font.system(size: 8), color: Color = Color.black, formatter: NumberFormatter = .int) -> Self{
+        var copy = self
+        copy.plotStyle.showValueLabel = enable
+        copy.plotStyle.valueLabelStyle = AxisLabelStyle(labelHeight: 20, labelFont: font, labelColor: color, formatter: formatter)
+        return copy
+    }
 }
