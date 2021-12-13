@@ -51,9 +51,9 @@ struct BarView: View{
                             let h = (value.0.yValue - min) / range
                             VStack(alignment: .leading, spacing: 0) {
                                 if style.showValueLabel{
-                                    Text(style.formatter.format(value: value.0.yValue))
-                                        .font(style.valueLabelFont)
-                                        .foregroundColor(style.valueLabelColor)
+                                    Text(style.valueLabelStyle.formatter.format(value: value.0.yValue))
+                                        .font(style.valueLabelStyle.labelFont)
+                                        .foregroundColor(style.valueLabelStyle.labelColor)
                                         .frame(maxWidth: .infinity, alignment: .center)
                                         .padding(.bottom, 4)
                                 }

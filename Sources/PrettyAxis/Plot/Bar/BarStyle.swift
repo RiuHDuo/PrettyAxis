@@ -29,11 +29,7 @@ public struct BarStyle: AxisStyle{
     
     var showValueLabel: Bool = false
     
-    var valueLabelFont: Font = Font.system(size: 8)
-    
-    var valueLabelColor = Color.black
-    
-    var formatter:NumberFormatter = .int
+    var valueLabelStyle = AxisLabelStyle()
     
     var count = 1
     

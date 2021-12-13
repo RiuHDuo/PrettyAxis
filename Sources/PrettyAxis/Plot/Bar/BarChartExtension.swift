@@ -40,9 +40,7 @@ public extension AxisView where Style == BarStyle{
     func enableValueLabel(enable: Bool, font: Font = Font.system(size: 8), color: Color = Color.black, formatter: NumberFormatter = .int) -> Self{
         var copy = self
         copy.plotStyle.showValueLabel = enable
-        copy.plotStyle.valueLabelColor = color
-        copy.plotStyle.valueLabelFont = font
-        copy.plotStyle.formatter = formatter
+        copy.plotStyle.valueLabelStyle = AxisLabelStyle(labelHeight: 20, labelFont: font, labelColor: color, formatter: formatter)
         return copy
     }
 
