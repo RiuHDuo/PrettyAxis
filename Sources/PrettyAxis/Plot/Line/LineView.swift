@@ -85,7 +85,8 @@ struct LineView: View{
                let s = txt.measure(in: CGSize(width: style.spacing, height: .infinity))
                let h: CGFloat = s.height
                let y = size.height -  (axis.yValue - CGFloat(range.min)) * unit * animatableData - h
-               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + s.width / 2, y: y, width: s.width, height: h))
+               print(s, style.spacing)
+               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + (style.spacing - s.width) / 2, y: y, width: s.width, height: h))
                index += 1
            }
         }
