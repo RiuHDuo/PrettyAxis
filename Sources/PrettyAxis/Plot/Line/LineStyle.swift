@@ -49,6 +49,7 @@ public struct LineStyle: AxisStyle{
     public var disableLegend: Bool = true
     
     var showValueLabel: Bool = false
+    var valueLabelOffset = CGPoint.zero
     
     var valueLabelStyle = AxisLabelStyle()
 }

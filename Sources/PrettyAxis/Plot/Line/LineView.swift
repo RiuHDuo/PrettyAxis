@@ -86,7 +86,7 @@ struct LineView: View{
                let h: CGFloat = s.height
                let y = size.height -  (axis.yValue - CGFloat(range.min)) * unit * animatableData - h
                print(s, style.spacing)
-               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + (style.spacing - s.width) / 2, y: y, width: s.width, height: h))
+               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + (style.spacing - s.width) / 2 + style.valueLabelOffset.x, y: y + style.valueLabelOffset.y, width: s.width, height: h))
                index += 1
            }
         }
