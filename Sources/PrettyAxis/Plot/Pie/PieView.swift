@@ -53,19 +53,17 @@ struct PieView: View {
                         VStack {
                             Text(plot.xAxisLabels[index])
                                 .font(style.referenceLineStyle.xAxisLabelFont)
-                                .foregroundColor(Color.white)
-                                .shadow(radius: 2)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
                             
                             Text(style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
                                 .font(style.referenceLineStyle.xAxisLabelFont)
-                                .foregroundColor(Color.white)
-                                .shadow(radius: 2)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
                         }
                         .offset(x: r * (style.innerRadiusPercent / 2 +  0.5) * cos(angle.radians), y: r * (style.innerRadiusPercent / 2 +  0.5) * sin(angle.radians))
                     }
                     
                     DoughnutSlice(radius: r, innerRadius: r * style.innerRadiusPercent, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                        .stroke(Color.white, lineWidth: 2)
+                        .stroke(style.color, lineWidth: style.lineWidth)
                 }
             }
         }
@@ -87,19 +85,17 @@ struct PieView: View {
                         VStack {
                             Text(plot.xAxisLabels[index])
                                 .font(style.referenceLineStyle.xAxisLabelFont)
-                                .foregroundColor(Color.white)
-                                .shadow(radius: 2)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
                             
                             Text(style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
                                 .font(style.referenceLineStyle.xAxisLabelFont)
-                                .foregroundColor(Color.white)
-                                .shadow(radius: 2)
+                                .foregroundColor(style.referenceLineStyle.axisLabelColor)
                         }
                         .offset(x: r * 0.6 * cos(angle.radians), y: r * 0.6 * sin(angle.radians))
                     }
                     
                     PieSlice(radius: r, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                        .stroke(Color.white, lineWidth: 2)
+                        .stroke(style.color, lineWidth: style.lineWidth)
                 }
             }
         }

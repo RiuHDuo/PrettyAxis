@@ -13,13 +13,15 @@ public struct PieStyle: AxisStyle{
     
     public var disableLegend: Bool = true
     
-    public var color = [NoGroup: AnyShapeStyle(Color.blue)]
+    public var color =  AnyShapeStyle(DEFAULT_COLOR)
     
     public var fill:[String: AnyShapeStyle] = [:]
     
     public var spacing: CGFloat = 0
      
     public var labelWidth: CGFloat = 0
+    
+    public var lineWidth: CGFloat = 2
     
     public var showReferenceLine = false
     
