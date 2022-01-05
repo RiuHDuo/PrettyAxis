@@ -68,3 +68,11 @@ struct Line: Shape {
         }
     }
 }
+
+extension Line{
+    func fillRect<S>(_ s: S) -> some View where S : ShapeStyle{
+        var copy = self
+        copy.isFilled = true
+        return copy.fill(s)
+    }
+}

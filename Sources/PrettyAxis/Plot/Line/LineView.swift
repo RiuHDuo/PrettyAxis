@@ -11,8 +11,9 @@ import SwiftUI
 struct LineView: View{
     var plot: LinePlot
     var style: LineStyle
-    
+
     @State var animated: Bool = false
+    var animatableData: Double = 0
     
     var body: some View{
         if (plot.renderData[NoGroup]?.count ?? 0) < 1 && self.style.disableLegend == false{
@@ -47,15 +48,15 @@ struct LineView: View{
                         let key = keys[i]
                         let data = plot.renderData[key]!
                         let stroke = style.color[key] ?? AnyShapeStyle(Color.red)
-                        
+                        let line = Line(points: data, range: range, spacing: style.spacing, animatableData: animatableData,lineType: style.type)
                         if let fill = style.fill[key] {
-                            Line(points: data, range: range, spacing: style.spacing, animatableData: animatableData,lineType: style.type, isFilled: true)
-                                .fill(fill)
+                            line
+                                .fillRect(fill)
                                 .frame(width: size.width)
                                 .frame(maxHeight: .infinity,alignment: .bottomLeading)
                         }
                         
-                        Line(points: data, range: range, spacing: style.spacing, animatableData: animatableData,lineType: style.type)
+                        line
                             .stroke(stroke, style: StrokeStyle(lineWidth: style.lineWidth,lineCap: .round, lineJoin: .round))
                             .frame(width: size.width)
                             .frame(maxHeight: .infinity,alignment: .bottomLeading)
@@ -65,7 +66,9 @@ struct LineView: View{
                                 .fill( style.markFill[key]!)
                         }
                         if style.showValueLabel {
-                            drawLabel(data: data, range: range, animatableData: animatableData)
+                            LineValue(data: data, range: range,spacing: style.spacing, valueOffset: style.valueLabelOffset, font: style.valueLabelStyle.labelFont)
+                                .foregroundColor(style.valueLabelStyle.labelColor)
+                                .offset(x: 0, y: size.height * (1 - animatableData))
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
@@ -73,24 +76,6 @@ struct LineView: View{
             }
             .frame(height: reader.size.height)
         }
-    }
-    
-    func drawLabel(data: [AxisData<String, Double, AnyHashable>], range: (min: Double, max: Double), animatableData: CGFloat) -> some View{
-       return Canvas{ ctx, size in
-           let unit = size.height / (range.max - range.min)
-           var index = 0
-           data.forEach { axis in
-               let text = IntFormatter().format(value: axis.yValue)
-               let txt = ctx.resolve(Text(text))
-               let s = txt.measure(in: CGSize(width: style.spacing, height: .infinity))
-               let h: CGFloat = s.height
-               let y = size.height -  (axis.yValue - CGFloat(range.min)) * unit * animatableData - h
-               print(s, style.spacing)
-               ctx.draw(txt, in: CGRect(x: CGFloat(index) * style.spacing + (style.spacing - s.width) / 2 + style.valueLabelOffset.x, y: y + style.valueLabelOffset.y, width: s.width, height: h))
-               index += 1
-           }
-        }
-       .foregroundColor(style.valueLabelStyle.labelColor)
     }
 }
 
