@@ -15,13 +15,13 @@ struct PieView: View {
             if style.disableLegend {
                 doughnutContent
             }else{
-                doughnutContent.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: LegendStyle()))
+                doughnutContent.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
             }
         }else{
             if style.disableLegend {
                 content
             }else{
-                content.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: LegendStyle()))
+                content.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
             }
         }
     }
