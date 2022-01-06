@@ -29,6 +29,8 @@ public struct PieStyle: AxisStyle{
     
     public var referenceLineStyle = ReferenceLineStyle.default
     
+    public var enableOuterReferenceLine = false
+    
     public var fromZero: Bool = true
     
     public func contentView(plot: Plot) -> some View{

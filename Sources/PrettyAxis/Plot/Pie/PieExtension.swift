@@ -26,4 +26,12 @@ public extension AxisView where Style == PieStyle{
         copy.plotStyle.fill = fill
         return copy
     }
+    
+    func outerReferenceLine(style: ReferenceLineStyle = .default) -> Self{
+        var copy = self
+        copy.plotStyle.referenceLineStyle = style
+        copy.plotStyle.enableOuterReferenceLine = true
+        copy.plotStyle.showReferenceLine = false
+        return copy
+    }
 }
