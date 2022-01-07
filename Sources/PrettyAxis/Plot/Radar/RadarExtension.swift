@@ -8,15 +8,6 @@
 import SwiftUI
 
 public extension AxisView where Style == RadarStyle{
-    func fill<S>(_ s: S) -> Self where S: ShapeStyle{
-        var copy = self
-        let plot = self.plot as? BarPlot
-        plot?.groups.forEach { e in
-            copy.plotStyle.fill[e] = AnyShapeStyle(s)
-        }
-        return copy
-    }
-    
     
     func fill<S>(_ s: [String: S]) -> Self where S: ShapeStyle{
         var copy = self
@@ -36,7 +27,7 @@ public extension AxisView where Style == RadarStyle{
     
     func stroke<S>(_ s: S) -> Self where S: ShapeStyle{
         var copy = self
-        let plot = self.plot as! LinePlot
+        let plot = self.plot as! RadarPlot
         plot.renderData.keys.forEach { key in
             copy.plotStyle.color[key]  = AnyShapeStyle(s)
         }
