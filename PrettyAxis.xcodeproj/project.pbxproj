@@ -30,6 +30,59 @@
 		580FB67F274256D0003B4AEC /* ReferenceLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67E274256D0003B4AEC /* ReferenceLineView.swift */; };
 		580FB682274262E0003B4AEC /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB681274262E0003B4AEC /* NumberFormatter.swift */; };
 		580FB68427426325003B4AEC /* IntFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB68327426325003B4AEC /* IntFormatter.swift */; };
+		5815EC0F2786DECC0072ACE9 /* LegendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A292755CC39007A7AA6 /* LegendView.swift */; };
+		5815EC102786DECC0072ACE9 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2D2755D238007A7AA6 /* LegendStyle.swift */; };
+		5815EC112786DECF0072ACE9 /* LegendModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2B2755CDB8007A7AA6 /* LegendModifier.swift */; };
+		5815EC122786DECF0072ACE9 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9304274E4384001CB3B5 /* ScrollableModifier.swift */; };
+		5815EC132786DED30072ACE9 /* MarkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C3AA6274B6C9700C2EA6B /* MarkType.swift */; };
+		5815EC142786DED30072ACE9 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C3AB3274B745700C2EA6B /* Type.swift */; };
+		5815EC152786DED50072ACE9 /* AxisData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF48A2743514E00626C13 /* AxisData.swift */; };
+		5815EC162786DED80072ACE9 /* CalendarGraphViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114642761E24300455BA0 /* CalendarGraphViewExtension.swift */; };
+		5815EC172786DED80072ACE9 /* CalendarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114542761AD7F00455BA0 /* CalendarGraphView.swift */; };
+		5815EC182786DED80072ACE9 /* CalendarGraphPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114502761A71600455BA0 /* CalendarGraphPlot.swift */; };
+		5815EC192786DED80072ACE9 /* CalendarGraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114522761AC6600455BA0 /* CalendarGraphStyle.swift */; };
+		5815EC1A2786DEDB0072ACE9 /* ScatterPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E0DD82750836B009CC1FD /* ScatterPlot.swift */; };
+		5815EC1B2786DEDB0072ACE9 /* ScatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E0DDC2750AB61009CC1FD /* ScatterView.swift */; };
+		5815EC1C2786DEDB0072ACE9 /* ScatterShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E0DDE2750ACD9009CC1FD /* ScatterShape.swift */; };
+		5815EC1D2786DEDB0072ACE9 /* ScatterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E0DD627508344009CC1FD /* ScatterStyle.swift */; };
+		5815EC1E2786DEDB0072ACE9 /* ScatterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E0DDA27508A0B009CC1FD /* ScatterData.swift */; };
+		5815EC1F2786DEDB0072ACE9 /* ScatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB37642750C13A00963EB3 /* ScatterExtension.swift */; };
+		5815EC202786DEDF0072ACE9 /* RadarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F27274F25380094E683 /* RadarStyle.swift */; };
+		5815EC212786DEDF0072ACE9 /* RaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F29274F2CFE0094E683 /* RaderView.swift */; };
+		5815EC222786DEDF0072ACE9 /* RadarShap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F2B274F2D100094E683 /* RadarShap.swift */; };
+		5815EC232786DEDF0072ACE9 /* RadarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32805274F1ECE0004B2C1 /* RadarPlot.swift */; };
+		5815EC242786DEDF0072ACE9 /* RadarReferenceLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F30274F669D0094E683 /* RadarReferenceLine.swift */; };
+		5815EC252786DEDF0072ACE9 /* RadarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F2D274F34F10094E683 /* RadarExtension.swift */; };
+		5815EC262786DEE30072ACE9 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A312756173D007A7AA6 /* PieView.swift */; };
+		5815EC272786DEE30072ACE9 /* PieSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A2F275615E1007A7AA6 /* PieSlice.swift */; };
+		5815EC282786DEE30072ACE9 /* PiePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD9301274E3D97001CB3B5 /* PiePlot.swift */; };
+		5815EC292786DEE30072ACE9 /* PieExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AE9FD9275712B200FB6257 /* PieExtension.swift */; };
+		5815EC2A2786DEE30072ACE9 /* DoughnutSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A5A38275627A9007A7AA6 /* DoughnutSlice.swift */; };
+		5815EC2B2786DEE30072ACE9 /* PieStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AD92FF274E3C9D001CB3B5 /* PieStyle.swift */; };
+		5815EC2C2786DEE70072ACE9 /* LineMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C3AA0274B6BC400C2EA6B /* LineMark.swift */; };
+		5815EC2D2786DEE70072ACE9 /* LineValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581965E927858A46006F286C /* LineValue.swift */; };
+		5815EC2E2786DEE70072ACE9 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496927464FEC00679A22 /* LineView.swift */; };
+		5815EC2F2786DEE70072ACE9 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584247462745E62F00679A22 /* Line.swift */; };
+		5815EC302786DEE70072ACE9 /* LineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496727464DA600679A22 /* LineStyle.swift */; };
+		5815EC312786DEE70072ACE9 /* LinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496B2746501300679A22 /* LinePlot.swift */; };
+		5815EC322786DEE70072ACE9 /* LineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5842496D27465B2000679A22 /* LineExtension.swift */; };
+		5815EC332786DEEC0072ACE9 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EAD274494030031C776 /* BarView.swift */; };
+		5815EC342786DEEC0072ACE9 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585498B32743A5160053DAA2 /* Bar.swift */; };
+		5815EC352786DEEC0072ACE9 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB32744A5E60031C776 /* BarStyle.swift */; };
+		5815EC362786DEEC0072ACE9 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBC2744E7CF0031C776 /* BarPlot.swift */; };
+		5815EC372786DEEC0072ACE9 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBA2744E7780031C776 /* Plot.swift */; };
+		5815EC382786DEEC0072ACE9 /* BarChartExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BFD75274509D400AE4D97 /* BarChartExtension.swift */; };
+		5815EC392786DEEF0072ACE9 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB681274262E0003B4AEC /* NumberFormatter.swift */; };
+		5815EC3A2786DEEF0072ACE9 /* IntFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB68327426325003B4AEC /* IntFormatter.swift */; };
+		5815EC3B2786DEF60072ACE9 /* AxisViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B32807274F1F830004B2C1 /* AxisViewExtension.swift */; };
+		5815EC3C2786DEF60072ACE9 /* ReferenceLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67E274256D0003B4AEC /* ReferenceLineView.swift */; };
+		5815EC3D2786DEF60072ACE9 /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB67A27425644003B4AEC /* AxisView.swift */; };
+		5815EC3E2786DEF60072ACE9 /* AxisStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB12744A3E40031C776 /* AxisStyle.swift */; };
+		5815EC3F2786DEF60072ACE9 /* LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C68091274798A900519FA1 /* LabelStyle.swift */; };
+		5815EC402786DEF60072ACE9 /* ReferenceLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EB62744CEDE0031C776 /* ReferenceLineStyle.swift */; };
+		5815EC412786DEF60072ACE9 /* ReferenceLineYAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114622761D74C00455BA0 /* ReferenceLineYAxisView.swift */; };
+		5815EC422786DEF60072ACE9 /* Axisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5873D2542754A56E00E2E9BC /* Axisable.swift */; };
+		581965EA27858A46006F286C /* LineValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581965E927858A46006F286C /* LineValue.swift */; };
 		581C3AA1274B6BC400C2EA6B /* LineMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C3AA0274B6BC400C2EA6B /* LineMark.swift */; };
 		581C3AA7274B6C9700C2EA6B /* MarkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581C3AA6274B6C9700C2EA6B /* MarkType.swift */; };
 		581C3AA8274B722F00C2EA6B /* ChartData.json in Resources */ = {isa = PBXBuildFile; fileRef = 583BF48E2743586500626C13 /* ChartData.json */; };
@@ -59,7 +112,7 @@
 		584B1EBB2744E7790031C776 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBA2744E7780031C776 /* Plot.swift */; };
 		584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584B1EBC2744E7CF0031C776 /* BarPlot.swift */; };
 		585498B42743A5160053DAA2 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585498B32743A5160053DAA2 /* Bar.swift */; };
-		5864337F275DAA4900CDBA35 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864337E275DAA4900CDBA35 /* RadarView.swift */; };
+		5864337F275DAA4900CDBA35 /* SigngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864337E275DAA4900CDBA35 /* SigngleView.swift */; };
 		587114512761A71600455BA0 /* CalendarGraphPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114502761A71600455BA0 /* CalendarGraphPlot.swift */; };
 		587114532761AC6600455BA0 /* CalendarGraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114522761AC6600455BA0 /* CalendarGraphStyle.swift */; };
 		587114552761AD7F00455BA0 /* CalendarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587114542761AD7F00455BA0 /* CalendarGraphView.swift */; };
@@ -80,6 +133,21 @@
 		58E08F2E274F34F10094E683 /* RadarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F2D274F34F10094E683 /* RadarExtension.swift */; };
 		58E08F31274F669D0094E683 /* RadarReferenceLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E08F30274F669D0094E683 /* RadarReferenceLine.swift */; };
 		58E08F33274F72E50094E683 /* ChartData3.json in Resources */ = {isa = PBXBuildFile; fileRef = 58E08F32274F72660094E683 /* ChartData3.json */; };
+		58E814232787D9CC00BD8515 /* SigngleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864337E275DAA4900CDBA35 /* SigngleView.swift */; };
+		58E814242787D9CC00BD8515 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB65427425629003B4AEC /* ContentView.swift */; };
+		58E814252787D9CC00BD8515 /* ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580FB65227425629003B4AEC /* ExampleApp.swift */; };
+		58E814262787DA8B00BD8515 /* ChartData2.json in Resources */ = {isa = PBXBuildFile; fileRef = 58343AA327477A35007D685D /* ChartData2.json */; };
+		58E814272787DA8B00BD8515 /* ChartData6.json in Resources */ = {isa = PBXBuildFile; fileRef = 587114562761BEC700455BA0 /* ChartData6.json */; };
+		58E814292787DA8B00BD8515 /* ChartData4.json in Resources */ = {isa = PBXBuildFile; fileRef = 582E0DD327507D1C009CC1FD /* ChartData4.json */; };
+		58E8142A2787DA8B00BD8515 /* ChartData.json in Resources */ = {isa = PBXBuildFile; fileRef = 583BF48E2743586500626C13 /* ChartData.json */; };
+		58E8142C2787DA8B00BD8515 /* ChartData5.json in Resources */ = {isa = PBXBuildFile; fileRef = 580A5A332756179D007A7AA6 /* ChartData5.json */; };
+		58E8142D2787DA8B00BD8515 /* ChartData3.json in Resources */ = {isa = PBXBuildFile; fileRef = 58E08F32274F72660094E683 /* ChartData3.json */; };
+		58E814342787DB7700BD8515 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF490274358F500626C13 /* PreviewData.swift */; };
+		58E814352787DB7700BD8515 /* TestChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583BF49227435A7900626C13 /* TestChartData.swift */; };
+		58E814362787DCE200BD8515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580FB6562742562C003B4AEC /* Assets.xcassets */; };
+		58E814372787DCE900BD8515 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 580FB6592742562C003B4AEC /* Preview Assets.xcassets */; };
+		58E814382787DE6D00BD8515 /* PrettyAxis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5815EBF82786DE900072ACE9 /* PrettyAxis.framework */; };
+		58E814392787DE6D00BD8515 /* PrettyAxis.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5815EBF82786DE900072ACE9 /* PrettyAxis.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		58FB37652750C13A00963EB3 /* ScatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB37642750C13A00963EB3 /* ScatterExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +180,13 @@
 			remoteGlobalIDString = 580FB631274255F8003B4AEC;
 			remoteInfo = PrettyAxis;
 		};
+		58E8143A2787DE6D00BD8515 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 580FB629274255F8003B4AEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5815EBF72786DE900072ACE9;
+			remoteInfo = "PrettyAxis-macOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,6 +197,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				581C3AAF274B727E00C2EA6B /* PrettyAxis.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58E8143C2787DE6D00BD8515 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				58E814392787DE6D00BD8515 /* PrettyAxis.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +241,9 @@
 		580FB67E274256D0003B4AEC /* ReferenceLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineView.swift; sourceTree = "<group>"; };
 		580FB681274262E0003B4AEC /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		580FB68327426325003B4AEC /* IntFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntFormatter.swift; sourceTree = "<group>"; };
+		5815EBF22786DD240072ACE9 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
+		5815EBF82786DE900072ACE9 /* PrettyAxis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyAxis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		581965E927858A46006F286C /* LineValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineValue.swift; sourceTree = "<group>"; };
 		581C3AA0274B6BC400C2EA6B /* LineMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineMark.swift; sourceTree = "<group>"; };
 		581C3AA6274B6C9700C2EA6B /* MarkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkType.swift; sourceTree = "<group>"; };
 		581C3AB3274B745700C2EA6B /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
@@ -182,7 +271,7 @@
 		584B1EBA2744E7780031C776 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		584B1EBC2744E7CF0031C776 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585498B32743A5160053DAA2 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
-		5864337E275DAA4900CDBA35 /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
+		5864337E275DAA4900CDBA35 /* SigngleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigngleView.swift; sourceTree = "<group>"; };
 		587114502761A71600455BA0 /* CalendarGraphPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphPlot.swift; sourceTree = "<group>"; };
 		587114522761AC6600455BA0 /* CalendarGraphStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphStyle.swift; sourceTree = "<group>"; };
 		587114542761AD7F00455BA0 /* CalendarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGraphView.swift; sourceTree = "<group>"; };
@@ -203,6 +292,8 @@
 		58E08F2D274F34F10094E683 /* RadarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarExtension.swift; sourceTree = "<group>"; };
 		58E08F30274F669D0094E683 /* RadarReferenceLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarReferenceLine.swift; sourceTree = "<group>"; };
 		58E08F32274F72660094E683 /* ChartData3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartData3.json; sourceTree = "<group>"; };
+		58E813F82787D98F00BD8515 /* Example-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58E8142E2787DACD00BD8515 /* Example_macOS.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Example_macOS.entitlements; sourceTree = "<group>"; };
 		58FB37642750C13A00963EB3 /* ScatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,6 +335,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5815EBF52786DE900072ACE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58E813F52787D98F00BD8515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58E814382787DE6D00BD8515 /* PrettyAxis.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -260,7 +366,6 @@
 			isa = PBXGroup;
 			children = (
 				58C83C6F27586133002CA69E /* Sources */,
-				583BF48C2743559400626C13 /* Prieview Content */,
 				580FB640274255F8003B4AEC /* PrettyAxisTests */,
 				580FB65127425629003B4AEC /* Example */,
 				580FB6622742562C003B4AEC /* ExampleTests */,
@@ -278,6 +383,8 @@
 				580FB65027425629003B4AEC /* Example.app */,
 				580FB65F2742562C003B4AEC /* ExampleTests.xctest */,
 				580FB6692742562C003B4AEC /* ExampleUITests.xctest */,
+				5815EBF82786DE900072ACE9 /* PrettyAxis.framework */,
+				58E813F82787D98F00BD8515 /* Example-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,11 +421,13 @@
 		580FB65127425629003B4AEC /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				5815EBF22786DD240072ACE9 /* Example.entitlements */,
+				58E8142E2787DACD00BD8515 /* Example_macOS.entitlements */,
 				580FB65227425629003B4AEC /* ExampleApp.swift */,
 				580FB65427425629003B4AEC /* ContentView.swift */,
 				580FB6562742562C003B4AEC /* Assets.xcassets */,
 				580FB6582742562C003B4AEC /* Preview Content */,
-				5864337E275DAA4900CDBA35 /* RadarView.swift */,
+				5864337E275DAA4900CDBA35 /* SigngleView.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -326,6 +435,14 @@
 		580FB6582742562C003B4AEC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				583BF48E2743586500626C13 /* ChartData.json */,
+				583BF490274358F500626C13 /* PreviewData.swift */,
+				583BF49227435A7900626C13 /* TestChartData.swift */,
+				58343AA327477A35007D685D /* ChartData2.json */,
+				58E08F32274F72660094E683 /* ChartData3.json */,
+				582E0DD327507D1C009CC1FD /* ChartData4.json */,
+				580A5A332756179D007A7AA6 /* ChartData5.json */,
+				587114562761BEC700455BA0 /* ChartData6.json */,
 				580FB6592742562C003B4AEC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -418,21 +535,6 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-		583BF48C2743559400626C13 /* Prieview Content */ = {
-			isa = PBXGroup;
-			children = (
-				583BF48E2743586500626C13 /* ChartData.json */,
-				583BF490274358F500626C13 /* PreviewData.swift */,
-				583BF49227435A7900626C13 /* TestChartData.swift */,
-				58343AA327477A35007D685D /* ChartData2.json */,
-				58E08F32274F72660094E683 /* ChartData3.json */,
-				582E0DD327507D1C009CC1FD /* ChartData4.json */,
-				580A5A332756179D007A7AA6 /* ChartData5.json */,
-				587114562761BEC700455BA0 /* ChartData6.json */,
-			);
-			path = "Prieview Content";
-			sourceTree = "<group>";
-		};
 		584247452745E5FE00679A22 /* Line */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +544,7 @@
 				5842496B2746501300679A22 /* LinePlot.swift */,
 				5842496D27465B2000679A22 /* LineExtension.swift */,
 				581C3AA0274B6BC400C2EA6B /* LineMark.swift */,
+				581965E927858A46006F286C /* LineValue.swift */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -520,6 +623,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				580FB643274255F8003B4AEC /* PrettyAxis.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815EBF32786DE900072ACE9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +727,43 @@
 			productReference = 580FB6692742562C003B4AEC /* ExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5815EBF72786DE900072ACE9 /* PrettyAxis-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5815EC092786DE900072ACE9 /* Build configuration list for PBXNativeTarget "PrettyAxis-macOS" */;
+			buildPhases = (
+				5815EBF32786DE900072ACE9 /* Headers */,
+				5815EBF42786DE900072ACE9 /* Sources */,
+				5815EBF52786DE900072ACE9 /* Frameworks */,
+				5815EBF62786DE900072ACE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PrettyAxis-macOS";
+			productName = "PrettyAxis-MacOS";
+			productReference = 5815EBF82786DE900072ACE9 /* PrettyAxis.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		58E813F72787D98F00BD8515 /* Example-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58E814202787D99100BD8515 /* Build configuration list for PBXNativeTarget "Example-macOS" */;
+			buildPhases = (
+				58E813F42787D98F00BD8515 /* Sources */,
+				58E813F52787D98F00BD8515 /* Frameworks */,
+				58E813F62787D98F00BD8515 /* Resources */,
+				58E8143C2787DE6D00BD8515 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58E8143B2787DE6D00BD8515 /* PBXTargetDependency */,
+			);
+			name = "Example-macOS";
+			productName = "Example-MacOS";
+			productReference = 58E813F82787D98F00BD8515 /* Example-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -624,8 +771,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					580FB631274255F8003B4AEC = {
 						CreatedOnToolsVersion = 13.1;
@@ -644,6 +791,12 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 580FB64F27425629003B4AEC;
 					};
+					5815EBF72786DE900072ACE9 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					58E813F72787D98F00BD8515 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 580FB62C274255F8003B4AEC /* Build configuration list for PBXProject "PrettyAxis" */;
@@ -659,9 +812,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				5815EBF72786DE900072ACE9 /* PrettyAxis-macOS */,
 				580FB631274255F8003B4AEC /* PrettyAxis */,
 				580FB63B274255F8003B4AEC /* PrettyAxisTests */,
 				580FB64F27425629003B4AEC /* Example */,
+				58E813F72787D98F00BD8515 /* Example-macOS */,
 				580FB65E2742562C003B4AEC /* ExampleTests */,
 				580FB6682742562C003B4AEC /* ExampleUITests */,
 			);
@@ -712,6 +867,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5815EBF62786DE900072ACE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58E813F62787D98F00BD8515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58E814372787DCE900BD8515 /* Preview Assets.xcassets in Resources */,
+				58E814262787DA8B00BD8515 /* ChartData2.json in Resources */,
+				58E814292787DA8B00BD8515 /* ChartData4.json in Resources */,
+				58E8142A2787DA8B00BD8515 /* ChartData.json in Resources */,
+				58E8142C2787DA8B00BD8515 /* ChartData5.json in Resources */,
+				58E814362787DCE200BD8515 /* Assets.xcassets in Resources */,
+				58E8142D2787DA8B00BD8515 /* ChartData3.json in Resources */,
+				58E814272787DA8B00BD8515 /* ChartData6.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -756,6 +933,7 @@
 				587114652761E24300455BA0 /* CalendarGraphViewExtension.swift in Sources */,
 				58B32806274F1ECE0004B2C1 /* RadarPlot.swift in Sources */,
 				58E08F2E274F34F10094E683 /* RadarExtension.swift in Sources */,
+				581965EA27858A46006F286C /* LineValue.swift in Sources */,
 				584B1EBD2744E7CF0031C776 /* BarPlot.swift in Sources */,
 				580FB67B27425644003B4AEC /* AxisView.swift in Sources */,
 				584B1EBB2744E7790031C776 /* Plot.swift in Sources */,
@@ -787,7 +965,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				580A5A3A275627A9007A7AA6 /* DoughnutSlice.swift in Sources */,
-				5864337F275DAA4900CDBA35 /* RadarView.swift in Sources */,
+				5864337F275DAA4900CDBA35 /* SigngleView.swift in Sources */,
 				580FB65527425629003B4AEC /* ContentView.swift in Sources */,
 				580FB65327425629003B4AEC /* ExampleApp.swift in Sources */,
 				581C3AAC274B723500C2EA6B /* TestChartData.swift in Sources */,
@@ -809,6 +987,77 @@
 			files = (
 				580FB66E2742562C003B4AEC /* ExampleUITests.swift in Sources */,
 				580FB6702742562C003B4AEC /* ExampleUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5815EBF42786DE900072ACE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5815EC3E2786DEF60072ACE9 /* AxisStyle.swift in Sources */,
+				5815EC2A2786DEE30072ACE9 /* DoughnutSlice.swift in Sources */,
+				5815EC1C2786DEDB0072ACE9 /* ScatterShape.swift in Sources */,
+				5815EC402786DEF60072ACE9 /* ReferenceLineStyle.swift in Sources */,
+				5815EC112786DECF0072ACE9 /* LegendModifier.swift in Sources */,
+				5815EC272786DEE30072ACE9 /* PieSlice.swift in Sources */,
+				5815EC382786DEEC0072ACE9 /* BarChartExtension.swift in Sources */,
+				5815EC172786DED80072ACE9 /* CalendarGraphView.swift in Sources */,
+				5815EC152786DED50072ACE9 /* AxisData.swift in Sources */,
+				5815EC132786DED30072ACE9 /* MarkType.swift in Sources */,
+				5815EC252786DEDF0072ACE9 /* RadarExtension.swift in Sources */,
+				5815EC372786DEEC0072ACE9 /* Plot.swift in Sources */,
+				5815EC392786DEEF0072ACE9 /* NumberFormatter.swift in Sources */,
+				5815EC282786DEE30072ACE9 /* PiePlot.swift in Sources */,
+				5815EC2F2786DEE70072ACE9 /* Line.swift in Sources */,
+				5815EC1B2786DEDB0072ACE9 /* ScatterView.swift in Sources */,
+				5815EC1D2786DEDB0072ACE9 /* ScatterStyle.swift in Sources */,
+				5815EC3F2786DEF60072ACE9 /* LabelStyle.swift in Sources */,
+				5815EC362786DEEC0072ACE9 /* BarPlot.swift in Sources */,
+				5815EC3B2786DEF60072ACE9 /* AxisViewExtension.swift in Sources */,
+				5815EC3A2786DEEF0072ACE9 /* IntFormatter.swift in Sources */,
+				5815EC2D2786DEE70072ACE9 /* LineValue.swift in Sources */,
+				5815EC2E2786DEE70072ACE9 /* LineView.swift in Sources */,
+				5815EC312786DEE70072ACE9 /* LinePlot.swift in Sources */,
+				5815EC122786DECF0072ACE9 /* ScrollableModifier.swift in Sources */,
+				5815EC302786DEE70072ACE9 /* LineStyle.swift in Sources */,
+				5815EC2C2786DEE70072ACE9 /* LineMark.swift in Sources */,
+				5815EC232786DEDF0072ACE9 /* RadarPlot.swift in Sources */,
+				5815EC342786DEEC0072ACE9 /* Bar.swift in Sources */,
+				5815EC322786DEE70072ACE9 /* LineExtension.swift in Sources */,
+				5815EC1A2786DEDB0072ACE9 /* ScatterPlot.swift in Sources */,
+				5815EC212786DEDF0072ACE9 /* RaderView.swift in Sources */,
+				5815EC412786DEF60072ACE9 /* ReferenceLineYAxisView.swift in Sources */,
+				5815EC102786DECC0072ACE9 /* LegendStyle.swift in Sources */,
+				5815EC0F2786DECC0072ACE9 /* LegendView.swift in Sources */,
+				5815EC222786DEDF0072ACE9 /* RadarShap.swift in Sources */,
+				5815EC332786DEEC0072ACE9 /* BarView.swift in Sources */,
+				5815EC2B2786DEE30072ACE9 /* PieStyle.swift in Sources */,
+				5815EC192786DED80072ACE9 /* CalendarGraphStyle.swift in Sources */,
+				5815EC202786DEDF0072ACE9 /* RadarStyle.swift in Sources */,
+				5815EC292786DEE30072ACE9 /* PieExtension.swift in Sources */,
+				5815EC262786DEE30072ACE9 /* PieView.swift in Sources */,
+				5815EC352786DEEC0072ACE9 /* BarStyle.swift in Sources */,
+				5815EC1E2786DEDB0072ACE9 /* ScatterData.swift in Sources */,
+				5815EC182786DED80072ACE9 /* CalendarGraphPlot.swift in Sources */,
+				5815EC1F2786DEDB0072ACE9 /* ScatterExtension.swift in Sources */,
+				5815EC422786DEF60072ACE9 /* Axisable.swift in Sources */,
+				5815EC162786DED80072ACE9 /* CalendarGraphViewExtension.swift in Sources */,
+				5815EC3D2786DEF60072ACE9 /* AxisView.swift in Sources */,
+				5815EC242786DEDF0072ACE9 /* RadarReferenceLine.swift in Sources */,
+				5815EC3C2786DEF60072ACE9 /* ReferenceLineView.swift in Sources */,
+				5815EC142786DED30072ACE9 /* Type.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58E813F42787D98F00BD8515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58E814352787DB7700BD8515 /* TestChartData.swift in Sources */,
+				58E814342787DB7700BD8515 /* PreviewData.swift in Sources */,
+				58E814252787D9CC00BD8515 /* ExampleApp.swift in Sources */,
+				58E814242787D9CC00BD8515 /* ContentView.swift in Sources */,
+				58E814232787D9CC00BD8515 /* SigngleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +1083,11 @@
 			isa = PBXTargetDependency;
 			target = 580FB631274255F8003B4AEC /* PrettyAxis */;
 			targetProxy = 581C3AB0274B727E00C2EA6B /* PBXContainerItemProxy */;
+		};
+		58E8143B2787DE6D00BD8515 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5815EBF72786DE900072ACE9 /* PrettyAxis-macOS */;
+			targetProxy = 58E8143A2787DE6D00BD8515 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -967,13 +1221,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "Prieview\\ Content/TestChartData.swift Prieview\\ Content Prieview\\ Content/ChartData.json Prieview\\ Content/PreviewData.swift";
-				DEVELOPMENT_TEAM = SRF8YC65SU;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -983,6 +1239,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.PrettyAxis;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -996,13 +1253,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "Prieview\\ Content/TestChartData.swift Prieview\\ Content Prieview\\ Content/ChartData.json Prieview\\ Content/PreviewData.swift";
-				DEVELOPMENT_TEAM = SRF8YC65SU;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1012,6 +1271,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.PrettyAxis;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1067,6 +1327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
@@ -1086,6 +1347,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1097,6 +1359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
@@ -1116,6 +1379,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1218,6 +1482,130 @@
 			};
 			name = Release;
 		};
+		5815EC0A2786DE900072ACE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VRT543DEFW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.PrettyAxis;
+				PRODUCT_MODULE_NAME = PrettyAxis;
+				PRODUCT_NAME = PrettyAxis;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5815EC0B2786DE900072ACE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = VRT543DEFW;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = RiuHDuo.PrettyAxis;
+				PRODUCT_MODULE_NAME = PrettyAxis;
+				PRODUCT_NAME = PrettyAxis;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		58E8141A2787D99100BD8515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Example/Example_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_TEAM = VRT543DEFW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "RiuHDuo.Example-MacOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58E8141B2787D99100BD8515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Example/Example_macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Example/Preview Content\"";
+				DEVELOPMENT_TEAM = VRT543DEFW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "RiuHDuo.Example-MacOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1271,6 +1659,24 @@
 			buildConfigurations = (
 				580FB6782742562C003B4AEC /* Debug */,
 				580FB6792742562C003B4AEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5815EC092786DE900072ACE9 /* Build configuration list for PBXNativeTarget "PrettyAxis-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5815EC0A2786DE900072ACE9 /* Debug */,
+				5815EC0B2786DE900072ACE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58E814202787D99100BD8515 /* Build configuration list for PBXNativeTarget "Example-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58E8141A2787D99100BD8515 /* Debug */,
+				58E8141B2787D99100BD8515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -44,6 +44,7 @@ let values2 = PreviewData.load([TestChartData2].self, fileName: "ChartData2") ??
 let values3 = PreviewData.load([TestChartData3].self, fileName: "ChartData3") ?? [TestChartData3]()
 let values4 = PreviewData.load([TestChartData4].self, fileName: "ChartData4") ?? [TestChartData4]()
 let values5 = PreviewData.load([TestChartData5].self, fileName: "ChartData5") ?? [TestChartData5]()
+let values6 = PreviewData.load([TestChartData6].self, fileName: "ChartData6") ?? [TestChartData6]()
 
 let colors1 = [Color(hue: 14 / 360.0, saturation: 0.88, brightness: 0.99), Color(hue: 40 / 360.0, saturation: 0.79, brightness: 0.97)]
 
@@ -93,6 +94,7 @@ struct PercentFormat: PrettyAxis.NumberFormatter{
 struct ContentView: View {
     let texts = ["Line", "Bar", "Group", "Radar", "Scatter", "Pie", "Doughnut"]
     var body: some View {
+        let bg = RoundedRectangle(cornerRadius: 15).foregroundColor(Color(white: 0.1))
         ScrollView {
             VStack {
                 ForEach(texts.indices){ index in
@@ -101,37 +103,37 @@ struct ContentView: View {
                     case 0:
                         line.frame(height: 200)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 1:
                         bar.frame(height: 200)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 2:
                         groupedBar.frame(height: 200)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 3:
-                        radar.frame(height: 200)
+                        radar.frame(height: 400)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 4:
                         scatter.frame(height: 200)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 5:
                         pie.frame(height: 400)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     case 6:
                         doughnut.frame(height: 400)
                             .frame(maxWidth: .infinity)
-                            .background(RoundedRectangle(cornerRadius: 15))
+                            .background(bg)
                             .padding(.horizontal)
                     default:
                         EmptyView()
@@ -141,7 +143,7 @@ struct ContentView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(Color(hue: 232 / 360 , saturation: 0.1, brightness: 0.14))
+            .background(Color.black)
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -154,6 +156,7 @@ struct ContentView: View {
         let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
         AxisView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
             .fill(fill)
+            .stroke(Color.white)
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
             .spacing(50)
@@ -168,6 +171,7 @@ struct ContentView: View {
         let fill = ["Batman": colors5[0], "Superman": colors5[1], "The Flash": colors5[2], "Wonder Women": colors5[3], "Cyborg": colors5[4], "Aquaman": colors5[5]]
         AxisView(style: .pie, data: values5)
             .fill(fill)
+            .stroke(Color.white)
             .labelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
             .spacing(50)
@@ -201,6 +205,7 @@ struct ContentView: View {
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow))
             .spacing(50)
             .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+            .sortXAxis(by: {$0 < $1})
             .padding()
     }
     
@@ -227,9 +232,9 @@ struct ContentView: View {
             .fill(fill)
             .labelColor(Color.yellow)
             .setMaxValue(100)
-            .roundedReferenceLine()
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.red, yAxisLabelFont: Font.system(size: 10).bold()))
             .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+            .padding()
         
     }
     
