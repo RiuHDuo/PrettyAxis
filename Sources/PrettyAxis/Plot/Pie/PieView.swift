@@ -10,23 +10,17 @@ import SwiftUI
 struct PieView: View {
     var plot: PiePlot
     var style: PieStyle
+    
+    @State var animated = false
     var body: some View {
-        if style.innerRadiusPercent < 1{
-            if style.disableLegend {
-                doughnutContent
-            }else{
-                doughnutContent.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
-            }
+        if style.disableLegend {
+            content
         }else{
-            if style.disableLegend {
-                content
-            }else{
-                content.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
-            }
+            content.modifier(LegendModifier(list: plot.xAxisLabels.map({($0, style.fill[$0] ?? DEFAULT_COLOR)}), style: style.legendStyle))
         }
     }
     
-    private var angles: [ (Double, Double)] {
+    private var angles: [(Double, Double)] {
         var angles:[ (Double, Double)] = []
         var angle: Double = 0
         self.plot.renderData.forEach { item in
@@ -37,59 +31,57 @@ struct PieView: View {
         return angles
     }
     
-    var doughnutContent: some View{
+    var content: some View{
         let padding: CGFloat = style.enableOuterReferenceLine ? 20 : 0
         return GeometryReader{ reader in
             let r = min(reader.size.width, reader.size.height) / 2  - padding
+            let center = CGPoint(x: reader.size.width / 2, y: reader.size.height / 2)
+
             ZStack{
                 ForEach(angles.indices){ index in
                     let ang2 = angles[index]
                     if let fill = style.fill[self.plot.xAxisLabels[index]]{
-                        DoughnutSlice(radius: r, innerRadius: r * style.innerRadiusPercent, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                            .fill(fill)
+                        if style.innerRadiusPercent < 1 {
+                            DoughnutSlice(radius: r, innerRadius: r * style.innerRadiusPercent, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
+                                .fill(fill)
+                        }else{
+                            PieSlice(radius: r, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
+                                .fill(fill)
+                        }
                     }
-                    
+
                     if style.showReferenceLine{
                         let angle = Angle(degrees: (ang2.0 + ang2.1) / 2)
-                        referenceView(text: plot.xAxisLabels[index], percent: style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
-                            .offset(x: r * (style.innerRadiusPercent / 2 +  0.5) * cos(angle.radians), y: r * (style.innerRadiusPercent / 2 +  0.5) * sin(angle.radians))
+                        if style.innerRadiusPercent < 1 {
+                            referenceView(text: plot.xAxisLabels[index], percent: style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
+                                .offset(x: r * (style.innerRadiusPercent / 2 +  0.5) * cos(angle.radians), y: r * (style.innerRadiusPercent / 2 +  0.5) * sin(angle.radians))
+                        }else{
+                            referenceView(text: plot.xAxisLabels[index], percent: style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
+                                .offset(x: r * 0.6 * cos(angle.radians), y: r * 0.6 * sin(angle.radians))
+                        }
                     }
-                    
-                    DoughnutSlice(radius: r, innerRadius: r * style.innerRadiusPercent, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                        .stroke(style.color, lineWidth: style.lineWidth)
+                    if style.innerRadiusPercent < 1 {
+                        DoughnutSlice(radius: r, innerRadius: r * style.innerRadiusPercent, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
+                            .stroke(style.color, lineWidth: style.lineWidth)
+                    }else{
+                        PieSlice(radius: r, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
+                            .stroke(style.color, lineWidth: style.lineWidth)
+                    }
                 }
                 .padding(padding)
-                outerReferenceView(radius: r)
+                if self.style.enableOuterReferenceLine {
+                    outerReferenceView(radius: r)
+                }
+            }
+            .clipShape(PieSlice(radius: r, startAngle: .degrees(0), endAngle: .degrees(animated ? 360: 0)))
+        }
+        .onAppear(){
+            withAnimation {
+                animated.toggle()
             }
         }
     }
     
-    var content: some View {
-        let padding: CGFloat = style.enableOuterReferenceLine ? 20 : 0
-        return GeometryReader{ reader in
-            let r = min(reader.size.width, reader.size.height) / 2  - padding
-            ZStack{
-                ForEach(angles.indices){ index in
-                    let ang2 = angles[index]
-                    if let fill = style.fill[self.plot.xAxisLabels[index]]{
-                        PieSlice(radius: r, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                            .fill(fill)
-                    }
-                    
-                    if style.showReferenceLine{
-                        let angle = Angle(degrees: (ang2.0 + ang2.1) / 2)
-                        referenceView(text: plot.xAxisLabels[index], percent: style.referenceLineStyle.formatter.format(value: plot.renderData[index].yValue))
-                            .offset(x: r * 0.6 * cos(angle.radians), y: r * 0.6 * sin(angle.radians))
-                    }
-                    
-                    PieSlice(radius: r, startAngle: .degrees(ang2.0), endAngle: .degrees(ang2.1))
-                        .stroke(style.color, lineWidth: style.lineWidth)
-                }
-                .padding(padding)
-                outerReferenceView(radius: r)
-            }
-        }
-    }
     
     
     @ViewBuilder

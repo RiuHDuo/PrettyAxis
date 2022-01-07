@@ -13,6 +13,15 @@ struct PieSlice: Shape{
     var startAngle: Angle
     var endAngle: Angle
     
+    var animatableData: CGFloat{
+        set {
+            self.endAngle = .degrees(newValue)
+        }
+        get {
+            return self.endAngle.degrees
+        }
+    }
+    
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let center = CGPoint(x: rect.midX, y: rect.midY)
