@@ -15,13 +15,13 @@ public extension AxisView{
         return copy
     }
     
-    func labelFont(_ font: Font) -> Self{
+    func xAxisLabelFont(_ font: Font) -> Self{
         var copy = self
         copy.plotStyle.labelStyle.labelFont = font
         return copy
     }
     
-    func labelColor(_ color: Color) -> Self{
+    func xAxisLabelColor(_ color: Color) -> Self{
         var copy = self
         copy.plotStyle.labelStyle.labelColor = color
         return copy

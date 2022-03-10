@@ -24,7 +24,7 @@ struct RadarView: View {
             AxisView(style: .doughnut(innerRadiusPercent: 0.3), data: values5)
                 .fill(fill)
                 .stroke(colors5[2])
-                .labelColor(Color.yellow)
+                .xAxisLabelColor(Color.yellow)
                 .outerReferenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.yellow, xAxisLabelFont: .system(size: 15).bold(), formatter: PercentFormat()))
                 .spacing(50)
                 .enableLegend(true, style: LegendStyle(labelColor: Color.yellow))
