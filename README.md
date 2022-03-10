@@ -33,6 +33,48 @@ Currently  `Style` Support： `bar` `line` `radar` `scatter` `pie` and `doughnut
 
 `data` is an array of any type which  implements `Axisable` Protocol.
 
+### Axisable Protocol
+
+The data of chart should implement this protocol. This protocol is generic, different chart style will using different type `axisable`.
+
+`AxisView` will render the char from `Axisable` protocol data. 
+
+For example:
+
+If render `bar` chart, bar chart date should be return string type for `x` value of `Axisable` protocol and double type `y`. If `Axisable` protocol return `group` value, bar chart will render by group.
+
+If render `scatter` , the data must return  string type for `x` value of `Axisable` protocol , double type `y` and double type `z`.
+
+### Modifiers
+
+- #### Enable Legend
+
+  ```swift
+   AxisView(style: .bar, data: values)
+    .enableLegend(true, style: LegendStyle(labelColor: Color.white))
+  ```
+
+- #### Add Reference Line
+
+  ````swift
+   AxisView(style: .bar, data: values)
+             .referenceLine(style: ReferenceLineStyle())	
+
+- #### Change x-axis label font
+
+  ```swift
+  AxisView(style: .line, data: values)
+      .xAxisLabelColor(Color.yellow)
+      .xAxisLabelFont(.caption)
+  ```
+
+- #### Change value spacing
+
+  ```swift
+  AxisView(style: .line, data: values)
+          .spacing(10)
+  ```
+
 More documents will coming soon.
 
 ## Preview
