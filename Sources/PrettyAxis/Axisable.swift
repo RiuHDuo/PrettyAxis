@@ -18,6 +18,6 @@ public protocol Axisable{
     var x: X { get }
     var y: Y { get }
     var z: Z? { get }
-    var groupd: G? {get}
+    var group: G? {get}
 }
 

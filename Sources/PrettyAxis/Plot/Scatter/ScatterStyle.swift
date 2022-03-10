@@ -16,7 +16,7 @@ public struct ScatterStyle: AxisStyle{
         var range = (min: Double.infinity, max: 0.0)
         data.forEach { item in
             let axisData = ScatterData(xValue: item.x as! Double, yValue: item.y as! Double, zValue: item.z as? Double)
-            if let g = item.groupd as? String {
+            if let g = item.group as? String {
                 if renderData[g] == nil {
                     renderData[g]  = []
                 }

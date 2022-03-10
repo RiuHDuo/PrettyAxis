@@ -28,7 +28,7 @@ extension Plot{
         
         data.forEach { item in
             let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
-            if let g = item.groupd as? String {
+            if let g = item.group as? String {
                 if renderData[g] == nil {
                     renderData[g]  = []
                 }

@@ -29,7 +29,7 @@ struct BarPlot: Plot{
         data.forEach { item in
             let axisData = AxisData<String, Double, AnyHashable>(xValue: item.x as! String, yValue: item.y as! Double)
             var groupName = NoGroup
-            if let g = item.groupd as? String {
+            if let g = item.group as? String {
                 groupName = g
                 xAxisLabels.add(axisData.xValue)
             }else{
