@@ -24,7 +24,7 @@ extension TestChartData: Axisable{
     }
     
     var z: AnyHashable? { return nil}
-    var groupd: AnyHashable? { return nil}
+    var group: AnyHashable? { return nil}
 }
 
 
@@ -44,7 +44,7 @@ extension TestChartData2: Axisable{
     }
     
     var z: AnyHashable? { return nil}
-    var groupd: AnyHashable? { return name}
+    var group: AnyHashable? { return name}
 }
 
 
@@ -65,7 +65,7 @@ extension TestChartData3: Axisable{
     }
     
     var z: AnyHashable? { return nil}
-    var groupd: AnyHashable? { return user}
+    var group: AnyHashable? { return user}
 }
 
 
@@ -88,7 +88,7 @@ extension TestChartData4: Axisable{
     }
     
     var z: AnyHashable? { return nil}
-    var groupd: String? { return gender}
+    var group: String? { return gender}
 }
 
 
@@ -107,7 +107,7 @@ extension TestChartData5: Axisable{
     }
     
     var z: AnyHashable? { return nil}
-    var groupd: AnyHashable? { return nil}
+    var group: AnyHashable? { return nil}
 }
 
 
@@ -127,5 +127,5 @@ extension TestChartData6: Axisable{
     }
     
     var z: Double? { return value}
-    var groupd: AnyHashable? { return nil}
+    var group: AnyHashable? { return nil}
 }
