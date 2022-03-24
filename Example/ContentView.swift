@@ -97,7 +97,7 @@ struct ContentView: View {
         let bg = RoundedRectangle(cornerRadius: 15).foregroundColor(Color(white: 0.1))
         ScrollView {
             VStack {
-                ForEach(texts.indices){ index in
+                ForEach(texts.indices, id: \.self){ index in
                     Text(texts[index]).font(.title).bold().foregroundColor(Color.white).frame(maxWidth: .infinity, alignment: .leading).padding(.horizontal)
                     switch index {
                     case 0:
@@ -159,9 +159,7 @@ struct ContentView: View {
             .stroke(Color.white)
             .xAxisLabelColor(Color.yellow)
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
-            .spacing(50)
             .enableLegend(true, style: LegendStyle(labelColor: Color.white))
-            .fromZero(false)
             .padding()
     }
     
@@ -173,10 +171,8 @@ struct ContentView: View {
             .fill(fill)
             .stroke(Color.white)
             .xAxisLabelColor(Color.yellow)
-            .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, formatter: PercentFormat()))
-            .spacing(50)
+            .outerReferenceLine(style: ReferenceLineStyle(axisColor: .white, axisWidth: 5, axisLabelColor: .red, formatter: PercentFormat()))
             .enableLegend(true, style: LegendStyle(labelColor: Color.white))
-            .fromZero(false)
             .padding()
     }
     
@@ -228,7 +224,7 @@ struct ContentView: View {
     
     @ViewBuilder
     var radar: some View {
-        let fill = ["用户 A": g6, "用户 B": g7]
+        let fill = ["User A": g6, "User B": g7]
         AxisView(style: .radar, data: values3)
             .fill(fill)
             .xAxisLabelColor(Color.yellow)
@@ -245,7 +241,7 @@ struct ContentView: View {
         AxisView(style: .scatter, data: values4)
             .fill(fill)
             .stroke(fill)
-            .spacing(10)
+            .spacing(5)
             .xAxisLabelColor(Color.yellow)
             .enableLegend(true, style: LegendStyle(labelColor: Color.white))
             .referenceLine(style: ReferenceLineStyle(axisColor: Color.yellow, axisLabelColor: Color.yellow))
