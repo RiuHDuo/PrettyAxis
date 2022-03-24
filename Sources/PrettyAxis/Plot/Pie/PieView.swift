@@ -35,10 +35,8 @@ struct PieView: View {
         let padding: CGFloat = style.enableOuterReferenceLine ? 20 : 0
         return GeometryReader{ reader in
             let r = min(reader.size.width, reader.size.height) / 2  - padding
-            let center = CGPoint(x: reader.size.width / 2, y: reader.size.height / 2)
-
             ZStack{
-                ForEach(angles.indices){ index in
+                ForEach(angles.indices, id: \.self){ index in
                     let ang2 = angles[index]
                     if let fill = style.fill[self.plot.xAxisLabels[index]]{
                         if style.innerRadiusPercent < 1 {
@@ -49,7 +47,7 @@ struct PieView: View {
                                 .fill(fill)
                         }
                     }
-
+                    
                     if style.showReferenceLine{
                         let angle = Angle(degrees: (ang2.0 + ang2.1) / 2)
                         if style.innerRadiusPercent < 1 {
@@ -69,11 +67,11 @@ struct PieView: View {
                     }
                 }
                 .padding(padding)
+                .clipShape(PieSlice(radius: r, startAngle: .degrees(0), endAngle: .degrees(animated ? 360: 0)))
                 if self.style.enableOuterReferenceLine {
                     outerReferenceView(radius: r)
                 }
             }
-            .clipShape(PieSlice(radius: r, startAngle: .degrees(0), endAngle: .degrees(animated ? 360: 0)))
         }
         .onAppear(){
             withAnimation {
