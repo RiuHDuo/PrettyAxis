@@ -213,6 +213,7 @@ AxisView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
 ```
 
 Result:
+
 ![](img/doughnut.png)
 
 
