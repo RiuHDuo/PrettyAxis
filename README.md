@@ -70,11 +70,9 @@ If render `scatter` , the data must return  string type for `x` value of `Axisab
 
 Result:
 
-<img src="img/bar.png" alt="image-20220324152738271" style="zoom:100%;" align='left'/>
+![](img/bar.png)
 
-
-
-### Group Bar 
+### Group Bar
 
 ```swift
 let colors2 = [Color(hue: 191 / 360.0, saturation: 0.91, brightness: 0.92), Color(hue: 280 / 360.0, saturation: 0.52, brightness: 0.93), Color(hue: 356 / 360.0, saturation: 0.68, brightness: 0.96)]
@@ -102,9 +100,7 @@ AxisView(style: .bar, data: values2)
 
 Result:
 
-<img src="img/group_bar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
-
-
+![](img/group_bar.png)
 
 ### Line
 
@@ -135,11 +131,8 @@ AxisView(style: .line, data: values2)
   .padding()
 ```
 
-Result
-
-<img src="img/line.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
-
-
+Result:
+![](img/line.png)
 
 ### Radar
 
@@ -157,8 +150,7 @@ AxisView(style: .radar, data: values3)
 
 Result
 
-<img src="img/radar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
-
+![](img/radar.png)
 
 
 ### Scatter
@@ -177,7 +169,7 @@ AxisView(style: .scatter, data: values4)
 
 Result
 
-<img src="img/scatter.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+![](img/scatter.png)
 
 
 
@@ -204,7 +196,7 @@ AxisView(style: .pie, data: values5)
 
 Result：
 
-<img src="img/pie.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+![](img/pie.png)
 
 
 
@@ -221,8 +213,7 @@ AxisView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
 ```
 
 Result:
-
-<img src="img/doughnut.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+![](img/doughnut.png)
 
 
 
