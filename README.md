@@ -72,6 +72,8 @@ Result:
 
 <img src="img/bar.png" alt="image-20220324152738271" style="zoom:100%;" align='left'/>
 
+
+
 ### Group Bar 
 
 ```swift
@@ -100,7 +102,9 @@ AxisView(style: .bar, data: values2)
 
 Result:
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/group_bar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/group_bar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ### Line
 
@@ -133,7 +137,9 @@ AxisView(style: .line, data: values2)
 
 Result
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/line.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/line.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ### Radar
 
@@ -151,7 +157,9 @@ AxisView(style: .radar, data: values3)
 
 Result
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/radar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/radar.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ### Scatter
 
@@ -169,7 +177,9 @@ AxisView(style: .scatter, data: values4)
 
 Result
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/scatter.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/scatter.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ### Pie
 
@@ -194,7 +204,9 @@ AxisView(style: .pie, data: values5)
 
 Result：
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/pie.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/pie.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ### Doughnut
 
@@ -210,7 +222,9 @@ AxisView(style: .doughnut(innerRadiusPercent: 0.6), data: values5)
 
 Result:
 
-<img src="/Users/riuhduo/Documents/GitHub/PrettyAxis/img/doughnut.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+<img src="img/doughnut.png" alt="image-20220324153650884" style="zoom:100%;" align="left"/>
+
+
 
 ## License
 
