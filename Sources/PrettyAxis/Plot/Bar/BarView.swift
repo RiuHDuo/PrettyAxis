@@ -43,10 +43,10 @@ struct BarView: View{
         return GeometryReader { reader in
             let size = reader.size
             HStack(spacing: 0){
-                ForEach(plot.xAxisLabels.indices){ index in
+                ForEach(plot.xAxisLabels.indices, id: \.self){ index in
                     let v = data[plot.xAxisLabels[index]]!
                     HStack(spacing: 0){
-                        ForEach(v.indices){ i in
+                        ForEach(v.indices, id: \.self){ i in
                             let value = v[i]
                             let h = (value.0.yValue - min) / range
                             VStack(alignment: .leading, spacing: 0) {

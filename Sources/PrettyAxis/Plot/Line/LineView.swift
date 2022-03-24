@@ -44,7 +44,7 @@ struct LineView: View{
             let size = reader.size
             VStack(alignment: .leading) {
                 ZStack {
-                    ForEach(keys.indices) { i in
+                    ForEach(keys.indices, id: \.self) { i in
                         let key = keys[i]
                         let data = plot.renderData[key]!
                         let stroke = style.color[key] ?? AnyShapeStyle(Color.red)

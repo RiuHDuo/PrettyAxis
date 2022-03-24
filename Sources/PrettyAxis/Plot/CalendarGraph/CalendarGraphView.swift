@@ -21,7 +21,7 @@ struct CalendarGraphView: View {
                             .font(style.legendStyle.font)
                             .foregroundColor(style.legendStyle.labelColor)
                         let r = min(style.legendStyle.iconSize * 0.2, 4)
-                        ForEach((0 ..< 5).indices){ index in
+                        ForEach((0 ..< 5).indices, id: \.self){ index in
                             RoundedRectangle(cornerRadius: r)
                                 .strokeBorder(Color.gray)
                                 .background(style.colorable(0.2 * Double(index)))
@@ -57,7 +57,7 @@ struct CalendarGraphView: View {
     @ViewBuilder
     var yAxisView: some View{
         VStack(spacing: 0){
-            ForEach(plot.yAxisLabels.indices){ index in
+            ForEach(plot.yAxisLabels.indices, id: \.self){ index in
                 Text(plot.yAxisLabels[index])
                     .font(style.referenceLineStyle.yAxisLabelFont)
                     .foregroundColor(style.referenceLineStyle.axisLabelColor)
@@ -72,10 +72,10 @@ struct CalendarGraphView: View {
     var content: some View {
         let range = plot.range.max - plot.range.min
         HStack(spacing: style.spacing){
-            ForEach(plot.xAxisLabels.indices) { index in
+            ForEach(plot.xAxisLabels.indices, id: \.self) { index in
                 let x = plot.xAxisLabels[index]
                 VStack(spacing: style.spacing){
-                    ForEach(plot.yAxisLabels.indices){ index in
+                    ForEach(plot.yAxisLabels.indices, id: \.self){ index in
                         let y = plot.yAxisLabels[index]
                         let data = plot.renderData[x]![y]
                         let v = CGFloat(data?.zValue ?? 0) / CGFloat(range)

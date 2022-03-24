@@ -75,7 +75,7 @@ struct ScatterView: View{
             let size = reader.size
             let yunit = size.height / (plot.range.max - minY)
             ZStack{
-                ForEach(keys.indices){ i in
+                ForEach(keys.indices, id: \.self){ i in
                     let key = keys[i]
                     if let fill = style.fill[key]{
                         ScatterShape(renderData: plot.renderData[key]!, yunit: yunit, xunit: xunit, zunit: zunit, radius: style.radius, xOffset: plot.xRange.min, yOffset: minY)

@@ -64,7 +64,7 @@ struct RadarView: View{
             }
             .overlay(
                 ZStack {
-                    ForEach(self.plot.xAxisLabels.indices) { index in
+                    ForEach(self.plot.xAxisLabels.indices, id: \.self) { index in
                         VStack {
                             Text(self.plot.xAxisLabels[index])
                                 .font(style.referenceLineStyle.xAxisLabelFont)

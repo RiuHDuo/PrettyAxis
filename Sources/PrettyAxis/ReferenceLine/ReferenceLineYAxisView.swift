@@ -14,7 +14,7 @@ struct ReferenceLineYAxisView: View {
     var body: some View {
         let values = [range.max, (range.max - range.min) / 3 * 2, (range.max - range.min) / 3, range.min]
         VStack{
-            ForEach(values.indices){ index in
+            ForEach(values.indices, id: \.self){ index in
                 Spacer()
                 Text(style.formatter.format(value: values[index]))
                     .font(style.yAxisLabelFont)
