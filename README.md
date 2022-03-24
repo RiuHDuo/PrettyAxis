@@ -132,6 +132,7 @@ AxisView(style: .line, data: values2)
 ```
 
 Result:
+
 ![](img/line.png)
 
 ### Radar
