@@ -1220,7 +1220,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = "Prieview\\ Content/TestChartData.swift Prieview\\ Content Prieview\\ Content/ChartData.json Prieview\\ Content/PreviewData.swift";
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1252,7 +1251,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = "Prieview\\ Content/TestChartData.swift Prieview\\ Content Prieview\\ Content/ChartData.json Prieview\\ Content/PreviewData.swift";
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
