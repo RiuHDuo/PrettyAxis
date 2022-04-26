@@ -84,8 +84,21 @@ public struct LinePlot: AxisPlot{
     
     var lineRange: (min: Double, max: Double){
         get{
+            let scaleFactor = 1.05
             if self.range.min > 0 && self.style.isFromZero {
-                return (min: 0.0, max: self.range.max * 1.2)
+                return (min: 0.0, max: self.range.max * scaleFactor)
+            }
+            
+            if self.range.min > 0 {
+                return (min: self.range.min, max: self.range.max * scaleFactor)
+            }
+            
+            if self.range.max < 0 && self.style.isFromZero{
+                return (min: self.range.min * scaleFactor, max: 0)
+            }
+            
+            if self.range.max < 0 {
+                return (min: self.range.min * scaleFactor, max: self.range.max)
             }
             
             let v = max(abs(range.min),abs(range.max))
