@@ -19,7 +19,7 @@ struct Line: Shape {
     var range: (min: Double, max: Double)
     var lineType: LineType
     var isFilled: Bool
-    var spacing: CGFloat?
+    var spacing: CGFloat
     var animatableData: CGFloat
     
     func path(in rect: CGRect) -> Path {
@@ -29,14 +29,13 @@ struct Line: Shape {
         let unit = rect.height / (range.max - range.min)
         let pp = self.points
         
-        let spacing = self.spacing ?? (rect.width / CGFloat(self.points.count - 1))
+        let spacing = self.spacing
         var points = (0 ..< pp.count).map({ i -> CGPoint in
             let axisData = pp[i]
             return CGPoint(x:CGFloat(i) * spacing, y: rect.size.height - (axisData.y -  CGFloat(range.min)) * unit)
         })
         points.insert(CGPoint(x: 0, y: points.first?.y ?? 0), at: 0)
 
-        
         
         return Path { p in
             p.move(to: CGPoint(x: points.first?.x ?? 0, y: points.first?.y ?? 0))

@@ -21,11 +21,11 @@ public protocol AxisPlot: View{
 
 
 
-extension AxisView {
+public extension AxisView {
     
     /// Hide reference line
     ///
-    ///- Returns: A AxisView which hide the reference line.
+    ///- Returns: An AxisView which hide the reference line.
     func hideReferenceLine() -> Self{
         var copy = self
         copy.plot.hideReferenceLine = true
@@ -37,7 +37,7 @@ extension AxisView {
     ///- Parameters:
     ///     - style: A ReferenceLineStyle that AxisView uses to draw the reference line.
     ///
-    ///- Returns: A AxisView drawn reference line with the specified style.
+    ///- Returns: An AxisView drawn reference line with the specified style.
     func referenceLineStyle(_ style: ReferenceLineStyle) -> Self{
         var copy = self
         copy.plot.axisStyle.referenceLineStyle = style

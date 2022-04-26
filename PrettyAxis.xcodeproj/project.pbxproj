@@ -15,6 +15,8 @@
 		583168862817A08D0075EAD0 /* ValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583168842817A0680075EAD0 /* ValueFormatter.swift */; };
 		583168882817C5D00075EAD0 /* AxisStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583168872817C5D00075EAD0 /* AxisStyle.swift */; };
 		583168892817C5D00075EAD0 /* AxisStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583168872817C5D00075EAD0 /* AxisStyle.swift */; };
+		5831688F2817E93F0075EAD0 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831688E2817E93F0075EAD0 /* ScrollableModifier.swift */; };
+		583168902817E93F0075EAD0 /* ScrollableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5831688E2817E93F0075EAD0 /* ScrollableModifier.swift */; };
 		583867052815296800A1B402 /* PrettyAxis.docc in Sources */ = {isa = PBXBuildFile; fileRef = 583867042815296800A1B402 /* PrettyAxis.docc */; };
 		5838670B2815296800A1B402 /* PrettyAxis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583867002815296800A1B402 /* PrettyAxis.framework */; };
 		583867102815296800A1B402 /* PrettyAxisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838670F2815296800A1B402 /* PrettyAxisTests.swift */; };
@@ -121,6 +123,7 @@
 		58316881281785340075EAD0 /* ReferenceLineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineModifier.swift; sourceTree = "<group>"; };
 		583168842817A0680075EAD0 /* ValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueFormatter.swift; sourceTree = "<group>"; };
 		583168872817C5D00075EAD0 /* AxisStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisStyle.swift; sourceTree = "<group>"; };
+		5831688E2817E93F0075EAD0 /* ScrollableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableModifier.swift; sourceTree = "<group>"; };
 		583867002815296800A1B402 /* PrettyAxis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyAxis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		583867032815296800A1B402 /* PrettyAxis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrettyAxis.h; sourceTree = "<group>"; };
 		583867042815296800A1B402 /* PrettyAxis.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PrettyAxis.docc; sourceTree = "<group>"; };
@@ -211,6 +214,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5831688D2817E92D0075EAD0 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				5831688E2817E93F0075EAD0 /* ScrollableModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
 		583866F62815296800A1B402 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +252,7 @@
 		583867022815296800A1B402 /* PrettyAxis */ = {
 			isa = PBXGroup;
 			children = (
+				5831688D2817E92D0075EAD0 /* Modifier */,
 				5838672D28153BCB00A1B402 /* Legend */,
 				5838672E28153BD800A1B402 /* ReferenceLine */,
 				5838672528153A0D00A1B402 /* Line */,
@@ -622,6 +634,7 @@
 				583168882817C5D00075EAD0 /* AxisStyle.swift in Sources */,
 				5838672728153A1900A1B402 /* LinePlot.swift in Sources */,
 				583168852817A0680075EAD0 /* ValueFormatter.swift in Sources */,
+				5831688F2817E93F0075EAD0 /* ScrollableModifier.swift in Sources */,
 				58F72C26281642E100429712 /* LineDataProtocol.swift in Sources */,
 				583867052815296800A1B402 /* PrettyAxis.docc in Sources */,
 				58386730281553DB00A1B402 /* ReferenceLineStyle.swift in Sources */,
@@ -655,6 +668,7 @@
 				58316880281783AC0075EAD0 /* ReferenceLine.swift in Sources */,
 				58C97D9E2816747600285A2E /* LineDataProtocol.swift in Sources */,
 				58C97D9F2816747A00285A2E /* ReferenceLineStyle.swift in Sources */,
+				583168902817E93F0075EAD0 /* ScrollableModifier.swift in Sources */,
 				58C97DA02816747D00285A2E /* LegendModififer.swift in Sources */,
 				583168892817C5D00075EAD0 /* AxisStyle.swift in Sources */,
 				58C97D992816747200285A2E /* Groupable.swift in Sources */,

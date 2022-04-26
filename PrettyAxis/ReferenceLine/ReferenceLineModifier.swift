@@ -25,8 +25,8 @@ struct ReferenceLineModifier: ViewModifier{
                 ReferenceLine(labels: self.labels, spacing: self.spacing, range: range, style: style)
             }
             content
-                .padding(.leading, self.style.leadingPadding)
-                .padding(.bottom, self.style.xAxisHeight)
+                .padding(.leading, isHidden ? 0: self.style.leadingPadding)
+                .padding(.bottom, isHidden ? 0: self.style.xAxisHeight)
         }
     }
 }
