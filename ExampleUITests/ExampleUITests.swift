@@ -2,7 +2,7 @@
 //  ExampleUITests.swift
 //  ExampleUITests
 //
-//  Created by RiuHDuo on 2021/11/15.
+//  Created by RiuHDuo on 2022/4/25.
 //
 
 import XCTest
@@ -27,7 +27,6 @@ class ExampleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
