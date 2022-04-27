@@ -8,4 +8,4 @@
 import Foundation
 
 
-public protocol LineDataProvider: YAxisDataProvider, XAxisDataProvider where X == String, Y == Double {}
+public protocol LineDataProvider: YAxisDataProvider where Y == Double {}

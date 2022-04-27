@@ -22,7 +22,7 @@ public struct LinePlot: AxisPlot{
     }
     
     /// Data of line
-    let lineData: [(x: String, y: Double)]
+    let lineData: [String: (values: [Double], style: AxisPaintStyle)]
     
     /// The Y value range
     let range:(min: Double, max: Double)
@@ -33,68 +33,79 @@ public struct LinePlot: AxisPlot{
     /// Style of Line
     var style: LineStyle = LineStyle()
     
+    var maxCount: Int = 0
+    
+    let xAxisLabels: [String]
+    
     @State var animatable: CGFloat = 0
     
-    @State var markPos: CGPoint? = nil
+    @State var markPos: [String: (CGPoint, Double)]? = nil
     
-    var tapCallback: ((String, Double) -> Void)? = nil
+    
+    var tapCallback: (([String: Double]) -> Void)? = nil
     var markView: AnyView?
     
-    init<T>(provider: [T], type: LineType) where T: LineDataProvider {
-        var range:(min: Double, max: Double) = (min: provider.first?.y ?? 0, max: provider.first?.y ?? 0)
-        var lineData = [(x: String, y: Double)]()
-        provider.forEach { provider in
-            if provider.y < range.min {
-                range.min = provider.y
+    init<T>(entities: [AxisEntity<T>], xAxisLabels: [String], type: LineType) where T: LineDataProvider {
+        var data = [String: (values: [Double], style: AxisPaintStyle)]()
+        var rr:(min: Double, max: Double)? = nil
+        var maxCount = 0
+        entities.forEach { entity in
+            var range:(min: Double, max: Double) = (min: entity.dataProvider.first?.y ?? 0, max: entity.dataProvider.first?.y ?? 0)
+            var lineData = [Double]()
+            entity.dataProvider.forEach { provider in
+                if provider.y < range.min {
+                    range.min = provider.y
+                }
+                
+                if provider.y > range.max{
+                    range.max = provider.y
+                }
+                lineData.append(provider.y)
             }
-            
-            if provider.y > range.max{
-                range.max = provider.y
+            if let r = rr {
+                rr?.min = min(r.min, range.min)
+                rr?.max = max(r.max, range.max)
+            }else{
+                rr = range
             }
-            lineData.append((x: provider.x, y: provider.y))
+            data[entity.name] = (lineData, entity.paintStyle)
+            maxCount = max(maxCount, lineData.count)
         }
         
-        self.lineData = lineData
-        self.range = range
+        self.lineData = data
+        self.range = rr!
         self.type = type
+        self.maxCount = maxCount
+        self.xAxisLabels = xAxisLabels
     }
     
     public var body: some View{
-        let yWidth = self.hideReferenceLine ? 0: self.style.referenceLineStyle.yAxisWidth
-        lineView
-            .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.lineData.map({$0.x}), spacing: self.style.spacing, range: self.lineRange, style: self.style.referenceLineStyle))
-            .modifier(LegendModifier(isHidden: false))
-            .frame(width: self.style.spacing == nil ? nil : self.style.spacing! * CGFloat(self.lineData.count - 1) + yWidth)
-            .modifier(ScrollableModifier())
-            .onAppear(){
-                guard let animation = self.style.animation else{
-                    return
+        let yWidth = self.hideReferenceLine ? 0: self.style.referenceLineStyle.leadingPadding
+        GeometryReader { r in
+            let spacing = self.style.spacing ?? ((r.size.width - yWidth - 8) / CGFloat(maxCount - 1))
+            lineView(spacing: spacing)
+                .frame(width: spacing * CGFloat(maxCount - 1))
+                .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.xAxisLabels, spacing: spacing, range: self.lineRange, style: self.style.referenceLineStyle))
+                .modifier(LegendModifier(isHidden: false))
+                .frame(width: self.style.spacing == nil ? nil : self.style.spacing! * CGFloat(maxCount - 1) + yWidth, alignment: .leading)
+                .modifier(ScrollableModifier())
+                .onAppear(){
+                    guard let animation = self.style.animation else{
+                        return
+                    }
+                    withAnimation(animation) {
+                        self.animatable = 1
+                    }
                 }
-                withAnimation(animation) {
-                    self.animatable = 1
-                }
-            }
+        }
     }
     
     @ViewBuilder
-    var lineView: some View{
+    func lineView(spacing: CGFloat) -> some View{
         GeometryReader { r in
-            let spacing = self.style.spacing ?? (r.size.width / CGFloat(self.lineData.count - 1))
-            ZStack{
-                if let fill = self.style.fill{
-                    Line(points: self.lineData, range: self.lineRange, lineType: self.type, isFilled: true, spacing: spacing,  animatableData: 1)
-                        .fill(fill)
-                        .clipShape(Rectangle().scale(x: self.animatable, y: 1, anchor: UnitPoint.leading))
-                }
-                
-                Line(points: self.lineData, range: self.lineRange, lineType: self.type, isFilled: false, spacing: spacing, animatableData: self.animatable)
-                    .stroke(self.style.stroke, style: StrokeStyle(lineWidth: self.style.lineWidth, lineCap: .round, lineJoin: .round))
-                
-                if let pos = self.markPos, let markView = self.markView {
-                    markView
-                        .position(x: pos.x, y: pos.y)
-                    
-                }
+            ForEach(self.lineData.keys.sorted(), id: \.self){ key in
+                let data = self.lineData[key]!
+                self.lineView(key: key, lineData: data.values, spacing: spacing, paintStyle: data.style)
             }
             .gesture(DragGesture()
                 .onChanged({ value in
@@ -102,15 +113,49 @@ public struct LinePlot: AxisPlot{
                         return
                     }
                     let p =  round(value.location.x / spacing)
-                    if p >= 0 && Int(p) < self.lineData.count {
+                    if p >= 0 {
                         let unit = (r.size.height) / (lineRange.max - lineRange.min)
-                        let axisData = self.lineData[Int(p)]
-                        let p = CGPoint(x: p * spacing, y: r.size.height - (axisData.y -  CGFloat(lineRange.min)) * unit)
-                        self.markPos = p
-                        self.tapCallback?(axisData.x, axisData.y)
+                        var marks = [String: (CGPoint, Double)]()
+                        var values = [String: Double]()
+                        self.lineData.forEach { data in
+                            if Int(p) < data.value.values.count {
+                                let axisData = data.value.values[Int(p)]
+                                let p = CGPoint(x: p * spacing, y: r.size.height - (axisData -  CGFloat(lineRange.min)) * unit)
+                                marks[data.key] = (p, axisData)
+                                values[data.key] = axisData
+                            }
+                        }
+                        self.markPos = marks
+                        self.tapCallback?(values)
                     }
                 })
             )
+        }
+    }
+    
+    func lineView(key: String, lineData:  [Double], spacing: CGFloat, paintStyle: AxisPaintStyle) -> some View {
+        return ZStack{
+            if let fill = paintStyle.fill{
+                Line(points: lineData, range: self.lineRange, lineType: self.type, isFilled: true, spacing: spacing,  animatableData: 1)
+                    .fill(fill)
+                    .clipShape(Rectangle().scale(x: self.animatable, y: 1, anchor: UnitPoint.leading))
+            }
+            
+            Line(points: lineData, range: self.lineRange, lineType: self.type, isFilled: false, spacing: spacing, animatableData: self.animatable)
+                .stroke(paintStyle.stroke, style: StrokeStyle(lineWidth: self.style.lineWidth, lineCap: .round, lineJoin: .round))
+            
+            if let pos = self.markPos?[key], let markView = self.markView {
+                VStack(spacing:0) {
+                    Text(self.axisStyle.markLabelStyle.formatter.format(value: pos.1))
+                        .font(self.axisStyle.markLabelStyle.font)
+                        .foregroundColor(self.axisStyle.markLabelStyle.color)
+                    markView
+                    Text("")
+                        .font(self.axisStyle.markLabelStyle.font)
+                        .foregroundColor(self.axisStyle.markLabelStyle.color)
+                }
+                .position(x: pos.0.x, y: pos.0.y)
+            }
         }
     }
     
@@ -133,7 +178,7 @@ public struct LinePlot: AxisPlot{
                 return (min: self.range.min * scaleFactor, max: self.range.max)
             }
             
-            let v = max(abs(range.min),abs(range.max))
+            let v = max(abs(range.min * scaleFactor),abs(range.max * scaleFactor))
             
             return (min: -v, max: v)
         }
@@ -146,8 +191,8 @@ public struct LinePlot: AxisPlot{
 
 
 public extension AxisPlot where Self == LinePlot {
-    static func line<D: LineDataProvider>(provider: [D], type: LineType = .smooth(curviness: 0.5)) -> Self{
-        return .init(provider: provider, type: type)
+    static func line<D: LineDataProvider>(entities: [AxisEntity<D>], xAxisLabels: [String] = [], type: LineType = .smooth(curviness: 0.5)) -> Self{
+        return .init(entities: entities, xAxisLabels: xAxisLabels, type: type)
     }
 }
 
@@ -183,22 +228,6 @@ public extension AxisView where Plot == LinePlot{
         return copy
     }
     
-    func stroke<S: ShapeStyle>(_ stroke: S) -> Self{
-        var copy = self
-        var plot = copy.plot
-        plot.style.stroke = AnyShapeStyle(stroke)
-        copy.plot = plot
-        return copy
-    }
-    
-    func fill<S: ShapeStyle>(_ fill: S) -> Self{
-        var copy = self
-        var plot = copy.plot
-        plot.style.fill = AnyShapeStyle(fill)
-        copy.plot = plot
-        return copy
-    }
-    
     func appearAnimation(_ animation: Animation) -> Self{
         var copy = self
         var plot = copy.plot
@@ -207,11 +236,12 @@ public extension AxisView where Plot == LinePlot{
         return copy
     }
     
-    func onTap<V: View>(with mark: V, callback: @escaping (String, Double) -> Void) -> Self{
+    func onTap<V: View>(with mark: V, markLabelStyle: MarkLabelStyle = .default, callback:  (([String: Double]) -> Void)? = nil) -> Self{
         var copy = self
         var plot = copy.plot
         plot.markView = AnyView(mark)
         plot.tapCallback = callback
+        plot.axisStyle.markLabelStyle = markLabelStyle
         copy.plot = plot
         return copy
     }

@@ -15,7 +15,7 @@ public enum LineType{
 }
 
 struct Line: Shape {
-    var points: [(x: String, y: Double)]
+    var points: [Double]
     var range: (min: Double, max: Double)
     var lineType: LineType
     var isFilled: Bool
@@ -32,7 +32,7 @@ struct Line: Shape {
         let spacing = self.spacing
         var points = (0 ..< pp.count).map({ i -> CGPoint in
             let axisData = pp[i]
-            return CGPoint(x:CGFloat(i) * spacing, y: rect.size.height - (axisData.y -  CGFloat(range.min)) * unit)
+            return CGPoint(x:CGFloat(i) * spacing, y: rect.size.height - (axisData -  CGFloat(range.min)) * unit)
         })
         points.insert(CGPoint(x: 0, y: points.first?.y ?? 0), at: 0)
 

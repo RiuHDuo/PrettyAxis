@@ -14,9 +14,7 @@ struct ReferenceLineModifier: ViewModifier{
     var spacing: CGFloat?
     var range:(min: Double, max: Double)
     var style: ReferenceLineStyle
-    
-    let paddingBottom: CGFloat = 32
-    let paddingLeading: CGFloat = 48
+
     
     
     func body(content: Content) -> some View{
