@@ -271,6 +271,7 @@
 		583867022815296800A1B402 /* PrettyAxis */ = {
 			isa = PBXGroup;
 			children = (
+				585AAC0A281A404E00D06BA1 /* Bar */,
 				58A96B7928191D98007D86A4 /* Mark */,
 				5831688D2817E92D0075EAD0 /* Modifier */,
 				5838672D28153BCB00A1B402 /* Legend */,
@@ -336,6 +337,13 @@
 				583168842817A0680075EAD0 /* ValueFormatter.swift */,
 			);
 			path = ReferenceLine;
+			sourceTree = "<group>";
+		};
+		585AAC0A281A404E00D06BA1 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bar;
 			sourceTree = "<group>";
 		};
 		58A96B7928191D98007D86A4 /* Mark */ = {

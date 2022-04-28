@@ -57,7 +57,7 @@ struct LegendModifier: ViewModifier{
         ForEach(self.data.indices, id: \.self){ index in
             let data = self.data[index]
             self.style.legendShape.fill(data.1.stroke).frame(width: self.style.legendShapeSize.width, height: self.style.legendShapeSize.height)
-            Text(data.0).foregroundColor(.blue)
+            Text(data.0).font(self.style.labelFont).foregroundColor(self.style.labelColor)
         }
     }
 }
