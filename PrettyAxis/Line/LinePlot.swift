@@ -11,6 +11,7 @@ import SwiftUI
 ///
 public struct LinePlot: AxisPlot{
     public var hideReferenceLine: Bool = false
+    public var hideLegend: Bool = false
     
     public var axisStyle: AxisStyle{
         get{
@@ -22,7 +23,7 @@ public struct LinePlot: AxisPlot{
     }
     
     /// Data of line
-    let lineData: [String: (values: [Double], style: AxisPaintStyle)]
+    let lineData: [(name: String, values: [Double], style: AxisPaintStyle)]
     
     /// The Y value range
     let range:(min: Double, max: Double)
@@ -46,7 +47,7 @@ public struct LinePlot: AxisPlot{
     var markView: AnyView?
     
     init<T>(entities: [AxisEntity<T>], xAxisLabels: [String], type: LineType) where T: LineDataProvider {
-        var data = [String: (values: [Double], style: AxisPaintStyle)]()
+        var data = [(name: String, values: [Double], style: AxisPaintStyle)]()
         var rr:(min: Double, max: Double)? = nil
         var maxCount = 0
         entities.forEach { entity in
@@ -68,7 +69,7 @@ public struct LinePlot: AxisPlot{
             }else{
                 rr = range
             }
-            data[entity.name] = (lineData, entity.paintStyle)
+            data.append((entity.name, lineData, entity.paintStyle))
             maxCount = max(maxCount, lineData.count)
         }
         
@@ -86,9 +87,9 @@ public struct LinePlot: AxisPlot{
             lineView(spacing: spacing)
                 .frame(width: spacing * CGFloat(maxCount - 1))
                 .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.xAxisLabels, spacing: spacing, range: self.lineRange, style: self.style.referenceLineStyle))
-                .modifier(LegendModifier(isHidden: false))
                 .frame(width: self.style.spacing == nil ? nil : self.style.spacing! * CGFloat(maxCount - 1) + yWidth, alignment: .leading)
                 .modifier(ScrollableModifier())
+                .modifier(LegendModifier(data: self.lineData.map({($0.name, $0.style)}), style: self.style.legendStyle, isHidden: self.hideLegend))
                 .onAppear(){
                     guard let animation = self.style.animation else{
                         return
@@ -103,9 +104,9 @@ public struct LinePlot: AxisPlot{
     @ViewBuilder
     func lineView(spacing: CGFloat) -> some View{
         GeometryReader { r in
-            ForEach(self.lineData.keys.sorted(), id: \.self){ key in
-                let data = self.lineData[key]!
-                self.lineView(key: key, lineData: data.values, spacing: spacing, paintStyle: data.style)
+            ForEach(self.lineData.indices, id: \.self){ idx in
+                let data = self.lineData[idx]
+                self.lineView(key: data.name, lineData: data.values, spacing: spacing, paintStyle: data.style)
             }
             .gesture(DragGesture()
                 .onChanged({ value in
@@ -118,11 +119,11 @@ public struct LinePlot: AxisPlot{
                         var marks = [String: (CGPoint, Double)]()
                         var values = [String: Double]()
                         self.lineData.forEach { data in
-                            if Int(p) < data.value.values.count {
-                                let axisData = data.value.values[Int(p)]
+                            if Int(p) < data.values.count {
+                                let axisData = data.values[Int(p)]
                                 let p = CGPoint(x: p * spacing, y: r.size.height - (axisData -  CGFloat(lineRange.min)) * unit)
-                                marks[data.key] = (p, axisData)
-                                values[data.key] = axisData
+                                marks[data.name] = (p, axisData)
+                                values[data.name] = axisData
                             }
                         }
                         self.markPos = marks

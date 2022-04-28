@@ -18,6 +18,10 @@ public protocol AxisStyle {
     /// The style of mark's floating label.
     ///
     var markLabelStyle: MarkLabelStyle {get set}
+    
+    /// The style of legend.
+    ///
+    var legendStyle: LegendStyle {get set}
 }
 
 
@@ -26,6 +30,7 @@ extension AxisStyle {
         var copied = s
         copied.referenceLineStyle = self.referenceLineStyle
         copied.markLabelStyle = self.markLabelStyle
+        copied.legendStyle = self.legendStyle
         return copied
     }
 }

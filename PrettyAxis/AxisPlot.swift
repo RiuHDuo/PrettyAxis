@@ -14,9 +14,13 @@ public protocol AxisPlot: View{
     ///If value is true, will no render reference line
     var hideReferenceLine: Bool {get set}
     
+    var hideLegend: Bool {get set}
+    
     /// The style of axis
     ///
     var axisStyle: AxisStyle { get set }
+    
+    
 }
 
 
@@ -44,4 +48,16 @@ public extension AxisView {
         return copy
     }
     
+    func hideLegend() -> Self{
+        var copy = self
+        copy.plot.hideLegend = true
+        return copy
+    }
+    
+    
+    func legendStyle(_ style: LegendStyle) -> Self {
+        var copy = self
+        copy.plot.axisStyle.legendStyle = style
+        return copy
+    }
 }

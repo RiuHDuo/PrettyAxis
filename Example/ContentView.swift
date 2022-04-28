@@ -21,6 +21,7 @@ struct ContentView: View {
                 .padding()
             AxisView(plot: .line(entities: self.entities, xAxisLabels: value1.map({$0.x})))
                 .fromZeroValue()
+                .legendStyle(LegendStyle(legendShape: Circle()))
                 .appearAnimation(.linear(duration: 5))
                 .onTap(with: Path.star, callback: { values in
                     var str = ""

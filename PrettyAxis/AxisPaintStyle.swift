@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 public struct AxisPaintStyle{
     var stroke: AnyShapeStyle
     var fill: AnyShapeStyle?

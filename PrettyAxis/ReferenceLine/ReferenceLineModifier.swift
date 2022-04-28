@@ -24,7 +24,7 @@ struct ReferenceLineModifier: ViewModifier{
             }
             content
                 .padding(.leading, isHidden ? 0: self.style.leadingPadding)
-                .padding(.bottom, isHidden ? 0: self.style.xAxisHeight)
+                .padding(.bottom, isHidden ? 0: self.style.bottomPadding)
         }
     }
 }

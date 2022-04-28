@@ -29,9 +29,13 @@
 		5838672428152B0400A1B402 /* Groupable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672328152B0400A1B402 /* Groupable.swift */; };
 		5838672728153A1900A1B402 /* LinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672628153A1900A1B402 /* LinePlot.swift */; };
 		58386730281553DB00A1B402 /* ReferenceLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672F281553DB00A1B402 /* ReferenceLineStyle.swift */; };
+		585AAC08281A297100D06BA1 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC07281A297100D06BA1 /* LegendStyle.swift */; };
+		585AAC09281A297100D06BA1 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC07281A297100D06BA1 /* LegendStyle.swift */; };
 		58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7E28192126007D86A4 /* StarPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7D28192126007D86A4 /* StarPath.swift */; };
+		58A96B8028192914007D86A4 /* LegendPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7F28192914007D86A4 /* LegendPosition.swift */; };
+		58A96B81281929B0007D86A4 /* LegendPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7F28192914007D86A4 /* LegendPosition.swift */; };
 		58B38EEA2818D23300F39F07 /* AxisEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B38EE92818D23300F39F07 /* AxisEntity.swift */; };
 		58B38EEC2818D28D00F39F07 /* AxisPaintStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B38EEB2818D28D00F39F07 /* AxisPaintStyle.swift */; };
 		58B38EED2818D3B000F39F07 /* AxisEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B38EE92818D23300F39F07 /* AxisEntity.swift */; };
@@ -145,8 +149,10 @@
 		5838672328152B0400A1B402 /* Groupable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groupable.swift; sourceTree = "<group>"; };
 		5838672628153A1900A1B402 /* LinePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePlot.swift; sourceTree = "<group>"; };
 		5838672F281553DB00A1B402 /* ReferenceLineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineStyle.swift; sourceTree = "<group>"; };
+		585AAC07281A297100D06BA1 /* LegendStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendStyle.swift; sourceTree = "<group>"; };
 		58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkLabelStyle.swift; sourceTree = "<group>"; };
 		58A96B7D28192126007D86A4 /* StarPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPath.swift; sourceTree = "<group>"; };
+		58A96B7F28192914007D86A4 /* LegendPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendPosition.swift; sourceTree = "<group>"; };
 		58B38EE92818D23300F39F07 /* AxisEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisEntity.swift; sourceTree = "<group>"; };
 		58B38EEB2818D28D00F39F07 /* AxisPaintStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisPaintStyle.swift; sourceTree = "<group>"; };
 		58C97D772816745200285A2E /* PrettyAxis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrettyAxis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				58F72C272816454C00429712 /* LegendModififer.swift */,
+				58A96B7F28192914007D86A4 /* LegendPosition.swift */,
+				585AAC07281A297100D06BA1 /* LegendStyle.swift */,
 			);
 			path = Legend;
 			sourceTree = "<group>";
@@ -667,6 +675,8 @@
 				583867052815296800A1B402 /* PrettyAxis.docc in Sources */,
 				58386730281553DB00A1B402 /* ReferenceLineStyle.swift in Sources */,
 				58F72C2C28164CEF00429712 /* LineStyle.swift in Sources */,
+				58A96B8028192914007D86A4 /* LegendPosition.swift in Sources */,
+				585AAC08281A297100D06BA1 /* LegendStyle.swift in Sources */,
 				5838671D281529E400A1B402 /* AxisPlot.swift in Sources */,
 				5838672228152AD000A1B402 /* YAxisDataProvider.swift in Sources */,
 				58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */,
@@ -696,7 +706,9 @@
 				58B38EED2818D3B000F39F07 /* AxisEntity.swift in Sources */,
 				58C97D9D2816747600285A2E /* LinePlot.swift in Sources */,
 				58316883281785500075EAD0 /* ReferenceLineModifier.swift in Sources */,
+				58A96B81281929B0007D86A4 /* LegendPosition.swift in Sources */,
 				58B38EEE2818D3B400F39F07 /* AxisPaintStyle.swift in Sources */,
+				585AAC09281A297100D06BA1 /* LegendStyle.swift in Sources */,
 				58316880281783AC0075EAD0 /* ReferenceLine.swift in Sources */,
 				58C97D9E2816747600285A2E /* LineDataProtocol.swift in Sources */,
 				58C97D9F2816747A00285A2E /* ReferenceLineStyle.swift in Sources */,

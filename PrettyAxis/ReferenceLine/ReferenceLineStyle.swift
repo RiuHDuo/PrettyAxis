@@ -30,7 +30,7 @@ public struct ReferenceLineStyle{
     /// Color of x-axis label
     public var yAxisLabelColor: Color = .gray
     
-    /// Hide the x-axis label
+    /// Hide the y-axis label
     public var hideYAxisLabel: Bool = false
 
     /// Formatter of y axis value
@@ -50,6 +50,9 @@ public struct ReferenceLineStyle{
     
     /// The width of y axis line
     public var yAxisLineWidth: CGFloat = 1
+    
+    /// The hide reference line
+    public var hideReferenceLine = false
 }
 
 
@@ -62,6 +65,10 @@ public extension ReferenceLineStyle {
 
 extension ReferenceLineStyle{
     var leadingPadding: CGFloat{
-        self.yAxisWidth + self.yAxisLineWidth
+        hideYAxisLabel ? 0 : self.yAxisWidth + self.yAxisLineWidth
+    }
+    
+    var bottomPadding: CGFloat {
+        hideXAxisLabel ? 8 : self.xAxisHeight
     }
 }

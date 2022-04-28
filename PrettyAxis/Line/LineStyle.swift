@@ -35,4 +35,6 @@ struct LineStyle: AxisStyle{
     
     /// The style of mark floating label
     var markLabelStyle: MarkLabelStyle = .default
+    
+    var legendStyle: LegendStyle = .default
 }
