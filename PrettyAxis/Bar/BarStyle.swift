@@ -31,5 +31,8 @@ struct BarStyle: AxisStyle{
     
     /// The value x axis start.
     var xAxisAtValue: Double?
+    
+    
+    var animation: Animation? = .linear
 }
 

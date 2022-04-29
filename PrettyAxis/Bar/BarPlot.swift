@@ -38,8 +38,6 @@ public struct BarPlot: AxisPlot{
     
     var barRange: (min: Double, max: Double) = (0, 0)
     
-    @State var animatable: CGFloat = 0
-    
     public var body: some View{
         let yWidth = self.hideReferenceLine ? 0: self.style.referenceLineStyle.leadingPadding
         GeometryReader { r in
@@ -52,16 +50,11 @@ public struct BarPlot: AxisPlot{
                 .modifier(ScrollableModifier())
                 .modifier(LegendModifier(data: self.barData.map({($0.name, $0.style)}), style: self.style.legendStyle, isHidden: self.hideLegend))
         }
-        .onAppear(){
-            withAnimation(.linear(duration: 1)) {
-                self.animatable = 1
-            }
-        }
     }
     
     @ViewBuilder
     func barView(barWidth: CGFloat) -> some View {
-        Bar(range: self.barRange, data: self.barData, barWidth: barWidth, style: self.style, animatableData: self.animatable)
+        BarView(range: self.barRange, data: self.barData, barWidth: barWidth, style: self.style)
     }
     
     
@@ -159,6 +152,20 @@ public extension AxisView where Plot == BarPlot{
     func barRadius(_ barRadius: CGFloat) -> Self{
         var copy = self
         copy.plot.style.barRadius = barRadius
+        return copy
+    }
+    
+    /// Set the animation of line chart when appearing.
+    ///
+    ///- Parameters:
+    ///     - animation: the animation when line appearing.
+    ///
+    ///- Returns: An AxisView drawing line with specified appearing animation.
+    func appearingAnimation(_ animation: Animation) -> Self{
+        var copy = self
+        var plot = copy.plot
+        plot.style.animation = animation
+        copy.plot = plot
         return copy
     }
 }

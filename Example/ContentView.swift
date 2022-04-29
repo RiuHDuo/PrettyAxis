@@ -39,6 +39,7 @@ struct ContentView: View {
     var barView: some View{
         AxisView(plot: .bar(entities: self.entities, xAxisLabels: value1.map({$0.x})))
             .xAxisStart(at: 0)
+            .appearingAnimation(.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 50))
         .padding()
     }
     

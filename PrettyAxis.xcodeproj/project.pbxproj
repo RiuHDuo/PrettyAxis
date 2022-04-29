@@ -35,8 +35,10 @@
 		585AAC0D281A64E800D06BA1 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0B281A64E800D06BA1 /* BarPlot.swift */; };
 		585AAC0F281A666800D06BA1 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0E281A666800D06BA1 /* BarStyle.swift */; };
 		585AAC10281A666800D06BA1 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0E281A666800D06BA1 /* BarStyle.swift */; };
-		585AAC15281A6A1700D06BA1 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* Bar.swift */; };
-		585AAC16281A6A1700D06BA1 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* Bar.swift */; };
+		585AAC15281A6A1700D06BA1 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* BarView.swift */; };
+		585AAC16281A6A1700D06BA1 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* BarView.swift */; };
+		58735735281BCC2F009593E0 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58735734281BCC2F009593E0 /* Bar.swift */; };
+		58735736281BCC7F009593E0 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58735734281BCC2F009593E0 /* Bar.swift */; };
 		58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7E28192126007D86A4 /* StarPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7D28192126007D86A4 /* StarPath.swift */; };
@@ -158,7 +160,8 @@
 		585AAC07281A297100D06BA1 /* LegendStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendStyle.swift; sourceTree = "<group>"; };
 		585AAC0B281A64E800D06BA1 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585AAC0E281A666800D06BA1 /* BarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarStyle.swift; sourceTree = "<group>"; };
-		585AAC14281A6A1700D06BA1 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		585AAC14281A6A1700D06BA1 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		58735734281BCC2F009593E0 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkLabelStyle.swift; sourceTree = "<group>"; };
 		58A96B7D28192126007D86A4 /* StarPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPath.swift; sourceTree = "<group>"; };
 		58A96B7F28192914007D86A4 /* LegendPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendPosition.swift; sourceTree = "<group>"; };
@@ -352,8 +355,9 @@
 			isa = PBXGroup;
 			children = (
 				585AAC0B281A64E800D06BA1 /* BarPlot.swift */,
+				585AAC14281A6A1700D06BA1 /* BarView.swift */,
 				585AAC0E281A666800D06BA1 /* BarStyle.swift */,
-				585AAC14281A6A1700D06BA1 /* Bar.swift */,
+				58735734281BCC2F009593E0 /* Bar.swift */,
 			);
 			path = Bar;
 			sourceTree = "<group>";
@@ -704,7 +708,8 @@
 				58316882281785340075EAD0 /* ReferenceLineModifier.swift in Sources */,
 				5838671F28152A0700A1B402 /* XAxisDataProvider.swift in Sources */,
 				58F72C24281642D100429712 /* Line.swift in Sources */,
-				585AAC15281A6A1700D06BA1 /* Bar.swift in Sources */,
+				585AAC15281A6A1700D06BA1 /* BarView.swift in Sources */,
+				58735735281BCC2F009593E0 /* Bar.swift in Sources */,
 				58B38EEC2818D28D00F39F07 /* AxisPaintStyle.swift in Sources */,
 				58F72C282816454C00429712 /* LegendModififer.swift in Sources */,
 				585AAC0C281A64E800D06BA1 /* BarPlot.swift in Sources */,
@@ -740,7 +745,8 @@
 				583168892817C5D00075EAD0 /* AxisStyle.swift in Sources */,
 				58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */,
 				58C97D992816747200285A2E /* Groupable.swift in Sources */,
-				585AAC16281A6A1700D06BA1 /* Bar.swift in Sources */,
+				585AAC16281A6A1700D06BA1 /* BarView.swift in Sources */,
+				58735736281BCC7F009593E0 /* Bar.swift in Sources */,
 				58C97D982816747200285A2E /* YAxisDataProvider.swift in Sources */,
 				58C97D9C2816747600285A2E /* LineStyle.swift in Sources */,
 				585AAC0D281A64E800D06BA1 /* BarPlot.swift in Sources */,
