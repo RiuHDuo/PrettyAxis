@@ -31,6 +31,12 @@
 		58386730281553DB00A1B402 /* ReferenceLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672F281553DB00A1B402 /* ReferenceLineStyle.swift */; };
 		585AAC08281A297100D06BA1 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC07281A297100D06BA1 /* LegendStyle.swift */; };
 		585AAC09281A297100D06BA1 /* LegendStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC07281A297100D06BA1 /* LegendStyle.swift */; };
+		585AAC0C281A64E800D06BA1 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0B281A64E800D06BA1 /* BarPlot.swift */; };
+		585AAC0D281A64E800D06BA1 /* BarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0B281A64E800D06BA1 /* BarPlot.swift */; };
+		585AAC0F281A666800D06BA1 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0E281A666800D06BA1 /* BarStyle.swift */; };
+		585AAC10281A666800D06BA1 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0E281A666800D06BA1 /* BarStyle.swift */; };
+		585AAC15281A6A1700D06BA1 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* Bar.swift */; };
+		585AAC16281A6A1700D06BA1 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* Bar.swift */; };
 		58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7E28192126007D86A4 /* StarPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7D28192126007D86A4 /* StarPath.swift */; };
@@ -52,14 +58,14 @@
 		58C97D9B2816747600285A2E /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C23281642D100429712 /* Line.swift */; };
 		58C97D9C2816747600285A2E /* LineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C2B28164CEF00429712 /* LineStyle.swift */; };
 		58C97D9D2816747600285A2E /* LinePlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672628153A1900A1B402 /* LinePlot.swift */; };
-		58C97D9E2816747600285A2E /* LineDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C25281642E100429712 /* LineDataProtocol.swift */; };
+		58C97D9E2816747600285A2E /* LineDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C25281642E100429712 /* LineDataProvider.swift */; };
 		58C97D9F2816747A00285A2E /* ReferenceLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5838672F281553DB00A1B402 /* ReferenceLineStyle.swift */; };
 		58C97DA02816747D00285A2E /* LegendModififer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C272816454C00429712 /* LegendModififer.swift */; };
 		58C97DA3281674C300285A2E /* TestChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C97DA1281674C300285A2E /* TestChartData.swift */; };
 		58C97DA4281674C300285A2E /* ChartData.json in Resources */ = {isa = PBXBuildFile; fileRef = 58C97DA2281674C300285A2E /* ChartData.json */; };
 		58C97DA62816752200285A2E /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C97DA52816752200285A2E /* PreviewData.swift */; };
 		58F72C24281642D100429712 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C23281642D100429712 /* Line.swift */; };
-		58F72C26281642E100429712 /* LineDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C25281642E100429712 /* LineDataProtocol.swift */; };
+		58F72C26281642E100429712 /* LineDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C25281642E100429712 /* LineDataProvider.swift */; };
 		58F72C282816454C00429712 /* LegendModififer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C272816454C00429712 /* LegendModififer.swift */; };
 		58F72C2C28164CEF00429712 /* LineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C2B28164CEF00429712 /* LineStyle.swift */; };
 		58F72C8F281673B200429712 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C8E281673B200429712 /* ContentView.swift */; };
@@ -150,6 +156,9 @@
 		5838672628153A1900A1B402 /* LinePlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePlot.swift; sourceTree = "<group>"; };
 		5838672F281553DB00A1B402 /* ReferenceLineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceLineStyle.swift; sourceTree = "<group>"; };
 		585AAC07281A297100D06BA1 /* LegendStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendStyle.swift; sourceTree = "<group>"; };
+		585AAC0B281A64E800D06BA1 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
+		585AAC0E281A666800D06BA1 /* BarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarStyle.swift; sourceTree = "<group>"; };
+		585AAC14281A6A1700D06BA1 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkLabelStyle.swift; sourceTree = "<group>"; };
 		58A96B7D28192126007D86A4 /* StarPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPath.swift; sourceTree = "<group>"; };
 		58A96B7F28192914007D86A4 /* LegendPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendPosition.swift; sourceTree = "<group>"; };
@@ -161,7 +170,7 @@
 		58C97DA2281674C300285A2E /* ChartData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChartData.json; sourceTree = "<group>"; };
 		58C97DA52816752200285A2E /* PreviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		58F72C23281642D100429712 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		58F72C25281642E100429712 /* LineDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDataProtocol.swift; sourceTree = "<group>"; };
+		58F72C25281642E100429712 /* LineDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDataProvider.swift; sourceTree = "<group>"; };
 		58F72C272816454C00429712 /* LegendModififer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendModififer.swift; sourceTree = "<group>"; };
 		58F72C2B28164CEF00429712 /* LineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineStyle.swift; sourceTree = "<group>"; };
 		58F72C8A281673B200429712 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,12 +280,12 @@
 		583867022815296800A1B402 /* PrettyAxis */ = {
 			isa = PBXGroup;
 			children = (
+				5838672528153A0D00A1B402 /* Line */,
 				585AAC0A281A404E00D06BA1 /* Bar */,
 				58A96B7928191D98007D86A4 /* Mark */,
 				5831688D2817E92D0075EAD0 /* Modifier */,
 				5838672D28153BCB00A1B402 /* Legend */,
 				5838672E28153BD800A1B402 /* ReferenceLine */,
-				5838672528153A0D00A1B402 /* Line */,
 				5838672028152AA700A1B402 /* Data */,
 				583867032815296800A1B402 /* PrettyAxis.h */,
 				583867042815296800A1B402 /* PrettyAxis.docc */,
@@ -312,7 +321,7 @@
 			children = (
 				58F72C23281642D100429712 /* Line.swift */,
 				5838672628153A1900A1B402 /* LinePlot.swift */,
-				58F72C25281642E100429712 /* LineDataProtocol.swift */,
+				58F72C25281642E100429712 /* LineDataProvider.swift */,
 				58F72C2B28164CEF00429712 /* LineStyle.swift */,
 			);
 			path = Line;
@@ -342,6 +351,9 @@
 		585AAC0A281A404E00D06BA1 /* Bar */ = {
 			isa = PBXGroup;
 			children = (
+				585AAC0B281A64E800D06BA1 /* BarPlot.swift */,
+				585AAC0E281A666800D06BA1 /* BarStyle.swift */,
+				585AAC14281A6A1700D06BA1 /* Bar.swift */,
 			);
 			path = Bar;
 			sourceTree = "<group>";
@@ -679,7 +691,7 @@
 				583168852817A0680075EAD0 /* ValueFormatter.swift in Sources */,
 				58B38EEA2818D23300F39F07 /* AxisEntity.swift in Sources */,
 				5831688F2817E93F0075EAD0 /* ScrollableModifier.swift in Sources */,
-				58F72C26281642E100429712 /* LineDataProtocol.swift in Sources */,
+				58F72C26281642E100429712 /* LineDataProvider.swift in Sources */,
 				583867052815296800A1B402 /* PrettyAxis.docc in Sources */,
 				58386730281553DB00A1B402 /* ReferenceLineStyle.swift in Sources */,
 				58F72C2C28164CEF00429712 /* LineStyle.swift in Sources */,
@@ -692,10 +704,13 @@
 				58316882281785340075EAD0 /* ReferenceLineModifier.swift in Sources */,
 				5838671F28152A0700A1B402 /* XAxisDataProvider.swift in Sources */,
 				58F72C24281642D100429712 /* Line.swift in Sources */,
+				585AAC15281A6A1700D06BA1 /* Bar.swift in Sources */,
 				58B38EEC2818D28D00F39F07 /* AxisPaintStyle.swift in Sources */,
 				58F72C282816454C00429712 /* LegendModififer.swift in Sources */,
+				585AAC0C281A64E800D06BA1 /* BarPlot.swift in Sources */,
 				5838671B281529B100A1B402 /* AxisView.swift in Sources */,
 				5831687F281783800075EAD0 /* ReferenceLine.swift in Sources */,
+				585AAC0F281A666800D06BA1 /* BarStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,16 +733,19 @@
 				58B38EEE2818D3B400F39F07 /* AxisPaintStyle.swift in Sources */,
 				585AAC09281A297100D06BA1 /* LegendStyle.swift in Sources */,
 				58316880281783AC0075EAD0 /* ReferenceLine.swift in Sources */,
-				58C97D9E2816747600285A2E /* LineDataProtocol.swift in Sources */,
+				58C97D9E2816747600285A2E /* LineDataProvider.swift in Sources */,
 				58C97D9F2816747A00285A2E /* ReferenceLineStyle.swift in Sources */,
 				583168902817E93F0075EAD0 /* ScrollableModifier.swift in Sources */,
 				58C97DA02816747D00285A2E /* LegendModififer.swift in Sources */,
 				583168892817C5D00075EAD0 /* AxisStyle.swift in Sources */,
 				58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */,
 				58C97D992816747200285A2E /* Groupable.swift in Sources */,
+				585AAC16281A6A1700D06BA1 /* Bar.swift in Sources */,
 				58C97D982816747200285A2E /* YAxisDataProvider.swift in Sources */,
 				58C97D9C2816747600285A2E /* LineStyle.swift in Sources */,
+				585AAC0D281A64E800D06BA1 /* BarPlot.swift in Sources */,
 				58C97D962816746700285A2E /* AxisView.swift in Sources */,
+				585AAC10281A666800D06BA1 /* BarStyle.swift in Sources */,
 				58C97D9A2816747200285A2E /* XAxisDataProvider.swift in Sources */,
 				58C97D9B2816747600285A2E /* Line.swift in Sources */,
 				583168862817A08D0075EAD0 /* ValueFormatter.swift in Sources */,

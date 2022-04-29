@@ -1,19 +1,19 @@
 [
     {
     "year": "1951",
-    "sales": 38
+    "sales": 0
     },
     {
     "year": "1952",
-    "sales": 52
+    "sales": 100
     },
     {
     "year": "1956",
-    "sales": 61
+    "sales": 0
     },
     {
     "year": "1957",
-    "sales": 145
+    "sales": 0
     },
     {
     "year": "1958",
@@ -37,7 +37,7 @@
     },
     {
     "year": "1964",
-    "sales": -80
+    "sales": 80
     },
 ]
 

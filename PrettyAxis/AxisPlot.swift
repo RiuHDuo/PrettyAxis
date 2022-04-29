@@ -48,7 +48,7 @@ public extension AxisView {
         return copy
     }
     
-    func hideLegend() -> Self{
+    func hideLegend()-> Self{
         var copy = self
         copy.plot.hideLegend = true
         return copy
@@ -59,5 +59,33 @@ public extension AxisView {
         var copy = self
         copy.plot.axisStyle.legendStyle = style
         return copy
+    }
+}
+
+
+extension AxisPlot {
+    func calcRange(range: (min: Double, max: Double), xAxisValue: Double?, scaleFactor: Double = 1.05) -> (min: Double, max: Double){
+        var axisValue:Double = 0
+        if let xAxisValue = xAxisValue {
+            axisValue = xAxisValue
+        }else{
+            if range.max < 0{
+                axisValue = range.max
+            }else if range.min > 0{
+                axisValue = range.min
+            }
+        }
+        
+        if range.min >= axisValue {
+            return (min: axisValue, max: range.max * scaleFactor)
+        }
+    
+        if range.max <= axisValue{
+            return (min: range.min * scaleFactor, max: axisValue)
+        }
+        let v = max(abs(axisValue - range.min) * scaleFactor,abs(range.max - axisValue) * scaleFactor )
+        
+        return (min: axisValue - v, max: axisValue + v)
+
     }
 }

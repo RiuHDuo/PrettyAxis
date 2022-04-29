@@ -42,7 +42,7 @@ public struct LinePlot: AxisPlot{
     
     @State var markPos: [String: (CGPoint, Double)]? = nil
     
-    
+    var lineRange: (min: Double, max: Double) = (0, 0)
     var tapCallback: (([String: Double]) -> Void)? = nil
     var markView: AnyView?
     
@@ -78,6 +78,7 @@ public struct LinePlot: AxisPlot{
         self.type = type
         self.maxCount = maxCount
         self.xAxisLabels = xAxisLabels
+        self.lineRange = self.calcRange(range: self.range, xAxisValue: self.style.xAxisAtValue)
     }
     
     public var body: some View{
@@ -86,7 +87,7 @@ public struct LinePlot: AxisPlot{
             let spacing = self.style.spacing ?? ((r.size.width - yWidth - 8) / CGFloat(maxCount - 1))
             lineView(spacing: spacing)
                 .frame(width: spacing * CGFloat(maxCount - 1))
-                .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.xAxisLabels, spacing: spacing, range: self.lineRange, style: self.style.referenceLineStyle))
+                .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.xAxisLabels, spacing: spacing, range: self.lineRange, style: self.style.referenceLineStyle, xAxisStartValue: self.style.xAxisAtValue))
                 .frame(width: self.style.spacing == nil ? nil : self.style.spacing! * CGFloat(maxCount - 1) + yWidth, alignment: .leading)
                 .modifier(ScrollableModifier())
                 .modifier(LegendModifier(data: self.lineData.map({($0.name, $0.style)}), style: self.style.legendStyle, isHidden: self.hideLegend))
@@ -146,44 +147,26 @@ public struct LinePlot: AxisPlot{
                 .stroke(paintStyle.stroke, style: StrokeStyle(lineWidth: self.style.lineWidth, lineCap: .round, lineJoin: .round))
             
             if let pos = self.markPos?[key], let markView = self.markView {
-                VStack(spacing:0) {
-                    Text(self.axisStyle.markLabelStyle.formatter.format(value: pos.1))
-                        .font(self.axisStyle.markLabelStyle.font)
-                        .foregroundColor(self.axisStyle.markLabelStyle.color)
+                if self.axisStyle.markLabelStyle.disableValueLabel {
                     markView
-                    Text("")
-                        .font(self.axisStyle.markLabelStyle.font)
-                        .foregroundColor(self.axisStyle.markLabelStyle.color)
+                        .position(x: pos.0.x, y: pos.0.y)
+                }else{
+                    VStack(spacing:0) {
+                        Text(self.axisStyle.markLabelStyle.formatter.format(value: pos.1))
+                            .font(self.axisStyle.markLabelStyle.font)
+                            .foregroundColor(self.axisStyle.markLabelStyle.color)
+                        markView
+                        Text("")
+                            .font(self.axisStyle.markLabelStyle.font)
+                            .foregroundColor(self.axisStyle.markLabelStyle.color)
+                    }
+                    .position(x: pos.0.x, y: pos.0.y)
                 }
-                .position(x: pos.0.x, y: pos.0.y)
             }
         }
     }
     
-    var lineRange: (min: Double, max: Double){
-        get{
-            let scaleFactor = 1.05
-            if self.range.min > 0 && self.style.isFromZero {
-                return (min: 0.0, max: self.range.max * scaleFactor)
-            }
-            
-            if self.range.min > 0 {
-                return (min: self.range.min, max: self.range.max * scaleFactor)
-            }
-            
-            if self.range.max < 0 && self.style.isFromZero{
-                return (min: self.range.min * scaleFactor, max: 0)
-            }
-            
-            if self.range.max < 0 {
-                return (min: self.range.min * scaleFactor, max: self.range.max)
-            }
-            
-            let v = max(abs(range.min * scaleFactor),abs(range.max * scaleFactor))
-            
-            return (min: -v, max: v)
-        }
-    }
+    
 }
 
 
@@ -204,11 +187,15 @@ public extension AxisView where Plot == LinePlot{
     ///
     /// This method only works when all value is positive or negative.
     ///
+    ///- Parameters:
+    ///     - value: the value which x-axis is.
+    ///
     /// - Returns: A AxisView which will render a line view start from zero value.
-    func fromZeroValue() -> Self{
+    func xAxisStart(at value: Double) -> Self{
         var copy = self
         var plot = copy.plot
-        plot.style.isFromZero = true
+        plot.style.xAxisAtValue = value
+        plot.lineRange = plot.calcRange(range: plot.range, xAxisValue: plot.style.xAxisAtValue)
         copy.plot = plot
         return copy
     }
@@ -229,7 +216,13 @@ public extension AxisView where Plot == LinePlot{
         return copy
     }
     
-    func appearAnimation(_ animation: Animation) -> Self{
+    /// Set the animation of line chart when appearing.
+    ///
+    ///- Parameters:
+    ///     - animation: the animation when line appearing.
+    ///
+    ///- Returns: An AxisView drawing line with specified appearing animation.
+    func appearingAnimation(_ animation: Animation) -> Self{
         var copy = self
         var plot = copy.plot
         plot.style.animation = animation
@@ -237,10 +230,30 @@ public extension AxisView where Plot == LinePlot{
         return copy
     }
     
-    func onTap<V: View>(with mark: V, markLabelStyle: MarkLabelStyle = .default, callback:  (([String: Double]) -> Void)? = nil) -> Self{
+    /// Disable animation of line chart when appearing.
+    ///
+    ///- Returns: An AxisView drawing line without any appearing animation.
+    func disableAppearingAnimation() -> Self{
         var copy = self
         var plot = copy.plot
-        plot.markView = AnyView(mark)
+        plot.style.animation = nil
+        copy.plot = plot
+        return copy
+    }
+    
+    /// Set the line tap event handler
+    ///
+    ///- Parameters:
+    ///     - mark: The mark view when tap at value.
+    ///     - markLabelStyle: the style of mark value label.
+    ///     - callback: the event callback. [String: Double] is [EntityName: Tapped Value].
+    func onTap<V: View>(with mark: V?, markLabelStyle: MarkLabelStyle = .default, callback:  (([String: Double]) -> Void)? = nil) -> Self{
+        var copy = self
+        var plot = copy.plot
+        plot.markView = nil
+        if let mark = mark{
+            plot.markView = AnyView(mark)
+        }
         plot.tapCallback = callback
         plot.axisStyle.markLabelStyle = markLabelStyle
         copy.plot = plot

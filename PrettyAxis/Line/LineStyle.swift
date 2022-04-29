@@ -18,11 +18,6 @@ struct LineStyle: AxisStyle{
     /// The width of line
     ///
     var lineWidth: CGFloat = 5
-
-    /// Is The value start at Zero Value
-    ///
-    /// if there is an value less than zero, this property will ignore.
-    var isFromZero: Bool = false
     
     /// The animation of Chart appear
     ///
@@ -38,4 +33,7 @@ struct LineStyle: AxisStyle{
     
     /// The style of legend.
     var legendStyle: LegendStyle = .default
+    
+    /// The value x axis start.
+    var xAxisAtValue: Double?
 }

@@ -14,28 +14,24 @@ struct ReferenceLine: View{
     var spacing: CGFloat?
     var range:(min: Double, max: Double)
     var style: ReferenceLineStyle
+    var xAxisStartValue: Double?
     
     var body: some View{
         Canvas{ ctx, size  in
-            let r = range
             let height = size.height - self.style.bottomPadding
             if !self.style.hideReferenceLine {
                 /// Draw Reference Line
-                for i in [0, 0.25, 0.75, 1] {
+                for i in [0, 0.25, 0.5, 0.75, 1] {
                     ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding , y: height * CGFloat(i)), to: CGPoint(x: size.width, y: height *  CGFloat(i))), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.dashLineWidth, lineCap: .round, lineJoin: .round, dash: [self.style.dashLineLength]))
                 }
             }
-            
             if !self.style.hideXAxisLabel {
                 /// Draw X-Axis
-                if r.min < 0{
-                    /// Draw Zero Line
-                    let unit = height /  CGFloat(range.max - range.min)
-                    let h = height -  abs(r.min) * unit
-                    ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding  , y: h), to: CGPoint(x: size.width, y: h)), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.xAxisLineWidth, lineCap: .round, lineJoin: .round))
-                }else if r.min != 0 {
-                    ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding  , y: height), to: CGPoint(x: size.width, y: height)), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.xAxisLineWidth, lineCap: .round, lineJoin: .round))
-                }
+                
+                let xAxisStartValue = self.xAxisStartValue ?? 0
+                let unit = height /  CGFloat(range.max - range.min)
+                let h = height - abs(xAxisStartValue - range.min) * unit
+                ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding  , y: h), to: CGPoint(x: size.width, y: h)), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.xAxisLineWidth, lineCap: .round, lineJoin: .round))
                 
                 /// Draw X-Axis lables
                 

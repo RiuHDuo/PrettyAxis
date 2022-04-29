@@ -14,13 +14,13 @@ struct ReferenceLineModifier: ViewModifier{
     var spacing: CGFloat?
     var range:(min: Double, max: Double)
     var style: ReferenceLineStyle
-
+    var xAxisStartValue: Double?
     
     
     func body(content: Content) -> some View{
         ZStack{
             if isHidden == false{
-                ReferenceLine(labels: self.labels, spacing: self.spacing, range: range, style: style)
+                ReferenceLine(labels: self.labels, spacing: self.spacing, range: range, style: style, xAxisStartValue: xAxisStartValue)
             }
             content
                 .padding(.leading, isHidden ? 0: self.style.leadingPadding)
