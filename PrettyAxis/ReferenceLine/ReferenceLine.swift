@@ -15,6 +15,7 @@ struct ReferenceLine: View{
     var range:(min: Double, max: Double)
     var style: ReferenceLineStyle
     var xAxisStartValue: Double?
+    var labelOffset: CGPoint
     
     var body: some View{
         Canvas{ ctx, size  in
@@ -42,12 +43,14 @@ struct ReferenceLine: View{
                     let text = ctx.resolve(txt)
                     let s = text.measure(in: CGSize(width: .infinity, height: CGFloat.infinity))
                     var x = spacing * i + self.style.leadingPadding
-                    if i == 0 {
+                    if x == 0 {
                         x +=  s.width / 2
-                    }else if i == CGFloat(labels.count - 1) {
-                        x -=  s.width / 2
+                    }else if x > size.width {
+                        x = size.width - s.width / 2
+                    }else{
+                        x += labelOffset.x
                     }
-                    ctx.draw(text, at: CGPoint(x: x, y: size.height - self.style.bottomPadding + s.height + 4))
+                    ctx.draw(text, at: CGPoint(x: x, y: size.height - self.style.bottomPadding + s.height + 4 + labelOffset.y))
                     i += 1
                 }
             }

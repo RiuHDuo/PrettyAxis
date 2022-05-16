@@ -15,12 +15,13 @@ struct ReferenceLineModifier: ViewModifier{
     var range:(min: Double, max: Double)
     var style: ReferenceLineStyle
     var xAxisStartValue: Double?
+    var labelOffset: CGPoint = .zero
     
     
     func body(content: Content) -> some View{
         ZStack{
             if isHidden == false{
-                ReferenceLine(labels: self.labels, spacing: self.spacing, range: range, style: style, xAxisStartValue: xAxisStartValue)
+                ReferenceLine(labels: self.labels, spacing: self.spacing, range: range, style: style, xAxisStartValue: xAxisStartValue, labelOffset: labelOffset)
             }
             content
                 .padding(.leading, isHidden ? 0: self.style.leadingPadding)
