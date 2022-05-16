@@ -38,6 +38,8 @@ public struct BarPlot: AxisPlot{
     
     var barRange: (min: Double, max: Double) = (0, 0)
     
+    var onTapCallback: ((String, Int, Double) -> Void)?
+    
     public var body: some View{
         let yWidth = self.hideReferenceLine ? 0: self.style.referenceLineStyle.leadingPadding
         GeometryReader { r in
@@ -55,7 +57,7 @@ public struct BarPlot: AxisPlot{
     
     @ViewBuilder
     func barView(barWidth: CGFloat) -> some View {
-        BarView(range: self.barRange, data: self.barData, barWidth: barWidth, style: self.style)
+        BarView(range: self.barRange, data: self.barData, barWidth: barWidth, style: self.style, onTapCallback: onTapCallback)
     }
     
     
@@ -200,7 +202,11 @@ public extension AxisView where Plot == BarPlot{
         return copy
     }
     
-    func onTap(callback:  ((String,Double) -> Void)? = nil){
-        
+    func onTap(callback:  ((String, Int,Double) -> Void)? = nil) -> Self{
+        var copy = self
+        var plot = copy.plot
+        plot.onTapCallback = callback
+        copy.plot = plot
+        return copy
     }
 }

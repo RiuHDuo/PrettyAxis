@@ -14,6 +14,7 @@ struct BarView: View{
     var barWidth: CGFloat = 20
     var style: BarStyle
     var date = Date()
+    var onTapCallback: ((String, Int, Double) -> Void)?
     
     var body: some View{
         GeometryReader{ r in
@@ -25,7 +26,9 @@ struct BarView: View{
                 ForEach(item.values.indices, id: \.self){ idx in
                     let value = item.values[idx]
                     let offsetX =  (barWidth * CGFloat(data.count) + style.spacing) * CGFloat(idx) + barWidth * CGFloat(index) + CGFloat(index + idx) * style.groupSpacing
-                    Bar(index: Double(idx), value: CGFloat(value), unit: unit, barWidth: barWidth, xAxisStart: xAxisStart, xAxisPos: xAxisPos, offset: offsetX, paintStyle: item.style, style: self.style)
+                    Bar(index: Double(idx), value: CGFloat(value), unit: unit, barWidth: barWidth, xAxisStart: xAxisStart, xAxisPos: xAxisPos, offset: offsetX, paintStyle: item.style, style: self.style, onTapCallback: {value in
+                        self.onTapCallback?(item.name, idx, value)
+                    })
                 }
             }
         }

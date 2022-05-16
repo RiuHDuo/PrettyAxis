@@ -43,7 +43,7 @@ public struct LinePlot: AxisPlot{
     @State var markPos: [String: (CGPoint, Double)]? = nil
     
     var lineRange: (min: Double, max: Double) = (0, 0)
-    var tapCallback: (([String: Double]) -> Void)? = nil
+    var onTapCallback: (([String:  (Int, Double)]) -> Void)? = nil
     var markView: AnyView?
     
     init<T>(entities: [AxisEntity<T>], xAxisLabels: [String], type: LineType) where T: LineDataProvider {
@@ -118,17 +118,17 @@ public struct LinePlot: AxisPlot{
                     if p >= 0 {
                         let unit = (r.size.height) / (lineRange.max - lineRange.min)
                         var marks = [String: (CGPoint, Double)]()
-                        var values = [String: Double]()
+                        var values = [String: (Int, Double)]()
                         self.lineData.forEach { data in
                             if Int(p) < data.values.count {
                                 let axisData = data.values[Int(p)]
-                                let p = CGPoint(x: p * spacing, y: r.size.height - (axisData -  CGFloat(lineRange.min)) * unit)
-                                marks[data.name] = (p, axisData)
-                                values[data.name] = axisData
+                                let pp = CGPoint(x: p * spacing, y: r.size.height - (axisData -  CGFloat(lineRange.min)) * unit)
+                                marks[data.name] = (pp, axisData)
+                                values[data.name] = (Int(p), axisData)
                             }
                         }
                         self.markPos = marks
-                        self.tapCallback?(values)
+                        self.onTapCallback?(values)
                     }
                 })
             )
@@ -246,15 +246,15 @@ public extension AxisView where Plot == LinePlot{
     ///- Parameters:
     ///     - mark: The mark view when tap at value.
     ///     - markLabelStyle: the style of mark value label.
-    ///     - callback: the event callback. [String: Double] is [EntityName: Tapped Value].
-    func onTap<V: View>(with mark: V?, markLabelStyle: MarkLabelStyle = .default, callback:  (([String: Double]) -> Void)? = nil) -> Self{
+    ///     - callback: the event callback. [String: Double] is [EntityName: (Tapped Index:Tapped Value)].
+    func onTap<V: View>(with mark: V?, markLabelStyle: MarkLabelStyle = .default, callback:  (([String: (Int, Double)]) -> Void)? = nil) -> Self{
         var copy = self
         var plot = copy.plot
         plot.markView = nil
         if let mark = mark{
             plot.markView = AnyView(mark)
         }
-        plot.tapCallback = callback
+        plot.onTapCallback = callback
         plot.axisStyle.markLabelStyle = markLabelStyle
         copy.plot = plot
         return copy

@@ -19,6 +19,7 @@ struct Bar: View {
     var offset: CGFloat
     var paintStyle: AxisPaintStyle
     var style: BarStyle
+    var onTapCallback: ((Double) -> Void)?
     
     @State var animatableData: CGFloat = 0
     @State var isHover = false
@@ -45,6 +46,7 @@ struct Bar: View {
                 })
                 .onEnded({ _ in
                     self.isHover = false
+                    self.onTapCallback?(value)
                 })
             )
             .scaleEffect(isHover ? 1.1: 1.0, anchor: h < 0 ? UnitPoint.top: UnitPoint.bottom)
