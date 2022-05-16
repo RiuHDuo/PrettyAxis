@@ -24,7 +24,7 @@ struct BarView: View{
                 let item = self.data[index]
                 ForEach(item.values.indices, id: \.self){ idx in
                     let value = item.values[idx]
-                    let offsetX =  (barWidth * CGFloat(data.count) + style.spacing) * CGFloat(idx) + barWidth * CGFloat(index)
+                    let offsetX =  (barWidth * CGFloat(data.count) + style.spacing) * CGFloat(idx) + barWidth * CGFloat(index) + CGFloat(index + idx) * style.groupSpacing
                     Bar(index: Double(idx), value: CGFloat(value), unit: unit, barWidth: barWidth, xAxisStart: xAxisStart, xAxisPos: xAxisPos, offset: offsetX, paintStyle: item.style, style: self.style)
                 }
             }

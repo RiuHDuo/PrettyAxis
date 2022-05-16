@@ -27,7 +27,7 @@ public struct BarPlot: AxisPlot{
     
     var maxCount = 0
     
-    /// Data of line
+    /// Data of bar
     let barData: [(name: String, values: [Double], style: AxisPaintStyle)]
     
     /// The Y value range
@@ -42,11 +42,12 @@ public struct BarPlot: AxisPlot{
         let yWidth = self.hideReferenceLine ? 0: self.style.referenceLineStyle.leadingPadding
         GeometryReader { r in
             let barWidth = self.style.barWidth ??  ((r.size.width - yWidth - 8) / CGFloat(maxCount) / CGFloat(barData.count))
-            let spacing:CGFloat = self.style.spacing + barWidth * CGFloat(barData.count)
+            let spacing:CGFloat = self.style.spacing * CGFloat(barData.count - 1) + barWidth * CGFloat(barData.count)
+            let w = spacing * CGFloat(maxCount) + style.groupSpacing * CGFloat(maxCount)
             barView(barWidth: barWidth)
-                .frame(width: spacing * CGFloat(maxCount))
-                .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: [], spacing: 0, range: self.barRange, style: self.style.referenceLineStyle, xAxisStartValue: self.style.xAxisAtValue ?? 0))
-                .frame(width: spacing * CGFloat(maxCount) + yWidth, alignment: .leading)
+                .frame(width: w)
+                .modifier(ReferenceLineModifier(isHidden: self.hideReferenceLine, labels: self.xAxisLabels, spacing: spacing, range: self.barRange, style: self.style.referenceLineStyle, xAxisStartValue: self.style.xAxisAtValue ?? 0, labelOffset: CGPoint(x: spacing / 2, y: 0)))
+                .frame(width: w + yWidth, alignment: .leading)
                 .modifier(ScrollableModifier())
                 .modifier(LegendModifier(data: self.barData.map({($0.name, $0.style)}), style: self.style.legendStyle, isHidden: self.hideLegend))
         }
@@ -64,7 +65,7 @@ public struct BarPlot: AxisPlot{
         var maxCount = 0
         entities.forEach { entity in
             var range:(min: Double, max: Double) = (min: entity.dataProvider.first?.y ?? 0, max: entity.dataProvider.first?.y ?? 0)
-            var lineData = [Double]()
+            var barData = [Double]()
             entity.dataProvider.forEach { provider in
                 if provider.y < range.min {
                     range.min = provider.y
@@ -73,7 +74,7 @@ public struct BarPlot: AxisPlot{
                 if provider.y > range.max{
                     range.max = provider.y
                 }
-                lineData.append(provider.y)
+                barData.append(provider.y)
             }
             if let r = rr {
                 rr?.min = min(r.min, range.min)
@@ -81,8 +82,8 @@ public struct BarPlot: AxisPlot{
             }else{
                 rr = range
             }
-            data.append((entity.name, lineData, entity.paintStyle))
-            maxCount = max(maxCount, lineData.count)
+            data.append((entity.name, barData, entity.paintStyle))
+            maxCount = max(maxCount, barData.count)
         }
         
         self.barData = data
@@ -107,7 +108,7 @@ public extension AxisView where Plot == BarPlot{
     ///
     /// This method only works when all value is positive or negative.
     ///
-    /// - Returns: A AxisView which will render a line view start from zero value.
+    /// - Returns: A AxisView which will render a bar view start from zero value.
     func xAxisStart(at value: Double) -> Self{
         var copy = self
         var plot = copy.plot
@@ -137,35 +138,69 @@ public extension AxisView where Plot == BarPlot{
         return copy
     }
     
+    /// Set the Spacing between between adjacent bar group.
+    ///
+    /// - Parameters:
+    ///     - spacing: the distance between adjacent bar group.
+    ///
+    /// - Returns: An AxisView drawing bar group with specified distance.
     func spacing(_ spacing: CGFloat) -> Self{
         var copy = self
         copy.plot.style.spacing = spacing
         return copy
     }
-
+    
+    /// Set the Spacing between between adjacent bar of different groups.
+    ///
+    /// - Parameters:
+    ///     - spacing: the distance between adjacent bar of different groups.
+    ///
+    /// - Returns: An AxisView drawing bar group with specified distance.
+    func groupSpacing(_ spacing: CGFloat) -> Self{
+        var copy = self
+        copy.plot.style.groupSpacing = spacing
+        return copy
+    }
+    /// Set the bar width.
+    ///
+    /// - Parameters:
+    ///     - barWidth: the width value of bar.
+    ///
+    ///- Returns: A AxisView which display specified bar width.
     func barWidth(_ barWidth: CGFloat) -> Self{
         var copy = self
         copy.plot.style.barWidth = barWidth
         return copy
     }
     
+    /// The corner radius of bar rectangle.
+    ///
+    /// - Parameters:
+    ///     - barRadius: the corner radius of bar rectangle.
+    ///
+    /// - Returns: A AxisView which display  bars with specified corner radius.
     func barRadius(_ barRadius: CGFloat) -> Self{
         var copy = self
         copy.plot.style.barRadius = barRadius
         return copy
     }
     
-    /// Set the animation of line chart when appearing.
+    /// Set the animation of bar chart when appearing.
     ///
     ///- Parameters:
-    ///     - animation: the animation when line appearing.
+    ///     - animation: the animation when bar appearing.
+    ///     - diff: the delay time of every bar animation. Set this value to make bar appearing one by one. If set nil, all bar will do animation same time.
     ///
-    ///- Returns: An AxisView drawing line with specified appearing animation.
-    func appearingAnimation(_ animation: Animation) -> Self{
+    ///- Returns: An AxisView drawing bar with specified appearing animation.
+    func appearingAnimation(_ animation: Animation, diff: TimeInterval? = nil) -> Self{
         var copy = self
         var plot = copy.plot
         plot.style.animation = animation
         copy.plot = plot
         return copy
+    }
+    
+    func onTap(callback:  ((String,Double) -> Void)? = nil){
+        
     }
 }

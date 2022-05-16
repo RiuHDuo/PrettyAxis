@@ -21,12 +21,16 @@ struct Bar: View {
     var style: BarStyle
     
     @State var animatableData: CGFloat = 0
-
+    @State var isHover = false
+    @GestureState private var isTap = false
+    
     var body: some View{
         let h = unit * (CGFloat(value - xAxisStart)) * animatableData
+        let w = barWidth
+        let hh =  max(abs(h), 1)
         var y = xAxisPos
         if h > 0{
-            y = xAxisPos - h
+            y = xAxisPos - hh
         }
         let txt = Text(self.style.valueFormatter.format(value: value))
             .font(self.style.valueLabelFont)
@@ -34,14 +38,23 @@ struct Bar: View {
             .frame(width: barWidth)
         return RoundedRectangle(cornerRadius: self.style.barRadius)
             .fill(paintStyle.fill ?? paintStyle.stroke)
-            .frame(width: barWidth, height: max(abs(h), 1))
+            .frame(width: w, height: hh)
+            .gesture(DragGesture(minimumDistance: 0)
+                .onChanged({ _ in
+                    self.isHover = true
+                })
+                .onEnded({ _ in
+                    self.isHover = false
+                })
+            )
+            .scaleEffect(isHover ? 1.1: 1.0, anchor: h < 0 ? UnitPoint.top: UnitPoint.bottom)
             .overlay(alignment: value > xAxisStart ? .bottom : .top, content: {
                 VStack(spacing: 0){
                     if value > xAxisStart {
                         txt
                     }
                     Spacer()
-                        .frame(height: abs(h))
+                        .frame(height: abs(hh) * (isHover ? 1.1: 1.0))
                     if value <= xAxisStart {
                         txt
                     }
@@ -49,10 +62,15 @@ struct Bar: View {
             })
             .offset(x: offset, y: y)
             .onAppear(){
-                guard let animation = self.style.animation else {
+                guard var animation = self.style.animation else {
                     return
                 }
-                withAnimation(animation.delay(Double(index) * 0.04)){
+                
+                if let delay = self.style.diff {
+                    animation = animation.delay(Double(index) * delay)
+                }
+                
+                withAnimation(animation){
                     self.animatableData = 1
                 }
             }
