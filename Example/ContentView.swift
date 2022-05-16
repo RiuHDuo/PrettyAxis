@@ -27,11 +27,11 @@ struct ContentView: View {
     }
     
     var entities: [AxisEntity<TestChartData>]{
-        let style = LinearGradient(colors: [Color("Color1"), Color("Color2"), Color("Color3")], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
-        let style2 = LinearGradient(colors: [Color("Color4"), Color("Color5"), Color("Color6")], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
+        let style = LinearGradient(colors: [Color("Color8").opacity(1), Color("Color7").opacity(1)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
+        let style2 = LinearGradient(colors: [Color("Color10").opacity(1), Color("Color9").opacity(1)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
         
-        let fill = LinearGradient(colors: [Color("Color1").opacity(1), Color("Color2").opacity(1), Color("Color3").opacity(1)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
-        let fill2 = LinearGradient(colors: [Color("Color4").opacity(1), Color("Color5").opacity(1), Color("Color6").opacity(1)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
+        let fill = LinearGradient(colors: [Color("Color8").opacity(0.5), Color("Color7").opacity(0.5)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
+        let fill2 = LinearGradient(colors: [Color("Color10").opacity(0.5), Color("Color9").opacity(0.5)], startPoint: UnitPoint.topLeading, endPoint: UnitPoint.bottomTrailing)
         return [AxisEntity(name: "Test1", dataProvider: value1, paintStyle: .init(stroke: style, fill: fill)), AxisEntity(name: "Test2", dataProvider: value2, paintStyle: .init(stroke: style2, fill: fill2))]
     }
     
@@ -39,13 +39,18 @@ struct ContentView: View {
     var barView: some View{
         AxisView(plot: .bar(entities: self.entities, xAxisLabels: value1.map({$0.x})))
             .xAxisStart(at: 0)
-            .appearingAnimation(.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 50))
+            .barRadius(2)
+            .barWidth(30)
+            .spacing(10)
+            .groupSpacing(2)
+            .appearingAnimation(.spring(response: 0.3, dampingFraction: 0.2, blendDuration: 50), diff:  0.1)
         .padding()
     }
     
     @ViewBuilder
     var lineView: some View{
         AxisView(plot: .line(entities: self.entities, xAxisLabels: value1.map({$0.x}), type: .straight))
+            .onTap(with: Circle().background(.green).frame(width: 12, height: 12, alignment: .center))
         .padding()
     }
 }
