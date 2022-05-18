@@ -19,7 +19,7 @@ struct ContentView: View {
                 .foregroundColor(.black)
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding()
-            barView
+            radarView
         }
     }
     
@@ -69,6 +69,11 @@ struct ContentView: View {
                 }
             })
         .padding()
+    }
+    
+    @ViewBuilder
+    var radarView: some View{
+        AxisView(plot: .radar(entities: self.entities, xAxisLabels: self.originalData.first!.value.map({$0.x})))
     }
 }
 

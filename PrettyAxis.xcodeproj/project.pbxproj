@@ -37,8 +37,14 @@
 		585AAC10281A666800D06BA1 /* BarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC0E281A666800D06BA1 /* BarStyle.swift */; };
 		585AAC15281A6A1700D06BA1 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* BarView.swift */; };
 		585AAC16281A6A1700D06BA1 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AAC14281A6A1700D06BA1 /* BarView.swift */; };
+		58702D56283489ED0098566E /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58702D55283489ED0098566E /* RadarView.swift */; };
+		58702D572834991E0098566E /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58702D55283489ED0098566E /* RadarView.swift */; };
+		58702D582834991E0098566E /* RadarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F3DE2833A3310003623F /* RadarPlot.swift */; };
+		58702D59283499220098566E /* RadarReferenceLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F3E02833A7070003623F /* RadarReferenceLine.swift */; };
 		58735735281BCC2F009593E0 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58735734281BCC2F009593E0 /* Bar.swift */; };
 		58735736281BCC7F009593E0 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58735734281BCC2F009593E0 /* Bar.swift */; };
+		58836A762834F475006DC4EF /* RadarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58836A752834F475006DC4EF /* RadarShape.swift */; };
+		58836A772834F4B9006DC4EF /* RadarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58836A752834F475006DC4EF /* RadarShape.swift */; };
 		58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7C28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */; };
 		58A96B7E28192126007D86A4 /* StarPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A96B7D28192126007D86A4 /* StarPath.swift */; };
@@ -66,6 +72,8 @@
 		58C97DA3281674C300285A2E /* TestChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C97DA1281674C300285A2E /* TestChartData.swift */; };
 		58C97DA4281674C300285A2E /* ChartData.json in Resources */ = {isa = PBXBuildFile; fileRef = 58C97DA2281674C300285A2E /* ChartData.json */; };
 		58C97DA62816752200285A2E /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C97DA52816752200285A2E /* PreviewData.swift */; };
+		58E3F3DF2833A3310003623F /* RadarPlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F3DE2833A3310003623F /* RadarPlot.swift */; };
+		58E3F3E12833A7070003623F /* RadarReferenceLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F3E02833A7070003623F /* RadarReferenceLine.swift */; };
 		58F72C24281642D100429712 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C23281642D100429712 /* Line.swift */; };
 		58F72C26281642E100429712 /* LineDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C25281642E100429712 /* LineDataProvider.swift */; };
 		58F72C282816454C00429712 /* LegendModififer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F72C272816454C00429712 /* LegendModififer.swift */; };
@@ -161,7 +169,9 @@
 		585AAC0B281A64E800D06BA1 /* BarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarPlot.swift; sourceTree = "<group>"; };
 		585AAC0E281A666800D06BA1 /* BarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarStyle.swift; sourceTree = "<group>"; };
 		585AAC14281A6A1700D06BA1 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		58702D55283489ED0098566E /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
 		58735734281BCC2F009593E0 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		58836A752834F475006DC4EF /* RadarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarShape.swift; sourceTree = "<group>"; };
 		58A96B7A28191DAA007D86A4 /* MarkLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkLabelStyle.swift; sourceTree = "<group>"; };
 		58A96B7D28192126007D86A4 /* StarPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarPath.swift; sourceTree = "<group>"; };
 		58A96B7F28192914007D86A4 /* LegendPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendPosition.swift; sourceTree = "<group>"; };
@@ -172,6 +182,8 @@
 		58C97DA1281674C300285A2E /* TestChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestChartData.swift; sourceTree = "<group>"; };
 		58C97DA2281674C300285A2E /* ChartData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChartData.json; sourceTree = "<group>"; };
 		58C97DA52816752200285A2E /* PreviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		58E3F3DE2833A3310003623F /* RadarPlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarPlot.swift; sourceTree = "<group>"; };
+		58E3F3E02833A7070003623F /* RadarReferenceLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarReferenceLine.swift; sourceTree = "<group>"; };
 		58F72C23281642D100429712 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		58F72C25281642E100429712 /* LineDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineDataProvider.swift; sourceTree = "<group>"; };
 		58F72C272816454C00429712 /* LegendModififer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendModififer.swift; sourceTree = "<group>"; };
@@ -283,6 +295,7 @@
 		583867022815296800A1B402 /* PrettyAxis */ = {
 			isa = PBXGroup;
 			children = (
+				5848DF732833387C006CB7DE /* Radar */,
 				5838672528153A0D00A1B402 /* Line */,
 				585AAC0A281A404E00D06BA1 /* Bar */,
 				58A96B7928191D98007D86A4 /* Mark */,
@@ -347,8 +360,19 @@
 				5831687E281783800075EAD0 /* ReferenceLine.swift */,
 				58316881281785340075EAD0 /* ReferenceLineModifier.swift */,
 				583168842817A0680075EAD0 /* ValueFormatter.swift */,
+				58E3F3E02833A7070003623F /* RadarReferenceLine.swift */,
 			);
 			path = ReferenceLine;
+			sourceTree = "<group>";
+		};
+		5848DF732833387C006CB7DE /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				58E3F3DE2833A3310003623F /* RadarPlot.swift */,
+				58702D55283489ED0098566E /* RadarView.swift */,
+				58836A752834F475006DC4EF /* RadarShape.swift */,
+			);
+			path = Radar;
 			sourceTree = "<group>";
 		};
 		585AAC0A281A404E00D06BA1 /* Bar */ = {
@@ -577,7 +601,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					583866FF2815296800A1B402 = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -702,6 +726,7 @@
 				58A96B8028192914007D86A4 /* LegendPosition.swift in Sources */,
 				585AAC08281A297100D06BA1 /* LegendStyle.swift in Sources */,
 				5838671D281529E400A1B402 /* AxisPlot.swift in Sources */,
+				58836A762834F475006DC4EF /* RadarShape.swift in Sources */,
 				5838672228152AD000A1B402 /* YAxisDataProvider.swift in Sources */,
 				58A96B7B28191DAA007D86A4 /* MarkLabelStyle.swift in Sources */,
 				5838672428152B0400A1B402 /* Groupable.swift in Sources */,
@@ -710,9 +735,12 @@
 				58F72C24281642D100429712 /* Line.swift in Sources */,
 				585AAC15281A6A1700D06BA1 /* BarView.swift in Sources */,
 				58735735281BCC2F009593E0 /* Bar.swift in Sources */,
+				58E3F3DF2833A3310003623F /* RadarPlot.swift in Sources */,
+				58702D56283489ED0098566E /* RadarView.swift in Sources */,
 				58B38EEC2818D28D00F39F07 /* AxisPaintStyle.swift in Sources */,
 				58F72C282816454C00429712 /* LegendModififer.swift in Sources */,
 				585AAC0C281A64E800D06BA1 /* BarPlot.swift in Sources */,
+				58E3F3E12833A7070003623F /* RadarReferenceLine.swift in Sources */,
 				5838671B281529B100A1B402 /* AxisView.swift in Sources */,
 				5831687F281783800075EAD0 /* ReferenceLine.swift in Sources */,
 				585AAC0F281A666800D06BA1 /* BarStyle.swift in Sources */,
@@ -736,6 +764,7 @@
 				58316883281785500075EAD0 /* ReferenceLineModifier.swift in Sources */,
 				58A96B81281929B0007D86A4 /* LegendPosition.swift in Sources */,
 				58B38EEE2818D3B400F39F07 /* AxisPaintStyle.swift in Sources */,
+				58702D572834991E0098566E /* RadarView.swift in Sources */,
 				585AAC09281A297100D06BA1 /* LegendStyle.swift in Sources */,
 				58316880281783AC0075EAD0 /* ReferenceLine.swift in Sources */,
 				58C97D9E2816747600285A2E /* LineDataProvider.swift in Sources */,
@@ -749,10 +778,13 @@
 				58735736281BCC7F009593E0 /* Bar.swift in Sources */,
 				58C97D982816747200285A2E /* YAxisDataProvider.swift in Sources */,
 				58C97D9C2816747600285A2E /* LineStyle.swift in Sources */,
+				58836A772834F4B9006DC4EF /* RadarShape.swift in Sources */,
 				585AAC0D281A64E800D06BA1 /* BarPlot.swift in Sources */,
+				58702D582834991E0098566E /* RadarPlot.swift in Sources */,
 				58C97D962816746700285A2E /* AxisView.swift in Sources */,
 				585AAC10281A666800D06BA1 /* BarStyle.swift in Sources */,
 				58C97D9A2816747200285A2E /* XAxisDataProvider.swift in Sources */,
+				58702D59283499220098566E /* RadarReferenceLine.swift in Sources */,
 				58C97D9B2816747600285A2E /* Line.swift in Sources */,
 				583168862817A08D0075EAD0 /* ValueFormatter.swift in Sources */,
 				58C97D942816746700285A2E /* AxisPlot.swift in Sources */,
@@ -1138,6 +1170,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1166,6 +1199,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
