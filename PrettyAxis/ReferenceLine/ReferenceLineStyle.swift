@@ -53,6 +53,9 @@ public struct ReferenceLineStyle{
     
     /// The hide reference line
     public var hideReferenceLine = false
+    
+    /// Color of Axes
+    public var axesColor: GraphicsContext.Shading = .color(.gray)
 }
 
 

@@ -23,7 +23,7 @@ struct ReferenceLine: View{
             if !self.style.hideReferenceLine {
                 /// Draw Reference Line
                 for i in [0, 0.25, 0.5, 0.75, 1] {
-                    ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding , y: height * CGFloat(i)), to: CGPoint(x: size.width, y: height *  CGFloat(i))), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.dashLineWidth, lineCap: .round, lineJoin: .round, dash: [self.style.dashLineLength]))
+                    ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding , y: height * CGFloat(i)), to: CGPoint(x: size.width, y: height *  CGFloat(i))), with: style.axesColor, style: StrokeStyle(lineWidth: self.style.dashLineWidth, lineCap: .round, lineJoin: .round, dash: [self.style.dashLineLength]))
                 }
             }
             if !self.style.hideXAxisLabel {
@@ -32,7 +32,7 @@ struct ReferenceLine: View{
                 let xAxisStartValue = self.xAxisStartValue ?? 0
                 let unit = height /  CGFloat(range.max - range.min)
                 let h = height - abs(xAxisStartValue - range.min) * unit
-                ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding  , y: h), to: CGPoint(x: size.width, y: h)), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.xAxisLineWidth, lineCap: .round, lineJoin: .round))
+                ctx.stroke(line(from: CGPoint(x: self.style.leadingPadding  , y: h), to: CGPoint(x: size.width, y: h)), with: style.axesColor, style: StrokeStyle(lineWidth: self.style.xAxisLineWidth, lineCap: .round, lineJoin: .round))
                 
                 /// Draw X-Axis lables
                 
@@ -59,7 +59,7 @@ struct ReferenceLine: View{
             if !self.style.hideYAxisLabel {
                 /// Draw Y-Axis
                 ///
-                ctx.stroke(line(from: CGPoint(x: self.style.yAxisWidth + self.style.yAxisLineWidth / 2, y: 0), to: CGPoint(x: self.style.yAxisWidth + self.style.yAxisLineWidth / 2, y: height)), with: .color(.gray), style: StrokeStyle(lineWidth: self.style.yAxisLineWidth))
+                ctx.stroke(line(from: CGPoint(x: self.style.yAxisWidth + self.style.yAxisLineWidth / 2, y: 0), to: CGPoint(x: self.style.yAxisWidth + self.style.yAxisLineWidth / 2, y: height)), with: style.axesColor, style: StrokeStyle(lineWidth: self.style.yAxisLineWidth))
                 let rr = range.max - range.min
                 for i in [0, 0.25, 0.5, 0.75, 1] {
                     let value = range.max - rr * i
