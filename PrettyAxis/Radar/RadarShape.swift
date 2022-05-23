@@ -19,9 +19,16 @@ struct RadarShape: Shape{
         var i = 0
         let unit =  min(rect.size.height / 2, rect.size.width / 2) / (self.range.0 - self.range.1)
         let offset: CGFloat = 0
+        let total = values.reduce(0, {$0 + $1}) * Double(animatableData)
+        var count = 0.0
         values.forEach { data in
+            let value = data
+            var v = count + value < total ? value: total - count
+            if v < range.0 {
+                v = range.0
+            }
             let angle = Double.pi * 2 * (Double(i)) / Double(values.count) - Double.pi
-            let p = (data - offset - self.range.0) * unit * animatableData
+            let p = (v  - offset - self.range.0) * unit
             let pt = CGPoint(x: x + CGFloat(sin(angle) * p), y: y - CGFloat(cos(angle) * p))
             if i == 0 {
                 path.move(to: pt)
@@ -29,8 +36,11 @@ struct RadarShape: Shape{
                 path.addLine(to: pt)
             }
             i += 1
+            count += value
         }
-        path.closeSubpath()
+        if i > 1 {
+            path.closeSubpath()
+        }
         return path
     }
 }

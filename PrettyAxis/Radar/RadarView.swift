@@ -12,7 +12,7 @@ struct RadarView: View{
     
     var animatableData: CGFloat = 1
     var range: (CGFloat, CGFloat)
-    @State var animation: CGFloat = 0
+    @State var animation: Double = 0
     
     init(radarData: [(name: String, values: [Double], style: AxisPaintStyle)]){
         self.radarData = radarData
@@ -39,8 +39,6 @@ struct RadarView: View{
                 ForEach(self.radarData.indices, id: \.self){ index in
                     let data = self.radarData[index]
                     let r = RadarShape(values: data.values, range: self.range, animatableData: self.animation)
-                        .trim(from: 0, to: self.animation)
-                    
                     r.stroke(data.style.stroke)
                     if let fill = data.style.fill{
                         r.fill(fill)
@@ -49,8 +47,9 @@ struct RadarView: View{
                 }
             }
             Text(" ").font(.system(size: 14))
-        }.onAppear(){
-            withAnimation(.easeIn) {
+        }
+        .onAppear(){
+            withAnimation(.linear(duration: 1)) {
                 self.animation = 1
             }
         }
