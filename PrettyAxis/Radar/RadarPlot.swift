@@ -45,10 +45,8 @@ public struct RadarPlot: AxisPlot{
     
     
     public var body: some View{
-        ZStack {
-            RadarReferenceLine(labels: self.xAxisLabels, rounded: false, style: ReferenceLineStyle(xAxisLabelFont: Font.system(size: 14), xAxisLabelColor: .red, yAxisLabelColor: .purple, axesColor: .color(.blue)), range: range)
-            RadarView(radarData: radarData, range: range)
-        }
+        RadarView(radarData: radarData, range: range)
+            .modifier(RadarReferenceLineModifier(labels: self.xAxisLabels, rounded: false, style: ReferenceLineStyle(xAxisLabelFont: Font.system(size: 14), xAxisLabelColor: .red, yAxisLabelColor: .purple, axesColor: .color(.blue)), range: range))
     }
     
     

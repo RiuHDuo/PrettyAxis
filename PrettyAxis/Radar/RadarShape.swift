@@ -28,7 +28,7 @@ struct RadarShape: Shape{
                 v = range.0
             }
             let angle = Double.pi * 2 * (Double(i)) / Double(values.count) - Double.pi
-            let p = (v  - offset - self.range.0) * unit
+            let p = (v - offset - self.range.0) * unit
             let pt = CGPoint(x: x + CGFloat(sin(angle) * p), y: y - CGFloat(cos(angle) * p))
             if i == 0 {
                 path.move(to: pt)
@@ -38,9 +38,7 @@ struct RadarShape: Shape{
             i += 1
             count += value
         }
-        if i > 1 {
-            path.closeSubpath()
-        }
+        path.closeSubpath()
         return path
     }
 }

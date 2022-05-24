@@ -16,20 +16,16 @@ struct RadarView: View{
     
     
     var body: some View{
-        VStack{
-            Text(" ").font(.system(size: 14))
-            ZStack{
-                ForEach(self.radarData.indices, id: \.self){ index in
-                    let data = self.radarData[index]
-                    let r = RadarShape(values: data.values, range: (CGFloat(self.range.0), CGFloat(self.range.1)), animatableData: self.animation)
-                    r.stroke(data.style.stroke)
-                    if let fill = data.style.fill{
-                        r.fill(fill)
-                    }
-     
+        ZStack{
+            ForEach(self.radarData.indices, id: \.self){ index in
+                let data = self.radarData[index]
+                let r = RadarShape(values: data.values, range: (CGFloat(self.range.0), CGFloat(self.range.1)), animatableData: self.animation)
+                r.stroke(data.style.stroke)
+                if let fill = data.style.fill{
+                    r.fill(fill)
                 }
+ 
             }
-            Text(" ").font(.system(size: 14))
         }
         .onAppear(){
             withAnimation(.easeInOut(duration: 2)) {

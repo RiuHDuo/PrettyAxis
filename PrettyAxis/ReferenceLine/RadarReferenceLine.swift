@@ -14,6 +14,8 @@ struct RadarReferenceLine: View{
     var rounded = true
     var style: ReferenceLineStyle
     var range: (min: Double, max: Double)
+
+    @Binding var padding: CGFloat
     
     var body: some View{
         Canvas{ ctx, size in
@@ -21,9 +23,13 @@ struct RadarReferenceLine: View{
             let text = ctx.resolve(txt)
             let s = text.measure(in: CGSize(width: .infinity, height: CGFloat.infinity))
             let padding: CGFloat = 4
-            
             let rect = CGRect(x: s.height + padding, y: s.height + padding, width: size.width - s.height * 2  - padding * 2, height: size.height - s.height * 2  - padding * 2)
-            ctx.stroke(self.path(in: rect, sides: labels.count, scale: 1), with: style.axesColor)
+            DispatchQueue.main.async {
+                self.padding = s.height + padding
+            }
+            let p = self.path(in: rect, sides: labels.count, scale: 1)
+            ctx.stroke(p, with: style.axesColor)
+            ctx.fill(p, with: .color(.pink.opacity(0.1)))
             ctx.stroke(self.path(in: rect, sides: labels.count, scale: 1/3), with: style.axesColor, style: StrokeStyle(dash: [10]))
             ctx.stroke(self.path(in: rect, sides: labels.count, scale: 2/3), with: style.axesColor, style: StrokeStyle(dash: [10]))
             
