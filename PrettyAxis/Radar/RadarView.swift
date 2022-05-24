@@ -11,26 +11,9 @@ struct RadarView: View{
     let radarData: [(name: String, values: [Double], style: AxisPaintStyle)]
     
     var animatableData: CGFloat = 1
-    var range: (CGFloat, CGFloat)
+    var range: (Double, Double)
     @State var animation: Double = 0
     
-    init(radarData: [(name: String, values: [Double], style: AxisPaintStyle)]){
-        self.radarData = radarData
-        var max: Double = radarData.first?.values.first ?? 0
-        var min: Double = radarData.first?.values.first ?? 0
-        radarData.forEach { v in
-            v.values.forEach { value in
-                if value > max {
-                    max = value
-                }
-                if value < min{
-                    min = value
-                }
-            }
-        }
-        
-        self.range = (CGFloat(min), CGFloat(max))
-    }
     
     var body: some View{
         VStack{
@@ -38,7 +21,7 @@ struct RadarView: View{
             ZStack{
                 ForEach(self.radarData.indices, id: \.self){ index in
                     let data = self.radarData[index]
-                    let r = RadarShape(values: data.values, range: self.range, animatableData: self.animation)
+                    let r = RadarShape(values: data.values, range: (CGFloat(self.range.0), CGFloat(self.range.1)), animatableData: self.animation)
                     r.stroke(data.style.stroke)
                     if let fill = data.style.fill{
                         r.fill(fill)
@@ -49,7 +32,7 @@ struct RadarView: View{
             Text(" ").font(.system(size: 14))
         }
         .onAppear(){
-            withAnimation(.linear(duration: 1)) {
+            withAnimation(.easeInOut(duration: 2)) {
                 self.animation = 1
             }
         }

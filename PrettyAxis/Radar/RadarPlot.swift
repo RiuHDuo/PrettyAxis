@@ -18,17 +18,27 @@ public struct RadarPlot: AxisPlot{
     
     var radarData: [(name: String, values: [Double], style: AxisPaintStyle)]
     var xAxisLabels: [String]
+    var range: (Double, Double)
     
     init<D: RadarDataProvider>(entities: [AxisEntity<D>], xAxisLabels: [String] = []){
         var data = [(name: String, values: [Double], style: AxisPaintStyle)]()
+        var min = data.first?.values.first ?? 0
+        var max = min
         entities.forEach { entity in
-            var lineData = [Double]()
+            var radarData = [Double]()
             entity.dataProvider.forEach { provider in
-                lineData.append(provider.y)
+                radarData.append(provider.y)
+                if max < provider.y{
+                    max = provider.y
+                }
+                if min > provider.y{
+                    min = provider.y
+                }
             }
-            data.append((entity.name, lineData, entity.paintStyle))
+            data.append((entity.name, radarData, entity.paintStyle))
         }
         self.radarData = data
+        self.range = (min, max)
         self.xAxisLabels = xAxisLabels
     }
     
@@ -36,8 +46,8 @@ public struct RadarPlot: AxisPlot{
     
     public var body: some View{
         ZStack {
-            RadarReferenceLine(labels: self.xAxisLabels, rounded: false, style: ReferenceLineStyle(xAxisLabelFont: Font.system(size: 14), xAxisLabelColor: .red, axesColor: .color(.blue)))
-            RadarView(radarData: radarData)
+            RadarReferenceLine(labels: self.xAxisLabels, rounded: false, style: ReferenceLineStyle(xAxisLabelFont: Font.system(size: 14), xAxisLabelColor: .red, yAxisLabelColor: .purple, axesColor: .color(.blue)), range: range)
+            RadarView(radarData: radarData, range: range)
         }
     }
     
